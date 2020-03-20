@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Farm.unity
+    guid: 663d53e78920e7d49916554f75cc15c1
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 2148282cad20088479c3da83b86d0c1d,
       type: 2}
