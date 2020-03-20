@@ -24,6 +24,8 @@ public class PlayerMove : MonoBehaviour
     public FarmPlot farmPlot;
     public GameObject debugBuddy;
 
+    public static PlayerMove currentPlayer;
+
     GameObject[] HeldItems = { null, null };
     int ActiveInventorySlot = 0;
     bool iFrames = false;
@@ -35,6 +37,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Awake()
     {
+        currentPlayer = this;
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
 
@@ -62,7 +65,7 @@ public class PlayerMove : MonoBehaviour
                     bool hoeing = HoeGround(1);
                     if (hoeing)
                     {
-                        StartToolAnim();
+                        StartToolAnim("UseHoe");
                         goto InputsFinished;
                     }
                 }
@@ -71,7 +74,16 @@ public class PlayerMove : MonoBehaviour
                     bool watering = WaterGround(1);
                     if (watering)
                     {
-                        StartToolAnim();
+                        StartToolAnim("UseWateringCan");
+                        goto InputsFinished;
+                    }
+                }
+                else if (Hotbar[ActiveInventorySlot].toolType == InventoryItem.ToolTypes.Empty)
+                {
+                    string pulling = PullTileContents(1);
+                    if (pulling != null)
+                    {
+                        StartToolAnim(pulling);
                         goto InputsFinished;
                     }
                 }
@@ -136,20 +148,10 @@ public class PlayerMove : MonoBehaviour
             }
             animator.SetFloat("Speed", Movement.magnitude);
 
-            if (Hotbar[ActiveInventorySlot].toolType == InventoryItem.ToolTypes.Hoe || Hotbar[ActiveInventorySlot].toolType == InventoryItem.ToolTypes.WateringCan)
-            {
-                float InteractDistance = InteractDistanceNear;
-                if (Movement.magnitude > 0) InteractDistance = InteractDistanceFar;
-                Vector3 InteractPoint = transform.position + transform.forward * InteractDistance;
-                farmPlot.TargetTile(InteractPoint);
-
-                //debugBuddy.SetActive(true);
-                //debugBuddy.transform.position = InteractPoint;
-            }
-            else
-            {
-                //debugBuddy.SetActive(false);
-            }
+            float InteractDistance = InteractDistanceNear;
+            if (Movement.magnitude > 0) InteractDistance = InteractDistanceFar;
+            Vector3 InteractPoint = transform.position + transform.forward * InteractDistance;
+            farmPlot.TargetTile(InteractPoint, Hotbar[ActiveInventorySlot].toolType);
             InputsFinished:;
         }
 
@@ -185,9 +187,16 @@ public class PlayerMove : MonoBehaviour
         if (Movement.magnitude > 0) InteractDistance = InteractDistanceFar;
         return farmPlot.WaterTile(transform.position + transform.forward * InteractDistance, test != 0);
     }
-    void StartToolAnim()
+    public string PullTileContents(int test)
     {
-        animator.SetTrigger($"Use{Hotbar[ActiveInventorySlot].toolType.ToString()}");
+        float InteractDistance = InteractDistanceNear;
+        if (Movement.magnitude > 0) InteractDistance = InteractDistanceFar;
+        return farmPlot.PullTileContents(transform.position + transform.forward * InteractDistance, test != 0);
+    }
+    void StartToolAnim(string AnimName)
+    {
+        //animator.SetTrigger($"Use{Hotbar[ActiveInventorySlot].toolType.ToString()}");
+        animator.SetTrigger(AnimName);
         animator.SetFloat("Speed", 0);
         animator.SetFloat("NormalizedSpeed", 0);
         QueueNextInput = false;

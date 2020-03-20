@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 2685380523877277599}
   - component: {fileID: 3669359929282702018}
   - component: {fileID: 4319628027889182736}
+  - component: {fileID: -104923470469506939}
   m_Layer: 0
-  m_Name: Grass Tuft 3
+  m_Name: Scenery_GrassTuft3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +130,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RandomizeEveryWake: 0
-  ShapeRanges:
+  RandomX: 0.2
+  RandomY: 0.2
+  RandomRotation: 0
+  BlendShapes:
   - 100
   - 100
   - 100
+  Meshes: []
+--- !u!114 &-104923470469506939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24193433439872434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 754c7544ae94d294cbbaecc7ba2c2473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PullAnimation: 0
+  PullEffect: {fileID: 3422162452396914966, guid: 4cfafe9d175c6bb47b3fd743cd8b0501,
+    type: 3}
+  EffectLife: 1
+  AlignWithPlayer: 1
+  MaintainChildOrientation: 1
+  FixRotation: 1
