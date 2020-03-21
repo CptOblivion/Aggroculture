@@ -43,9 +43,9 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if (QueueNextInput)
+        if (QueueNextInput && !PauseManager.Paused)
         {
-            if (actionsGameplay.FindAction("Dodge").triggered) 
+            if (actionsGameplay.FindAction("Dodge").triggered && actionsGameplay.FindAction("Dodge").ReadValue<float>() > 0) 
             {
                 animator.SetTrigger("Dodge");
                 iFrames = true;
@@ -72,7 +72,7 @@ public class PlayerMove : MonoBehaviour
                         goto InputsFinished;
                     }
                 }
-                else if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Empty)
+                else if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Empty && actionsGameplay.FindAction("UseL").triggered)
                 {
                     string pulling = PullTileContents(1);
                     if (pulling != null)
