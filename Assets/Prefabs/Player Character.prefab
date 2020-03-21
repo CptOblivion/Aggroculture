@@ -458,6 +458,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff142743dd13c1448640f1bf1782d9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputActions: {fileID: -944628639613478452, guid: 8ca5b4bc33f7cd94f92041e535c16295,
+    type: 3}
+  RunSpeed: 1.5
+  followCam: {fileID: 0}
+  Hotbar:
+  - {fileID: -2546530451316790373, guid: 3e338fcc02bf9904db986afdfff17173, type: 3}
+  - {fileID: -4659624919448764414, guid: 09fb016c36c8e434abea8a33346f3f97, type: 3}
+  - {fileID: 8851746920123168855, guid: 7e3dfd29d05bfd340852b5b3e441b65b, type: 3}
+  - {fileID: -2546530451316790373, guid: 3e338fcc02bf9904db986afdfff17173, type: 3}
+  - {fileID: -2546530451316790373, guid: 3e338fcc02bf9904db986afdfff17173, type: 3}
+  LeftHand: {fileID: 8719183466253316427}
+  RightHand: {fileID: 2192396258899210109}
+  InteractDistanceFar: 2
+  InteractDistanceNear: 2
+  farmPlot: {fileID: 0}
+  debugBuddy: {fileID: 7443736187126104001, guid: df50f25605d3ea645b803445f447267a,
+    type: 3}
+  Tools_Empty: {fileID: -2546530451316790373, guid: 3e338fcc02bf9904db986afdfff17173,
+    type: 3}
 --- !u!1 &2094397533432436732
 GameObject:
   m_ObjectHideFlags: 0

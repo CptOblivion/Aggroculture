@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 607645330313205001}
   - component: {fileID: 8445881570496180031}
   - component: {fileID: 2740798680980952006}
+  - component: {fileID: 8851746920123168855}
   m_Layer: 0
-  m_Name: WateringCan
+  m_Name: Tools_WateringCan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &8851746920123168855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4482651653205960474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad14466a4c8a78d418abc266415668c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TwoHanded: 0
+  toolType: 2

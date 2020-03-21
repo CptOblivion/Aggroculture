@@ -2,21 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-[System.Serializable]
-public class InventoryItem
-{
-    public enum ToolTypes {Empty, Hoe, WateringCan}
-    public GameObject Item = null;
-    public bool TwoHanded = false;
-    public ToolTypes toolType = ToolTypes.Empty;
-}
 public class PlayerMove : MonoBehaviour
 {
     public InputActionAsset inputActions;
     public float RunSpeed = 1;
     public FollowCam followCam;
-    public InventoryItem[] Hotbar;
+    public InventoryItem[] Hotbar = new InventoryItem[5];
     public GameObject LeftHand;
     public GameObject RightHand;
     public float InteractDistanceFar = 3;
@@ -24,10 +15,13 @@ public class PlayerMove : MonoBehaviour
     public FarmPlot farmPlot;
     public GameObject debugBuddy;
 
+    public InventoryItem Tools_Empty;
+
     public static PlayerMove currentPlayer;
 
     GameObject[] HeldItems = { null, null };
-    int ActiveInventorySlot = 0;
+    int ActiveHotbarSlot = 0;
+    int ItemButton = 0;
     bool iFrames = false;
     bool QueueNextInput = true;//allow the next input to be queued while the current animation is running (typically enabled near the end of the animation)
     Vector2 Movement = Vector2.zero;
@@ -60,7 +54,7 @@ public class PlayerMove : MonoBehaviour
 
             if (actionsGameplay.FindAction("UseL").ReadValue<float>() > 0)
             {
-                if (Hotbar[ActiveInventorySlot].toolType == InventoryItem.ToolTypes.Hoe)
+                if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Hoe)
                 {
                     bool hoeing = HoeGround(1);
                     if (hoeing)
@@ -69,7 +63,7 @@ public class PlayerMove : MonoBehaviour
                         goto InputsFinished;
                     }
                 }
-                else if (Hotbar[ActiveInventorySlot].toolType == InventoryItem.ToolTypes.WateringCan)
+                else if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.WateringCan)
                 {
                     bool watering = WaterGround(1);
                     if (watering)
@@ -78,7 +72,7 @@ public class PlayerMove : MonoBehaviour
                         goto InputsFinished;
                     }
                 }
-                else if (Hotbar[ActiveInventorySlot].toolType == InventoryItem.ToolTypes.Empty)
+                else if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Empty)
                 {
                     string pulling = PullTileContents(1);
                     if (pulling != null)
@@ -90,35 +84,35 @@ public class PlayerMove : MonoBehaviour
             }
 
             //item selection
-            int ItemDirection = 0;
-            if(actionsGameplay.FindAction("ItemLeft").triggered) ItemDirection -= 1;
-            if (actionsGameplay.FindAction("ItemRight").triggered) ItemDirection += 1;
-            if (ItemDirection != 0)
+            ItemButton = 0;
+            if (actionsGameplay.FindAction("Item1").triggered && actionsGameplay.FindAction("Item1").ReadValue<float>() > 0) ItemButton = 1;
+            else if (actionsGameplay.FindAction("Item2").triggered && actionsGameplay.FindAction("Item2").ReadValue<float>() > 0) ItemButton = 2;
+            else if (actionsGameplay.FindAction("Item3").triggered && actionsGameplay.FindAction("Item3").ReadValue<float>() > 0) ItemButton = 3;
+            else if (actionsGameplay.FindAction("Item4").triggered && actionsGameplay.FindAction("Item4").ReadValue<float>() > 0) ItemButton = 4;
+
+            if (ItemButton != 0)
             {
+                if (ItemButton == ActiveHotbarSlot) ActiveHotbarSlot = 0;
+                else ActiveHotbarSlot = ItemButton;
                 //enable this line once there's a change items animation (and when I've figured out playing upper-body animations on top of running)
                 //animator.SetTrigger("ChangeItems");
 
-
-                ActiveInventorySlot += ItemDirection;
-                if (ActiveInventorySlot == Hotbar.Length) ActiveInventorySlot = 0;
-                else if (ActiveInventorySlot == -1) ActiveInventorySlot = Hotbar.Length - 1;
-
-                animator.SetBool("2H", Hotbar[ActiveInventorySlot].TwoHanded);
+                animator.SetBool("2H", Hotbar[ActiveHotbarSlot].TwoHanded);
 
                 if (HeldItems[0]) Destroy(HeldItems[0]);
                 if (HeldItems[1]) Destroy(HeldItems[1]);
                 Transform ActiveHand;
                 GameObject ActiveItem;
-                if (Hotbar[ActiveInventorySlot].TwoHanded)
+                if (Hotbar[ActiveHotbarSlot].TwoHanded)
                 {
-                    GameObject newOb = Hotbar[ActiveInventorySlot].Item;
+                    GameObject newOb = Hotbar[ActiveHotbarSlot].gameObject;
                     if (newOb)HeldItems[0] = Instantiate(newOb);
                     ActiveHand = LeftHand.transform;
                     ActiveItem = HeldItems[0];
                 }
                 else
                 {
-                    GameObject newOb = Hotbar[ActiveInventorySlot].Item;
+                    GameObject newOb = Hotbar[ActiveHotbarSlot].gameObject;
                     if (newOb) HeldItems[1] = Instantiate(newOb);
                     ActiveHand = RightHand.transform;
                     ActiveItem = HeldItems[1];
@@ -151,7 +145,7 @@ public class PlayerMove : MonoBehaviour
             float InteractDistance = InteractDistanceNear;
             if (Movement.magnitude > 0) InteractDistance = InteractDistanceFar;
             Vector3 InteractPoint = transform.position + transform.forward * InteractDistance;
-            farmPlot.TargetTile(InteractPoint, Hotbar[ActiveInventorySlot].toolType);
+            farmPlot.TargetTile(InteractPoint, Hotbar[ActiveHotbarSlot].toolType);
             InputsFinished:;
         }
 

@@ -41,7 +41,7 @@ ModelImporter:
     second: Player Armature|Player_Watering
   - first:
       74: -7073675388358141282
-    second: Player Armature|Player_Weeding
+    second: Player Armature|Player_PullWeed_Big
   - first:
       74: 7694054210058243321
     second: Player Armature|Player_Idle_1H (2)
@@ -66,6 +66,9 @@ ModelImporter:
   - first:
       74: 9069025102689478098
     second: Player Armature|TestSlide
+  - first:
+      74: 5935202250141549598
+    second: Player Armature|Player_PullWeed_Small
   externalObjects: {}
   materials:
     materialImportMode: 0
@@ -1298,7 +1301,7 @@ ModelImporter:
       maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Player Armature|Player_Weeding
+      name: Player Armature|Player_PullWeed_Big
       takeName: Player Armature|Player_Weeding
       internalID: 0
       firstFrame: 0
@@ -2302,6 +2305,156 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_PullWeed_Small
+      takeName: Player Armature|Player_Weeding
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 58
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: AllowNextInput
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.80532795
+        functionName: PullTileContents
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9681222
+        functionName: AllowNextInput
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
