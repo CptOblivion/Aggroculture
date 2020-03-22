@@ -59,7 +59,7 @@ ModelImporter:
     second: Player Armature|Player_ Dodge Hop_2H
   - first:
       74: 1699331227670499260
-    second: Player Armature|Player_Walk_1H
+    second: r Armature|Player_WalkF_1Hlk_1H
   - first:
       74: -7662410674384099371
     second: Player Armature|Player_Walk_2H
@@ -69,6 +69,72 @@ ModelImporter:
   - first:
       74: 5935202250141549598
     second: Player Armature|Player_PullWeed_Small
+  - first:
+      74: 8741746430300199086
+    second: Player Armature|Player_Dodge RollF_1H
+  - first:
+      74: 6078140890683535304
+    second: Player Armature|Player_ Dodge RollF_2H
+  - first:
+      74: -679330285019204097
+    second: Player Armature|Player_WalkF_1H
+  - first:
+      74: 2295550893434189747
+    second: Player Armature|Player_WalkF_2H
+  - first:
+      74: 1874964796037076304
+    second: Player Armature|Player_Dodge RollB_1H
+  - first:
+      74: 1981299302233797103
+    second: Player Armature|Player_Dodge RollL_1H
+  - first:
+      74: -3040206778375899815
+    second: Player Armature|Player_Dodge RollR_1H
+  - first:
+      74: -9043705023362598178
+    second: Player Armature|Player_ Dodge RollB_2H
+  - first:
+      74: 3077041951063294651
+    second: Player Armature|Player_ Dodge RollR_2H
+  - first:
+      74: -3729366005291590945
+    second: Player Armature|Player_WalkB_1H
+  - first:
+      74: -2457006877932323103
+    second: Player Armature|Player_WalkL_1H
+  - first:
+      74: 2695406838579986891
+    second: Player Armature|Player_WalkR_1H
+  - first:
+      74: -5988303342679054454
+    second: Player Armature|Player_WalkB_2H
+  - first:
+      74: 8017145095548421085
+    second: Player Armature|Player_WalkL_2H
+  - first:
+      74: 47822178529960352
+    second: Player Armature|Player_WalkR_2H
+  - first:
+      74: -4364080747307164930
+    second: Player Armature|Player_RunB_1H
+  - first:
+      74: 3416934920304114882
+    second: Player Armature|Player_RunL_1H
+  - first:
+      74: -3648637853178473143
+    second: Player Armature|Player_RunR_1H
+  - first:
+      74: -6526476455409217244
+    second: Player Armature|Player_RunB_2H
+  - first:
+      74: -6112732767635611295
+    second: Player Armature|Player_RunL_2H
+  - first:
+      74: 6032019401175047766
+    second: Player Armature|Player_RunR_2H
+  - first:
+      74: 9024372920104296663
+    second: Player Armature|Player_ Dodge RollL_2H
   externalObjects: {}
   materials:
     materialImportMode: 0
@@ -1580,8 +1646,8 @@ ModelImporter:
       maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Player Armature|Player_Dodge Roll_1H
-      takeName: Player Armature|Player_Dodge Roll_1H
+      name: Player Armature|Player_Dodge RollF_1H
+      takeName: Player Armature|Player_Dodge RollF_1H
       internalID: 0
       firstFrame: 0
       lastFrame: 40
@@ -1611,7 +1677,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.9608637
+      - time: 0.8916813
         functionName: AllowNextInput
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -1723,8 +1789,8 @@ ModelImporter:
       maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Player Armature|Player_ Dodge Roll_2H
-      takeName: Player Armature|Player_ Dodge Roll_2H
+      name: Player Armature|Player_ Dodge RollF_2H
+      takeName: Player Armature|Player_ Dodge RollF_2H
       internalID: 0
       firstFrame: 0
       lastFrame: 40
@@ -1754,7 +1820,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.9703104
+      - time: 0.905845
         functionName: AllowNextInput
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -2152,8 +2218,8 @@ ModelImporter:
       maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Player Armature|Player_Walk_1H
-      takeName: Player Armature|Player_Walk_1H
+      name: Player Armature|Player_WalkF_1H
+      takeName: Player Armature|Player_WalkF_1H
       internalID: 0
       firstFrame: 0
       lastFrame: 20
@@ -2281,8 +2347,8 @@ ModelImporter:
       maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Player Armature|Player_Walk_2H
-      takeName: Player Armature|Player_Walk_2H
+      name: Player Armature|Player_WalkF_2H
+      takeName: Player Armature|Player_WalkF_2H
       internalID: 0
       firstFrame: 0
       lastFrame: 20
@@ -2557,6 +2623,2328 @@ ModelImporter:
       - path: Player Body Overalls
         weight: 0
       maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_Dodge RollB_1H
+      takeName: Player Armature|Player_Dodge RollB_1H
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_Dodge RollL_1H
+      takeName: Player Armature|Player_Dodge RollL_1H
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_Dodge RollR_1H
+      takeName: Player Armature|Player_Dodge RollR_1H
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_ Dodge RollB_2H
+      takeName: Player Armature|Player_ Dodge RollB_2H
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_ Dodge RollR_2H
+      takeName: Player Armature|Player_ Dodge RollR_2H
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_WalkB_1H
+      takeName: Player Armature|Player_WalkB_1H
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_WalkL_1H
+      takeName: Player Armature|Player_WalkL_1H
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_WalkR_1H
+      takeName: Player Armature|Player_WalkR_1H
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_WalkB_2H
+      takeName: Player Armature|Player_WalkB_2H
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_WalkL_2H
+      takeName: Player Armature|Player_WalkL_2H
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_WalkR_2H
+      takeName: Player Armature|Player_WalkR_2H
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_RunB_1H
+      takeName: Player Armature|Player_RunB_1H
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_RunL_1H
+      takeName: Player Armature|Player_RunL_1H
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_RunR_1H
+      takeName: Player Armature|Player_RunR_1H
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_RunB_2H
+      takeName: Player Armature|Player_RunB_2H
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_RunL_2H
+      takeName: Player Armature|Player_RunL_2H
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_RunR_2H
+      takeName: Player Armature|Player_RunR_2H
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Player Armature|Player_ Dodge RollL_2H
+      takeName: Player Armature|Player_ Dodge RollL_2H
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Player Armature
+        weight: 0
+      - path: Player Armature/root
+        weight: 0
+      - path: Player Armature/root/body
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso
+        weight: 1
+      - path: Player Armature/root/body/torso/hips
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+        weight: 1
+      - path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+        weight: 1
+      - path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+        weight: 1
+      - path: Player Armature/root/c.foot.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+        weight: 1
+      - path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+        weight: 1
+      - path: Player Armature/root/c.foot.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+        weight: 1
+      - path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+        weight: 1
+      - path: Player Armature/root/root.001
+        weight: 1
+      - path: Player Armature/root/root.001/root.001_end
+        weight: 1
+      - path: Player Body DEFAULT
+        weight: 0
+      - path: Player Body Overalls
+        weight: 0
+      maskType: 3
       maskSource: {fileID: 31900000, guid: fd2128e1c7e74dd419470d6c56419fa6, type: 2}
       additiveReferencePoseFrame: 0
     isReadable: 0

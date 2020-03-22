@@ -10,8 +10,9 @@ public class PlayerMove : MonoBehaviour
     public InventoryItem[] Hotbar = new InventoryItem[5];
     public GameObject LeftHand;
     public GameObject RightHand;
-    public float InteractDistanceFar = 3;
-    public float InteractDistanceNear = 1;
+    public float ToolDistanceFar = 3;
+    public float InteractDistanceDefault = 2;
+    public float GrabDistanceFar = 2;
     public FarmPlot farmPlot;
     public GameObject debugBuddy;
 
@@ -24,10 +25,16 @@ public class PlayerMove : MonoBehaviour
     int ItemButton = 0;
     bool iFrames = false;
     bool QueueNextInput = true;//allow the next input to be queued while the current animation is running (typically enabled near the end of the animation)
-    Vector2 Movement = Vector2.zero;
+    float ToolDistance = 0;
+    float GrabDistance = 0;
+    Vector2 LookInput;
+    Vector2 LookVector;
+    Vector2 MoveInput = Vector2.zero;
+    Vector2 MoveVector;
     Animator animator;
     CharacterController characterController;
     InputActionMap actionsGameplay;
+    PlayerInput playerInput;
 
     private void Awake()
     {
@@ -39,19 +46,13 @@ public class PlayerMove : MonoBehaviour
         actionsGameplay = inputActions.FindActionMap("Gameplay");
         debugBuddy = Instantiate(debugBuddy);
         debugBuddy.SetActive(false);
+        playerInput = GetComponent<PlayerInput>();
     }
 
     void Update()
     {
         if (QueueNextInput && !PauseManager.Paused)
         {
-            if (actionsGameplay.FindAction("Dodge").triggered && actionsGameplay.FindAction("Dodge").ReadValue<float>() > 0) 
-            {
-                animator.SetTrigger("Dodge");
-                iFrames = true;
-                goto InputsFinished;
-            }
-
             if (actionsGameplay.FindAction("UseL").ReadValue<float>() > 0)
             {
                 if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Hoe)
@@ -81,6 +82,80 @@ public class PlayerMove : MonoBehaviour
                         goto InputsFinished;
                     }
                 }
+            }
+
+            LookInput = actionsGameplay.FindAction("Look").ReadValue<Vector2>();
+            MoveInput = actionsGameplay.FindAction("Move").ReadValue<Vector2>();
+            //experimenting with using a gamma curve for the stick inputs, to make slow walking easier
+            //MoveInput = MoveInput.normalized * Mathf.Pow(MoveInput.magnitude, 2.2f);
+
+            if (playerInput.currentControlScheme == "Keyboard")
+            {
+                //add mouse support later
+                Vector3 ScreenPosition = followCam.GetComponent<Camera>().WorldToScreenPoint(transform.position);
+                LookInput -= new Vector2(ScreenPosition[0], ScreenPosition[1]);
+                ToolDistance = LookInput.magnitude / Screen.height * followCam.GetComponent<Camera>().orthographicSize * 2;
+                if (ToolDistance > ToolDistanceFar) ToolDistance = ToolDistanceFar;
+                /*
+                GrabDistance = ToolDistance;
+                if (GrabDistance > GrabDistanceFar) GrabDistance = GrabDistanceFar;
+                */
+                GrabDistance = GrabDistanceFar;
+            }
+            else
+            {
+                GrabDistance = GrabDistanceFar;
+                if (LookInput == Vector2.zero)
+                {
+                    ToolDistance = InteractDistanceDefault;
+                }
+                else
+                {
+                    ToolDistance = InteractDistanceDefault + (ToolDistanceFar - InteractDistanceDefault) * LookInput.magnitude;
+                }
+            }
+
+            if (followCam.enabled)
+            {
+                //Debug.Log($"{Movement[0]}, {Movement[1]}");
+                if (LookInput == Vector2.zero)
+                {
+                    if (MoveInput == Vector2.zero)
+                    {
+                        LookVector = new Vector2(transform.forward[0], transform.forward[2]);
+                    }
+                    else
+                    {
+                        LookVector = MoveInput;
+                    }
+                    transform.rotation = Quaternion.LookRotation(new Vector3(LookVector[0], 0, LookVector[1]), Vector3.up);
+                    transform.Rotate(new Vector3(0, followCam.TwistAngle, 0));
+                }
+                else
+                {
+                    LookVector = LookInput;
+                    transform.rotation = Quaternion.LookRotation(new Vector3(LookVector[0], 0, LookVector[1]), Vector3.up);
+                    transform.Rotate(new Vector3(0, followCam.TwistAngle, 0));
+                }
+            }
+
+            animator.SetFloat("NormalizedSpeed", MoveInput.magnitude);
+
+            MoveVector = GlobalTools.RotateVector2(MoveInput, followCam.TwistAngle);
+
+
+            animator.SetFloat("SpeedX", Vector2.Dot(MoveVector, GlobalTools.RotateVector2(LookVector.normalized, -90)));
+            animator.SetFloat("SpeedY", Vector2.Dot(MoveVector, LookVector.normalized));
+            MoveVector *= RunSpeed;
+            animator.SetFloat("Speed", MoveVector.magnitude);
+
+
+            if (actionsGameplay.FindAction("Dodge").triggered && actionsGameplay.FindAction("Dodge").ReadValue<float>() > 0) 
+            {
+                if (MoveInput == Vector2.zero) animator.SetTrigger("DodgeHop");
+                else animator.SetTrigger("DodgeRoll");
+                iFrames = true;
+                goto InputsFinished;
             }
 
             //item selection
@@ -126,25 +201,15 @@ public class PlayerMove : MonoBehaviour
 
             }
 
-            Movement = actionsGameplay.FindAction("Move").ReadValue<Vector2>();
-
-            //experimenting with using a gamma curve for the stick inputs, to make slow walking easier
-            float newMoveSpeed = Mathf.Pow(Movement.magnitude, 2.2f);
-            Movement = Movement.normalized * newMoveSpeed;
-
-            animator.SetFloat("NormalizedSpeed", Movement.magnitude);
-            Movement *= RunSpeed;
-            if (Movement.magnitude > .0001 && followCam.enabled)
+            Vector3 InteractPoint;
+            if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Empty)
             {
-                //Debug.Log($"{Movement[0]}, {Movement[1]}");
-                transform.rotation = Quaternion.LookRotation(new Vector3(Movement[0], 0, Movement[1]), Vector3.up);
-                transform.Rotate(new Vector3(0, followCam.TwistAngle, 0));
+                InteractPoint = transform.position + transform.forward * GrabDistance;
             }
-            animator.SetFloat("Speed", Movement.magnitude);
-
-            float InteractDistance = InteractDistanceNear;
-            if (Movement.magnitude > 0) InteractDistance = InteractDistanceFar;
-            Vector3 InteractPoint = transform.position + transform.forward * InteractDistance;
+            else
+            {
+                InteractPoint = transform.position + transform.forward * ToolDistance;
+            }
             farmPlot.TargetTile(InteractPoint, Hotbar[ActiveHotbarSlot].toolType);
             InputsFinished:;
         }
@@ -170,22 +235,16 @@ public class PlayerMove : MonoBehaviour
 
     public bool HoeGround(int test)
     {
-        float InteractDistance = InteractDistanceNear;
-        if (Movement.magnitude > 0) InteractDistance = InteractDistanceFar;
-        Vector3 InteractPoint = transform.position + transform.forward * InteractDistance;
+        Vector3 InteractPoint = transform.position + transform.forward * ToolDistance;
         return farmPlot.HoeTile(InteractPoint, test != 0);
     }
     public bool WaterGround(int test)
     {
-        float InteractDistance = InteractDistanceNear;
-        if (Movement.magnitude > 0) InteractDistance = InteractDistanceFar;
-        return farmPlot.WaterTile(transform.position + transform.forward * InteractDistance, test != 0);
+        return farmPlot.WaterTile(transform.position + transform.forward * ToolDistance, test != 0);
     }
     public string PullTileContents(int test)
     {
-        float InteractDistance = InteractDistanceNear;
-        if (Movement.magnitude > 0) InteractDistance = InteractDistanceFar;
-        return farmPlot.PullTileContents(transform.position + transform.forward * InteractDistance, test != 0);
+        return farmPlot.PullTileContents(transform.position + transform.forward * GrabDistance, test != 0);
     }
     void StartToolAnim(string AnimName)
     {
