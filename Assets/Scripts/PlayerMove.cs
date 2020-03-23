@@ -86,16 +86,21 @@ public class PlayerMove : MonoBehaviour
 
             LookInput = actionsGameplay.FindAction("Look").ReadValue<Vector2>();
             MoveInput = actionsGameplay.FindAction("Move").ReadValue<Vector2>();
+
+            MoveVector = GlobalTools.RotateVector2(MoveInput, followCam.TwistAngle);
             //experimenting with using a gamma curve for the stick inputs, to make slow walking easier
             //MoveInput = MoveInput.normalized * Mathf.Pow(MoveInput.magnitude, 2.2f);
 
             if (playerInput.currentControlScheme == "Keyboard")
             {
-                //add mouse support later
                 Vector3 ScreenPosition = followCam.GetComponent<Camera>().WorldToScreenPoint(transform.position);
-                LookInput -= new Vector2(ScreenPosition[0], ScreenPosition[1]);
-                ToolDistance = LookInput.magnitude / Screen.height * followCam.GetComponent<Camera>().orthographicSize * 2;
+                LookVector = LookInput - new Vector2(ScreenPosition[0], ScreenPosition[1]);
+
+
+                ToolDistance = LookVector.magnitude / Screen.height * followCam.GetComponent<Camera>().orthographicSize * 2;
                 if (ToolDistance > ToolDistanceFar) ToolDistance = ToolDistanceFar;
+
+                if (LookVector == Vector2.zero) LookVector = Vector2.up;
                 /*
                 GrabDistance = ToolDistance;
                 if (GrabDistance > GrabDistanceFar) GrabDistance = GrabDistanceFar;
@@ -108,44 +113,43 @@ public class PlayerMove : MonoBehaviour
                 if (LookInput == Vector2.zero)
                 {
                     ToolDistance = InteractDistanceDefault;
+                    if (MoveVector != Vector2.zero) LookVector = MoveVector.normalized;
                 }
                 else
                 {
+                    LookVector = LookInput.normalized;
                     ToolDistance = InteractDistanceDefault + (ToolDistanceFar - InteractDistanceDefault) * LookInput.magnitude;
                 }
             }
 
             if (followCam.enabled)
             {
-                //Debug.Log($"{Movement[0]}, {Movement[1]}");
-                if (LookInput == Vector2.zero)
+                if (MoveInput == Vector2.zero)
                 {
-                    if (MoveInput == Vector2.zero)
-                    {
-                        LookVector = new Vector2(transform.forward[0], transform.forward[2]);
-                    }
-                    else
-                    {
-                        LookVector = MoveInput;
-                    }
                     transform.rotation = Quaternion.LookRotation(new Vector3(LookVector[0], 0, LookVector[1]), Vector3.up);
                     transform.Rotate(new Vector3(0, followCam.TwistAngle, 0));
                 }
                 else
                 {
-                    LookVector = LookInput;
-                    transform.rotation = Quaternion.LookRotation(new Vector3(LookVector[0], 0, LookVector[1]), Vector3.up);
+                    transform.rotation = Quaternion.LookRotation(new Vector3(MoveVector[0], 0, MoveVector[1]), Vector3.up);
                     transform.Rotate(new Vector3(0, followCam.TwistAngle, 0));
                 }
+                
             }
 
             animator.SetFloat("NormalizedSpeed", MoveInput.magnitude);
 
-            MoveVector = GlobalTools.RotateVector2(MoveInput, followCam.TwistAngle);
+            if (LookVector == Vector2.zero)
+            {
+                animator.SetFloat("SpeedX", 0);
+                animator.SetFloat("SpeedY", MoveVector[1]);
 
-
-            animator.SetFloat("SpeedX", Vector2.Dot(MoveVector, GlobalTools.RotateVector2(LookVector.normalized, -90)));
-            animator.SetFloat("SpeedY", Vector2.Dot(MoveVector, LookVector.normalized));
+            }
+            else
+            {
+                animator.SetFloat("SpeedX", Vector2.Dot(LookVector.normalized, GlobalTools.RotateVector2(MoveVector, -90)));
+                animator.SetFloat("SpeedY", Vector2.Dot(LookVector.normalized, MoveVector));
+            }
             MoveVector *= RunSpeed;
             animator.SetFloat("Speed", MoveVector.magnitude);
 
@@ -169,7 +173,7 @@ public class PlayerMove : MonoBehaviour
             {
                 if (ItemButton == ActiveHotbarSlot) ActiveHotbarSlot = 0;
                 else ActiveHotbarSlot = ItemButton;
-                //enable this line once there's a change items animation (and when I've figured out playing upper-body animations on top of running)
+                //enable this line once (if) there's a "change items" animation (and when I've figured out playing upper-body animations on top of running)
                 //animator.SetTrigger("ChangeItems");
 
                 animator.SetBool("2H", Hotbar[ActiveHotbarSlot].TwoHanded);

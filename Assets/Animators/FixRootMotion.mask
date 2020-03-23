@@ -15,91 +15,93 @@ AvatarMask:
     m_Weight: 0
   - m_Path: Player Armature/root
     m_Weight: 0
-  - m_Path: Player Armature/root/body
+  - m_Path: Player Armature/root/DummyRoot
     m_Weight: 1
-  - m_Path: Player Armature/root/body/ik.arm.l
+  - m_Path: Player Armature/root/DummyRoot/body
     m_Weight: 1
-  - m_Path: Player Armature/root/body/ik.arm.l/tar.arm.l
+  - m_Path: Player Armature/root/DummyRoot/body/ik.arm.l
     m_Weight: 1
-  - m_Path: Player Armature/root/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+  - m_Path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
     m_Weight: 1
-  - m_Path: Player Armature/root/body/ik.arm.r
+  - m_Path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
     m_Weight: 1
-  - m_Path: Player Armature/root/body/ik.arm.r/tar.arm.r
+  - m_Path: Player Armature/root/DummyRoot/body/ik.arm.r
     m_Weight: 1
-  - m_Path: Player Armature/root/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+  - m_Path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso
+  - m_Path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/hips
+  - m_Path: Player Armature/root/DummyRoot/body/torso
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/hips/leg1.l
+  - m_Path: Player Armature/root/DummyRoot/body/torso/hips
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/hips/leg1.l/leg2.l
+  - m_Path: Player Armature/root/DummyRoot/body/torso/hips/leg1.l
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l
+  - m_Path: Player Armature/root/DummyRoot/body/torso/hips/leg1.l/leg2.l
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
+  - m_Path: Player Armature/root/DummyRoot/body/torso/hips/leg1.l/leg2.l/foot.l
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/hips/leg1.r
+  - m_Path: Player Armature/root/DummyRoot/body/torso/hips/leg1.l/leg2.l/foot.l/foot.l_end
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/hips/leg1.r/leg2.r
+  - m_Path: Player Armature/root/DummyRoot/body/torso/hips/leg1.r
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r
+  - m_Path: Player Armature/root/DummyRoot/body/torso/hips/leg1.r/leg2.r
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
+  - m_Path: Player Armature/root/DummyRoot/body/torso/hips/leg1.r/leg2.r/foot.r
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/waist
+  - m_Path: Player Armature/root/DummyRoot/body/torso/hips/leg1.r/leg2.r/foot.r/foot.r_end
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/waist/chest
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/waist/chest/neck
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/waist/chest/neck/head
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/neck
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/waist/chest/neck/head/Hat
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/neck/head
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/waist/chest/neck/head/head_end
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/neck/head/Hat
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/waist/chest/shoulder.l
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/neck/head/head_end
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/shoulder.l
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/shoulder.l/arm1.l
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/waist/chest/shoulder.r
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/shoulder.l/arm1.l/arm2.l/hand.l/tool.l/tool.l_end
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/shoulder.r
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/shoulder.r/arm1.r
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r
     m_Weight: 1
-  - m_Path: Player Armature/root/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r
     m_Weight: 1
-  - m_Path: Player Armature/root/c.foot.l
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/shoulder.r/arm1.r/arm2.r/hand.r/tool.r/tool.r_end
     m_Weight: 1
-  - m_Path: Player Armature/root/c.foot.l/ik.leg.l
+  - m_Path: Player Armature/root/DummyRoot/c.foot.l
     m_Weight: 1
-  - m_Path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l
+  - m_Path: Player Armature/root/DummyRoot/c.foot.l/ik.leg.l
     m_Weight: 1
-  - m_Path: Player Armature/root/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
+  - m_Path: Player Armature/root/DummyRoot/c.foot.l/ik.leg.l/tar.leg.l
     m_Weight: 1
-  - m_Path: Player Armature/root/c.foot.r
+  - m_Path: Player Armature/root/DummyRoot/c.foot.l/ik.leg.l/tar.leg.l/tar.leg.l_end
     m_Weight: 1
-  - m_Path: Player Armature/root/c.foot.r/ik.leg.r
+  - m_Path: Player Armature/root/DummyRoot/c.foot.r
     m_Weight: 1
-  - m_Path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r
+  - m_Path: Player Armature/root/DummyRoot/c.foot.r/ik.leg.r
     m_Weight: 1
-  - m_Path: Player Armature/root/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+  - m_Path: Player Armature/root/DummyRoot/c.foot.r/ik.leg.r/tar.leg.r
+    m_Weight: 1
+  - m_Path: Player Armature/root/DummyRoot/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
     m_Weight: 1
   - m_Path: Player Armature/root/root.001
     m_Weight: 1
