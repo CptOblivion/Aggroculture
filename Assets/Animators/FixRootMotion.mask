@@ -16,7 +16,7 @@ AvatarMask:
   - m_Path: Player Armature/root
     m_Weight: 0
   - m_Path: Player Armature/root/DummyRoot
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Player Armature/root/DummyRoot/body
     m_Weight: 1
   - m_Path: Player Armature/root/DummyRoot/body/ik.arm.l

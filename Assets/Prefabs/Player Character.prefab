@@ -168,7 +168,7 @@ Animator:
   m_GameObject: {fileID: 1638038951697993538}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 7d6a6f4400c6ff1409f4bef1625935c1, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 90f50813f94d4874eabb38701b5f100c, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -201,14 +201,18 @@ MonoBehaviour:
   - {fileID: -2546530451316790373, guid: 3e338fcc02bf9904db986afdfff17173, type: 3}
   LeftHand: {fileID: 4720419045428895951}
   RightHand: {fileID: 2805315949390921465}
-  ToolDistanceFar: 3
-  InteractDistanceDefault: 2
-  GrabDistanceFar: 2
+  ToolDistanceFar: 2.1
+  InteractDistanceDefault: 0.75
+  GrabDistanceFar: 1
   farmPlot: {fileID: 0}
   debugBuddy: {fileID: 7443736187126104001, guid: df50f25605d3ea645b803445f447267a,
     type: 3}
+  SpinBone: {fileID: 5930754643624004739}
+  NoInteractionIfTooFar: 1
+  InteractFromTileCenter: 1
   Tools_Empty: {fileID: -2546530451316790373, guid: 3e338fcc02bf9904db986afdfff17173,
     type: 3}
+  ReachTooFar: 0
 --- !u!1 &1840396121223170454
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,7 +25,7 @@ public class FollowCam : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(TiltAngle, TwistAngle, 0);
             Vector3 TargetPosition = target.position - (transform.forward * Distance);
-            transform.position = Vector3.Lerp(transform.position, TargetPosition, SmoothSpeed);
+            transform.position = Vector3.Lerp(transform.position, TargetPosition, SmoothSpeed * Time.deltaTime * 60f);
         }
     }
 }

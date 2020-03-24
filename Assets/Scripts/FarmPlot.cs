@@ -34,12 +34,14 @@ public class FarmPlot : MonoBehaviour
     public float HoeTime = .5f;
     public float WaterTime = 1.5f;
 
+    public float TileScale = 1f;
+
     List<FarmPlotLerpEntry> Lerplist = new List<FarmPlotLerpEntry>();
     bool TileIsTargeted = false;
-    Vector3 LastTargetedLocation = Vector3.zero;
+    Vector2Int LastTargetedLocation = Vector2Int.zero;
     void Awake()
     {
-
+        TileScale = transform.lossyScale.x * 10 / FarmWidth;
         if (farmPlotDisplay == null)
         {
             farmPlotDisplay = new Texture2D(FarmWidth*2, FarmHeight*2);
@@ -131,20 +133,27 @@ public class FarmPlot : MonoBehaviour
     }
     public void TargetTile(Vector3 GlobalPosition, InventoryItem.ToolTypes toolType)
     {
+        TargetTileActual(GlobalToTile((Vector3)GlobalPosition), toolType);
+    }
+    public void TargetTile(Vector2Int TilePosition, InventoryItem.ToolTypes toolType)
+    {
+        TargetTileActual(TilePosition, toolType);
+    }
+    void TargetTileActual(Vector2Int TilePosition, InventoryItem.ToolTypes toolType)
+    {
         /*
          * Eventually replace with a function to set a different highlight depending on the contents of the tile and the tool selected
          * place an object or project a texture or something, instead of writing a color to the farm plot array
          * eg nice curly-q looking projector when targeting ground with water, something else with hoe, flash contents of tile when targeting with empty hand
          */
-        int[] TilePosition = GlobalToTile(GlobalPosition);
         if (PointInFarm(TilePosition))
         {
-            Color color = farmPlotDisplay.GetPixel(TilePosition[0] * 2, TilePosition[1] * 2);
+            Color color = farmPlotDisplay.GetPixel(TilePosition.x * 2, TilePosition.y * 2);
             TargetTileClear(LastTargetedLocation);
-            LastTargetedLocation = GlobalPosition;
+            LastTargetedLocation = TilePosition;
 
             bool ShowTarget = false;
-            FarmPlotEntry entry = FarmContents[TilePosition[0], TilePosition[1]];
+            FarmPlotEntry entry = FarmContents[TilePosition.x, TilePosition.y];
             if (toolType == InventoryItem.ToolTypes.Hoe && entry.Contents == null && !entry.Tilled) ShowTarget = true;
             else if (toolType == InventoryItem.ToolTypes.WateringCan && entry.Tilled && !entry.Watered) ShowTarget = true;
             else if (toolType == InventoryItem.ToolTypes.Empty && entry.Contents) ShowTarget = true;
@@ -152,31 +161,39 @@ public class FarmPlot : MonoBehaviour
             {
                 color.b = 1;
                 TileIsTargeted = true;
-                farmPlotDisplay.SetPixels(TilePosition[0] * 2, TilePosition[1] * 2, 2, 2, new Color[] { color, color, color, color });
+                farmPlotDisplay.SetPixels(TilePosition.x * 2, TilePosition.y * 2, 2, 2, new Color[] { color, color, color, color });
                 farmPlotDisplay.Apply();
             }
         }
+
     }
-    public void TargetTileClear(Vector3 GlobalPosition)
+    public void TargetTileClear(Vector2Int TilePosition)
     {
-        int[] TilePosition = GlobalToTile(GlobalPosition);
 
         if (PointInFarm(TilePosition))
         {
-            Color color = farmPlotDisplay.GetPixel(TilePosition[0] * 2, TilePosition[1] * 2);
+            Color color = farmPlotDisplay.GetPixel(TilePosition.x * 2, TilePosition.y * 2);
             color.b = 0;
-            farmPlotDisplay.SetPixels(TilePosition[0] * 2, TilePosition[1] * 2, 2, 2, new Color[] { color, color, color, color });
+            farmPlotDisplay.SetPixels(TilePosition.x * 2, TilePosition.y * 2, 2, 2, new Color[] { color, color, color, color });
             farmPlotDisplay.Apply();
         }
     }
 
     public string PullTileContents(Vector3 GlobalPosition, bool test = false)
     {
+
+        return PullTileContentsActual(GlobalToTile(GlobalPosition), test);
+    }
+    public string PullTileContents(Vector2Int TilePosition, bool test = false)
+    {
+        return PullTileContentsActual(TilePosition, test);
+    }
+    string PullTileContentsActual(Vector2Int TilePosition, bool test = false)
+    {
         /*
          * returns true if the tile is valid for weeding/rock removing, otherwise returns false
          */
         string anim = null;
-        int[] TilePosition = GlobalToTile(GlobalPosition);
         if (PointInFarm(TilePosition))
         {
             FarmPlotEntry entry = FarmContents[TilePosition[0], TilePosition[1]];
@@ -198,13 +215,21 @@ public class FarmPlot : MonoBehaviour
         return anim;
     }
 
-    public bool HoeTile(Vector3 GlobalPosition, bool test)
+    public bool HoeTile(Vector3 GlobalPosition, bool test = false)
+    {
+
+        return HoeTileActual(GlobalToTile(GlobalPosition), test);
+    }
+    public bool HoeTile(Vector2Int TilePosition, bool test = false)
+    {
+        return HoeTileActual(TilePosition, test);
+    }
+    bool HoeTileActual(Vector2Int TilePosition, bool test)
     {
         /*
          * returns true if the tile is valid to be hoed (and hoeing is initiated), otherwise returns false
          */
         bool start = false;
-        int[] TilePosition = GlobalToTile(GlobalPosition);
         if (PointInFarm(TilePosition))
         {
             FarmPlotEntry entry = FarmContents[TilePosition[0], TilePosition[1]];
@@ -221,13 +246,21 @@ public class FarmPlot : MonoBehaviour
         }
         return start;
     }
-    public bool WaterTile(Vector3 GlobalPosition, bool test)
+    public bool WaterTile(Vector3 GlobalPosition, bool test = false)
+    {
+
+        return WaterTileActual(GlobalToTile(GlobalPosition), test);
+    }
+    public bool WaterTile(Vector2Int TilePosition, bool test = false)
+    {
+        return WaterTileActual(TilePosition, test);
+    }
+    public bool WaterTileActual(Vector2Int TilePosition, bool test)
     {
         /*
          * returns true if tile is valid to be watered (and watering is initiated), otherwise returns false
          */
         bool start = false;
-        int[] TilePosition = GlobalToTile(GlobalPosition);
         if (PointInFarm(TilePosition))
         {
             FarmPlotEntry entry = FarmContents[TilePosition[0], TilePosition[1]];
@@ -262,9 +295,9 @@ public class FarmPlot : MonoBehaviour
     {
         return X >= 0 && X < FarmWidth && Y >= 0 && Y < FarmHeight;
     }
-    public bool PointInFarm(int[] TilePosition)
+    public bool PointInFarm(Vector2Int TilePosition)
     {
-        return TilePosition[0] >= 0 && TilePosition[0] < FarmWidth && TilePosition[1] >= 0 && TilePosition[1] < FarmHeight;
+        return TilePosition.x >= 0 && TilePosition.x < FarmWidth && TilePosition.y >= 0 && TilePosition.y < FarmHeight;
     }
 
     void AddToLerpList(int X, int Y, int Channel, float LerpTime)
@@ -287,7 +320,7 @@ public class FarmPlot : MonoBehaviour
     }
 
 
-    Vector3 TileToGlobal(int X, int Y, float rand = 0)
+    public Vector3 TileToGlobal(int X, int Y, float rand = 0)
     {
         X -= FarmWidth / 2;
         Y -= FarmWidth / 2;
@@ -296,22 +329,22 @@ public class FarmPlot : MonoBehaviour
         Output = transform.TransformPoint(-Output / 3.2f);
         return Output;
     }
-    Vector3 TileToGlobal(int[] TilePosition, float rand = 0)
+    public Vector3 TileToGlobal(Vector2Int TilePosition, float rand = 0)
     {
-        TilePosition[0] -= FarmWidth / 2;
-        TilePosition[1] -= FarmWidth / 2;
+        TilePosition.x -= FarmWidth / 2;
+        TilePosition.y -= FarmWidth / 2;
         Vector3 Output = new Vector3(TilePosition[0], 0, TilePosition[1]);
         Output += new Vector3(.5f + Random.Range(-rand, rand), 0, .5f + Random.Range(-rand, rand));
         Output = transform.TransformPoint(-Output / 3.2f);
         return Output;
     }
-    int[] GlobalToTile(Vector3 GlobalPosition)
+    public Vector2Int GlobalToTile(Vector3 GlobalPosition)
     {
         Vector3 LocalPosition = (transform.InverseTransformPoint(GlobalPosition) * -3.2f);
 
-        int[] TilePosition = new int[] { Mathf.FloorToInt(LocalPosition[0]), Mathf.FloorToInt(LocalPosition[2]) };
-        TilePosition[0] += FarmWidth / 2;
-        TilePosition[1] += FarmHeight / 2;
+        Vector2Int TilePosition = new Vector2Int( Mathf.FloorToInt(LocalPosition[0]), Mathf.FloorToInt(LocalPosition[2]) );
+        TilePosition.x += FarmWidth / 2;
+        TilePosition.y += FarmHeight / 2;
         return TilePosition;
     }
 }

@@ -325,7 +325,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -456,7 +456,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -587,7 +587,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -718,7 +718,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -870,7 +870,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -1001,7 +1001,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -1132,7 +1132,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -1263,7 +1263,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -1415,7 +1415,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -1567,7 +1567,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -1698,7 +1698,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -1843,7 +1843,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -1988,7 +1988,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -2133,7 +2133,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -2278,7 +2278,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -2409,7 +2409,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -2540,7 +2540,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -2692,7 +2692,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -2837,7 +2837,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -2982,7 +2982,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -3127,7 +3127,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -3272,7 +3272,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -3417,7 +3417,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -3548,7 +3548,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -3679,7 +3679,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -3810,7 +3810,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -3941,7 +3941,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -4072,7 +4072,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -4203,7 +4203,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -4334,7 +4334,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -4465,7 +4465,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -4596,7 +4596,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -4727,7 +4727,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -4858,7 +4858,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -4989,7 +4989,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -5127,7 +5127,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l
@@ -5258,7 +5258,7 @@ ModelImporter:
       - path: Player Armature/root
         weight: 0
       - path: Player Armature/root/DummyRoot
-        weight: 1
+        weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
       - path: Player Armature/root/DummyRoot/body/ik.arm.l

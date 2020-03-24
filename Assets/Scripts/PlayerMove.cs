@@ -15,6 +15,9 @@ public class PlayerMove : MonoBehaviour
     public float GrabDistanceFar = 2;
     public FarmPlot farmPlot;
     public GameObject debugBuddy;
+    public Transform SpinBone;
+    public bool NoInteractionIfTooFar = false;
+    public bool InteractFromTileCenter = true;
 
     public InventoryItem Tools_Empty;
 
@@ -35,6 +38,12 @@ public class PlayerMove : MonoBehaviour
     CharacterController characterController;
     InputActionMap actionsGameplay;
     PlayerInput playerInput;
+    Quaternion SpinboneHome;
+    Vector3 ForwardDirection;
+    [SerializeField]
+    bool ReachTooFar = false;
+    Vector2Int FromTile;
+    Vector2Int ToTile;
 
     private void Awake()
     {
@@ -47,6 +56,8 @@ public class PlayerMove : MonoBehaviour
         debugBuddy = Instantiate(debugBuddy);
         debugBuddy.SetActive(false);
         playerInput = GetComponent<PlayerInput>();
+        SpinboneHome = SpinBone.localRotation;
+        ForwardDirection = transform.forward;
     }
 
     void Update()
@@ -90,17 +101,60 @@ public class PlayerMove : MonoBehaviour
             MoveVector = GlobalTools.RotateVector2(MoveInput, followCam.TwistAngle);
             //experimenting with using a gamma curve for the stick inputs, to make slow walking easier
             //MoveInput = MoveInput.normalized * Mathf.Pow(MoveInput.magnitude, 2.2f);
-
             if (playerInput.currentControlScheme == "Keyboard")
             {
                 Vector3 ScreenPosition = followCam.GetComponent<Camera>().WorldToScreenPoint(transform.position);
                 LookVector = LookInput - new Vector2(ScreenPosition[0], ScreenPosition[1]);
 
 
-                ToolDistance = LookVector.magnitude / Screen.height * followCam.GetComponent<Camera>().orthographicSize * 2;
-                if (ToolDistance > ToolDistanceFar) ToolDistance = ToolDistanceFar;
+                //ToolDistance = LookVector.magnitude / Screen.height * followCam.GetComponent<Camera>().orthographicSize * 2;
+                RaycastHit rayHit;
+                if (farmPlot.GetComponent<Collider>().Raycast(followCam.GetComponent<Camera>().ScreenPointToRay(new Vector3(LookInput[0], LookInput[1])), out rayHit, 100))
+                {
+                    if (InteractFromTileCenter)
+                    {
+                        FromTile = farmPlot.GlobalToTile(transform.position);
+                        ToTile = farmPlot.GlobalToTile(rayHit.point);
 
-                if (LookVector == Vector2.zero) LookVector = Vector2.up;
+                        //ToolDistance = (farmPlot.TileToGlobal(ToTile) - farmPlot.TileToGlobal(FromTile)).magnitude;
+                        //if (ToolDistance > ToolDistanceFar * farmPlot.TileScale)
+                        float TestDistance = ((Vector2)ToTile - (Vector2)FromTile).magnitude;
+                        if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Empty) TestDistance += (ToolDistanceFar - GrabDistance);
+                        if (TestDistance -.5f > ToolDistanceFar)
+                        {
+                            if (NoInteractionIfTooFar)
+                            {
+                                ReachTooFar = true;
+                            }
+                            else
+                            {
+                                Vector2 AnalogTile = ToTile - FromTile;
+                                AnalogTile = AnalogTile.normalized * ToolDistanceFar;
+                                ToTile = FromTile + new Vector2Int(Mathf.RoundToInt(AnalogTile.x), Mathf.RoundToInt(AnalogTile.y));
+                            }
+                        }
+                        else ReachTooFar = false;
+                    }
+                    else
+                    {
+                        ToolDistance = (rayHit.point - transform.position).magnitude;
+                        if (ToolDistance > ToolDistanceFar)
+                        {
+                            if (NoInteractionIfTooFar) ReachTooFar = true;
+                            else ReachTooFar = false;
+                            ToolDistance = ToolDistanceFar;
+                        }
+                        else ReachTooFar = false;
+                    }
+                    if (LookVector == Vector2.zero) LookVector = Vector2.up;
+
+
+                }
+                else
+                {
+                    ReachTooFar = true;
+                    ToolDistance = ToolDistanceFar;
+                }
                 /*
                 GrabDistance = ToolDistance;
                 if (GrabDistance > GrabDistanceFar) GrabDistance = GrabDistanceFar;
@@ -109,6 +163,7 @@ public class PlayerMove : MonoBehaviour
             }
             else
             {
+                ReachTooFar = false;
                 GrabDistance = GrabDistanceFar;
                 if (LookInput == Vector2.zero)
                 {
@@ -128,13 +183,26 @@ public class PlayerMove : MonoBehaviour
                 {
                     transform.rotation = Quaternion.LookRotation(new Vector3(LookVector[0], 0, LookVector[1]), Vector3.up);
                     transform.Rotate(new Vector3(0, followCam.TwistAngle, 0));
+                    SpinBone.localRotation = SpinboneHome;
+                    ForwardDirection = transform.forward;
                 }
-                else
+                else //if we're moving
                 {
                     transform.rotation = Quaternion.LookRotation(new Vector3(MoveVector[0], 0, MoveVector[1]), Vector3.up);
                     transform.Rotate(new Vector3(0, followCam.TwistAngle, 0));
+                    if (LookInput == Vector2.zero)
+                    {
+                        SpinBone.localRotation = SpinboneHome;
+                        ForwardDirection = transform.forward;
+                    }
+                    else //if we're facing a direction (right stick pushed, or always on in mouse/keyboard mode)
+                    {
+                        SpinBone.rotation = Quaternion.LookRotation(new Vector3(LookVector[0], 0, LookVector[1]), Vector3.up);
+                        SpinBone.Rotate(new Vector3(0, followCam.TwistAngle, 0));
+                        ForwardDirection = new Vector3(LookVector[0], 0, LookVector[1]);
+                    }
                 }
-                
+
             }
 
             animator.SetFloat("NormalizedSpeed", MoveInput.magnitude);
@@ -205,16 +273,31 @@ public class PlayerMove : MonoBehaviour
 
             }
 
-            Vector3 InteractPoint;
-            if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Empty)
+            if (!ReachTooFar)
             {
-                InteractPoint = transform.position + transform.forward * GrabDistance;
+                if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Empty)
+                {
+                    if (InteractFromTileCenter)
+                    {
+                        if (playerInput.currentControlScheme != "Keyboard")
+                            ToTile = farmPlot.GlobalToTile(farmPlot.TileToGlobal(farmPlot.GlobalToTile(transform.position)) + ForwardDirection * GrabDistance * farmPlot.TileScale);
+                        farmPlot.TargetTile(ToTile, Hotbar[ActiveHotbarSlot].toolType);
+                    }
+                    else
+                        farmPlot.TargetTile(transform.position + ForwardDirection * GrabDistance, Hotbar[ActiveHotbarSlot].toolType);
+                }
+                else
+                {
+                    if (InteractFromTileCenter)
+                    {
+                        if (playerInput.currentControlScheme != "Keyboard")
+                            ToTile = farmPlot.GlobalToTile(farmPlot.TileToGlobal(farmPlot.GlobalToTile(transform.position)) + ForwardDirection * ToolDistance * farmPlot.TileScale);
+                        farmPlot.TargetTile(ToTile, Hotbar[ActiveHotbarSlot].toolType);
+                    }
+                    else
+                        farmPlot.TargetTile(transform.position + ForwardDirection * ToolDistance * farmPlot.TileScale, Hotbar[ActiveHotbarSlot].toolType);
+                }
             }
-            else
-            {
-                InteractPoint = transform.position + transform.forward * ToolDistance;
-            }
-            farmPlot.TargetTile(InteractPoint, Hotbar[ActiveHotbarSlot].toolType);
             InputsFinished:;
         }
 
@@ -239,16 +322,49 @@ public class PlayerMove : MonoBehaviour
 
     public bool HoeGround(int test)
     {
-        Vector3 InteractPoint = transform.position + transform.forward * ToolDistance;
-        return farmPlot.HoeTile(InteractPoint, test != 0);
+        if (!ReachTooFar)
+        {
+            if (InteractFromTileCenter)
+            {
+                if (playerInput.currentControlScheme == "Keyboard")
+                    return farmPlot.HoeTile(farmPlot.TileToGlobal(ToTile), test != 0);
+                else
+                    return farmPlot.HoeTile(farmPlot.TileToGlobal(farmPlot.GlobalToTile(transform.position)) + ForwardDirection * ToolDistance * farmPlot.TileScale, test != 0);
+            }
+            else
+                return farmPlot.HoeTile(transform.position + ForwardDirection * ToolDistance * farmPlot.TileScale, test != 0);
+        }
+        else return false;
     }
     public bool WaterGround(int test)
     {
-        return farmPlot.WaterTile(transform.position + transform.forward * ToolDistance, test != 0);
+        if (!ReachTooFar)
+        {
+            if (InteractFromTileCenter)
+            {
+                if (playerInput.currentControlScheme != "Keyboard")
+                    ToTile = farmPlot.GlobalToTile(farmPlot.TileToGlobal(farmPlot.GlobalToTile(transform.position)) + ForwardDirection * ToolDistance * farmPlot.TileScale);
+                return farmPlot.WaterTile(ToTile, test != 0);
+            }
+            else
+                return farmPlot.WaterTile(transform.position + ForwardDirection * ToolDistance * farmPlot.TileScale, test != 0);
+        }
+        else return false;
     }
     public string PullTileContents(int test)
     {
-        return farmPlot.PullTileContents(transform.position + transform.forward * GrabDistance, test != 0);
+        if (!ReachTooFar)
+        {
+            if (InteractFromTileCenter)
+            {
+                if (playerInput.currentControlScheme != "Keyboard")
+                    ToTile = farmPlot.GlobalToTile(farmPlot.TileToGlobal(farmPlot.GlobalToTile(transform.position)) + ForwardDirection * GrabDistance * farmPlot.TileScale);
+                return farmPlot.PullTileContents(ToTile, test != 0);
+            }
+            else
+                return farmPlot.PullTileContents(transform.position + ForwardDirection * GrabDistance * farmPlot.TileScale, test != 0);
+        }
+        else return null;
     }
     void StartToolAnim(string AnimName)
     {

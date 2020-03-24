@@ -7372,6 +7372,7 @@ MonoBehaviour:
   - 0.05
   HoeTime: 0.4
   WaterTime: 0.75
+  TileScale: 1
 --- !u!1 &2146439169
 GameObject:
   m_ObjectHideFlags: 0
@@ -7811,16 +7812,6 @@ PrefabInstance:
       propertyPath: InteractDistanceNear
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 218647505558065206, guid: 0c7570c8e1f4791429af7930794892e2,
-        type: 3}
-      propertyPath: GrabDistanceFar
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 218647505558065206, guid: 0c7570c8e1f4791429af7930794892e2,
-        type: 3}
-      propertyPath: ToolDistanceFar
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 241559796591721133, guid: 0c7570c8e1f4791429af7930794892e2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8186,11 +8177,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.00000049036316
       objectReference: {fileID: 0}
-    - target: {fileID: 5650365680238989355, guid: 0c7570c8e1f4791429af7930794892e2,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 90f50813f94d4874eabb38701b5f100c, type: 2}
     - target: {fileID: 5678951616239871667, guid: 0c7570c8e1f4791429af7930794892e2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
