@@ -13,6 +13,10 @@ public class ObjectToTipForCamera : MonoBehaviour
     public bool OverrideDefaultTipAmount = false;
     public float TipAmount = 15;
     public float OffsetCenter = 0;
+    [HideInInspector]
+    public float ExternalOverride = 0;
+    [HideInInspector]
+    public float TipWeight = 1;
 
     bool initialized = false;
     private void OnEnable()

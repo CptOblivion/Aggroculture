@@ -14,7 +14,8 @@ public class PauseManager : MonoBehaviour
     public static bool CanPause = true;
     public static PauseManager pauseManager;
 
-    InputActionMap inputsUI;
+    [HideInInspector]
+    public InputActionMap inputsUI;
     InputAction inputsGameplay;
     private void Awake()
     {

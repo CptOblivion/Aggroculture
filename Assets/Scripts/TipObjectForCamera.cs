@@ -11,11 +11,14 @@ public class TipObjectForCamera : MonoBehaviour
      */
     public float DefaultTipAmount = 15;
 
+    public static TipObjectForCamera current;
+
     public static List<ObjectToTipForCamera> TipObjects;
 
     void Awake()
     {
         TipObjects = new List<ObjectToTipForCamera>() { };
+        current = this;
     }
 
     private void OnEnable()
@@ -48,6 +51,7 @@ public class TipObjectForCamera : MonoBehaviour
 
             float tipAmount = DefaultTipAmount;
             if (tipObject.OverrideDefaultTipAmount) tipAmount = tipObject.TipAmount;
+            tipAmount = (tipAmount + tipObject.ExternalOverride) * tipObject.TipWeight;
 
             Vector3 position = tipObject.transform.position + new Vector3(0, tipObject.OffsetCenter, 0);
 

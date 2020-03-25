@@ -10,14 +10,16 @@ public class PlayerMove : MonoBehaviour
     public InventoryItem[] Hotbar = new InventoryItem[5];
     public GameObject LeftHand;
     public GameObject RightHand;
-    public float ToolDistanceFar = 3;
-    public float InteractDistanceDefault = 2;
-    public float GrabDistanceFar = 2;
+    public float ToolDistanceFar = 2.1f;
+    public float ToolDistanceDefault = .75f;
+    public float GrabDistanceFar = 1;
+    public float InteractDistance = 2;
     public FarmPlot farmPlot;
     public GameObject debugBuddy;
     public Transform SpinBone;
     public bool NoInteractionIfTooFar = false;
     public bool InteractFromTileCenter = true;
+    public Transform FacingObject;
 
     public InventoryItem Tools_Empty;
 
@@ -34,12 +36,18 @@ public class PlayerMove : MonoBehaviour
     Vector2 LookVector;
     Vector2 MoveInput = Vector2.zero;
     Vector2 MoveVector;
-    Animator animator;
+    [HideInInspector]
+    public Animator animator;
+    [HideInInspector]
+    public Transform TargetToMatch;
+    float MatchTargetFade = -1;
+    float MatchTargetFadeTime;
+    Vector3 MatchTargetOriginPos;
+    Quaternion MatchTargetOriginRot;
     CharacterController characterController;
     InputActionMap actionsGameplay;
     PlayerInput playerInput;
     Quaternion SpinboneHome;
-    Vector3 ForwardDirection;
     [SerializeField]
     bool ReachTooFar = false;
     Vector2Int FromTile;
@@ -57,7 +65,7 @@ public class PlayerMove : MonoBehaviour
         debugBuddy.SetActive(false);
         playerInput = GetComponent<PlayerInput>();
         SpinboneHome = SpinBone.localRotation;
-        ForwardDirection = transform.forward;
+        FacingObject.localRotation = Quaternion.identity;
     }
 
     void Update()
@@ -86,11 +94,23 @@ public class PlayerMove : MonoBehaviour
                 }
                 else if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Empty && actionsGameplay.FindAction("UseL").triggered)
                 {
-                    string pulling = PullTileContents(1);
-                    if (pulling != null)
+                    string InteractAnim = InteractTileContents(1);
+                    if (InteractAnim != null)
                     {
-                        StartToolAnim(pulling);
+                        StartToolAnim(InteractAnim);
                         goto InputsFinished;
+                    }
+                }
+            }
+            else if (actionsGameplay.FindAction("Interact").ReadValue<float>() > 0 && actionsGameplay.FindAction("Interact").triggered)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(FacingObject.position,FacingObject.forward, out hit, InteractDistance))
+                {
+                    InteractTarget interactTarget = hit.transform.GetComponent<InteractTarget>();
+                    if (interactTarget)
+                    {
+                        interactTarget.Interact();
                     }
                 }
             }
@@ -167,13 +187,13 @@ public class PlayerMove : MonoBehaviour
                 GrabDistance = GrabDistanceFar;
                 if (LookInput == Vector2.zero)
                 {
-                    ToolDistance = InteractDistanceDefault;
+                    ToolDistance = ToolDistanceDefault;
                     if (MoveVector != Vector2.zero) LookVector = MoveVector.normalized;
                 }
                 else
                 {
                     LookVector = LookInput.normalized;
-                    ToolDistance = InteractDistanceDefault + (ToolDistanceFar - InteractDistanceDefault) * LookInput.magnitude;
+                    ToolDistance = ToolDistanceDefault + (ToolDistanceFar - ToolDistanceDefault) * LookInput.magnitude;
                 }
             }
 
@@ -184,7 +204,7 @@ public class PlayerMove : MonoBehaviour
                     transform.rotation = Quaternion.LookRotation(new Vector3(LookVector[0], 0, LookVector[1]), Vector3.up);
                     transform.Rotate(new Vector3(0, followCam.TwistAngle, 0));
                     SpinBone.localRotation = SpinboneHome;
-                    ForwardDirection = transform.forward;
+                    FacingObject.localRotation = Quaternion.identity;
                 }
                 else //if we're moving
                 {
@@ -193,19 +213,21 @@ public class PlayerMove : MonoBehaviour
                     if (LookInput == Vector2.zero)
                     {
                         SpinBone.localRotation = SpinboneHome;
-                        ForwardDirection = transform.forward;
+                        FacingObject.localRotation = Quaternion.identity;
                     }
                     else //if we're facing a direction (right stick pushed, or always on in mouse/keyboard mode)
                     {
                         SpinBone.rotation = Quaternion.LookRotation(new Vector3(LookVector[0], 0, LookVector[1]), Vector3.up);
                         SpinBone.Rotate(new Vector3(0, followCam.TwistAngle, 0));
-                        ForwardDirection = new Vector3(LookVector[0], 0, LookVector[1]);
+                        FacingObject.rotation = SpinBone.rotation;
+                        //FacingObject.rotation = Quaternion.LookRotation(new Vector3(LookVector[0], 0, LookVector[1]), Vector3.up);
                     }
                 }
 
             }
 
             animator.SetFloat("NormalizedSpeed", MoveInput.magnitude);
+            animator.SetBool("Moving", MoveInput.magnitude != 0);
 
             if (LookVector == Vector2.zero)
             {
@@ -226,6 +248,7 @@ public class PlayerMove : MonoBehaviour
             {
                 if (MoveInput == Vector2.zero) animator.SetTrigger("DodgeHop");
                 else animator.SetTrigger("DodgeRoll");
+                AllowNextInput(0);
                 iFrames = true;
                 goto InputsFinished;
             }
@@ -280,40 +303,46 @@ public class PlayerMove : MonoBehaviour
                     if (InteractFromTileCenter)
                     {
                         if (playerInput.currentControlScheme != "Keyboard")
-                            ToTile = farmPlot.GlobalToTile(farmPlot.TileToGlobal(farmPlot.GlobalToTile(transform.position)) + ForwardDirection * GrabDistance * farmPlot.TileScale);
+                            ToTile = farmPlot.GlobalToTile(farmPlot.TileToGlobal(farmPlot.GlobalToTile(transform.position)) + FacingObject.forward * GrabDistance * farmPlot.TileScale);
                         farmPlot.TargetTile(ToTile, Hotbar[ActiveHotbarSlot].toolType);
                     }
                     else
-                        farmPlot.TargetTile(transform.position + ForwardDirection * GrabDistance, Hotbar[ActiveHotbarSlot].toolType);
+                        farmPlot.TargetTile(transform.position + FacingObject.forward * GrabDistance, Hotbar[ActiveHotbarSlot].toolType);
                 }
                 else
                 {
                     if (InteractFromTileCenter)
                     {
                         if (playerInput.currentControlScheme != "Keyboard")
-                            ToTile = farmPlot.GlobalToTile(farmPlot.TileToGlobal(farmPlot.GlobalToTile(transform.position)) + ForwardDirection * ToolDistance * farmPlot.TileScale);
+                            ToTile = farmPlot.GlobalToTile(farmPlot.TileToGlobal(farmPlot.GlobalToTile(transform.position)) + FacingObject.forward * ToolDistance * farmPlot.TileScale);
                         farmPlot.TargetTile(ToTile, Hotbar[ActiveHotbarSlot].toolType);
                     }
                     else
-                        farmPlot.TargetTile(transform.position + ForwardDirection * ToolDistance * farmPlot.TileScale, Hotbar[ActiveHotbarSlot].toolType);
+                        farmPlot.TargetTile(transform.position + FacingObject.forward * ToolDistance * farmPlot.TileScale, Hotbar[ActiveHotbarSlot].toolType);
                 }
             }
             InputsFinished:;
         }
-
+        if (MatchTargetFade > 0)
+        {
+            animator.applyRootMotion = false;
+            if (MatchTargetFadeTime == 0)
+                MatchTargetFade = 0;
+            else
+                MatchTargetFade -= Time.deltaTime / MatchTargetFadeTime;
+            transform.position = Vector3.Lerp(MatchTargetOriginPos, TargetToMatch.position, 1 - MatchTargetFade);
+            transform.rotation = Quaternion.Lerp(MatchTargetOriginRot, TargetToMatch.rotation, 1 - MatchTargetFade);
+            if (MatchTargetFade <= 0)
+            {
+                TargetToMatch = null;
+                animator.applyRootMotion = true;
+            }
+        }
 
     }
-
     public void AllowNextInput(int input)
     {
-        //animation events can't send a bool, so we'll have to treat an int as one
         QueueNextInput = input != 0;
-
-        //check for held inputs (for repeating actions, like hoeing multiple pieces of ground)
-        if (QueueNextInput)
-        {
-
-        }
     }
     public void SetIFrames(int input)
     {
@@ -329,10 +358,10 @@ public class PlayerMove : MonoBehaviour
                 if (playerInput.currentControlScheme == "Keyboard")
                     return farmPlot.HoeTile(farmPlot.TileToGlobal(ToTile), test != 0);
                 else
-                    return farmPlot.HoeTile(farmPlot.TileToGlobal(farmPlot.GlobalToTile(transform.position)) + ForwardDirection * ToolDistance * farmPlot.TileScale, test != 0);
+                    return farmPlot.HoeTile(farmPlot.TileToGlobal(farmPlot.GlobalToTile(transform.position)) + FacingObject.forward * ToolDistance * farmPlot.TileScale, test != 0);
             }
             else
-                return farmPlot.HoeTile(transform.position + ForwardDirection * ToolDistance * farmPlot.TileScale, test != 0);
+                return farmPlot.HoeTile(transform.position + FacingObject.forward * ToolDistance * farmPlot.TileScale, test != 0);
         }
         else return false;
     }
@@ -343,26 +372,26 @@ public class PlayerMove : MonoBehaviour
             if (InteractFromTileCenter)
             {
                 if (playerInput.currentControlScheme != "Keyboard")
-                    ToTile = farmPlot.GlobalToTile(farmPlot.TileToGlobal(farmPlot.GlobalToTile(transform.position)) + ForwardDirection * ToolDistance * farmPlot.TileScale);
+                    ToTile = farmPlot.GlobalToTile(farmPlot.TileToGlobal(farmPlot.GlobalToTile(transform.position)) + FacingObject.forward * ToolDistance * farmPlot.TileScale);
                 return farmPlot.WaterTile(ToTile, test != 0);
             }
             else
-                return farmPlot.WaterTile(transform.position + ForwardDirection * ToolDistance * farmPlot.TileScale, test != 0);
+                return farmPlot.WaterTile(transform.position + FacingObject.forward * ToolDistance * farmPlot.TileScale, test != 0);
         }
         else return false;
     }
-    public string PullTileContents(int test)
+    public string InteractTileContents(int test)
     {
         if (!ReachTooFar)
         {
             if (InteractFromTileCenter)
             {
                 if (playerInput.currentControlScheme != "Keyboard")
-                    ToTile = farmPlot.GlobalToTile(farmPlot.TileToGlobal(farmPlot.GlobalToTile(transform.position)) + ForwardDirection * GrabDistance * farmPlot.TileScale);
+                    ToTile = farmPlot.GlobalToTile(farmPlot.TileToGlobal(farmPlot.GlobalToTile(transform.position)) + FacingObject.forward * GrabDistance * farmPlot.TileScale);
                 return farmPlot.PullTileContents(ToTile, test != 0);
             }
             else
-                return farmPlot.PullTileContents(transform.position + ForwardDirection * GrabDistance * farmPlot.TileScale, test != 0);
+                return farmPlot.PullTileContents(transform.position + FacingObject.forward * GrabDistance * farmPlot.TileScale, test != 0);
         }
         else return null;
     }
@@ -373,5 +402,23 @@ public class PlayerMove : MonoBehaviour
         animator.SetFloat("Speed", 0);
         animator.SetFloat("NormalizedSpeed", 0);
         QueueNextInput = false;
+    }
+
+    public void MatchTarget(float MatchFade)
+    {
+        MatchTargetFade = 1;
+        MatchTargetFadeTime = MatchFade;
+        MatchTargetOriginPos = transform.position;
+        MatchTargetOriginRot = transform.rotation;
+    }
+
+    public void Unequip()
+    {
+        ActiveHotbarSlot = 0;
+        animator.SetBool("2H", false);
+        if (HeldItems[0]) Destroy(HeldItems[0]);
+        if (HeldItems[1]) Destroy(HeldItems[1]);
+        HeldItems[0] = null;
+        HeldItems[1] = null;
     }
 }
