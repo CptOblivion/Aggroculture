@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectToTipForCamera : MonoBehaviour
+public class TiltForCamera : MonoBehaviour
 {
     /*
      * Stores some data about the object it's on, as well as manages adding and removing itself from the script that actually does the work
      */
     [HideInInspector]
     public Quaternion Rotation;
+    [HideInInspector]
     public Vector3 Position;
     public bool OverrideDefaultTipAmount = false;
     public float TipAmount = 15;
@@ -24,17 +25,17 @@ public class ObjectToTipForCamera : MonoBehaviour
         //wait until Start, the first time we activate (to make sure TipObjectForCamera is initialized and read)
         if (initialized)
         {
-            TipObjectForCamera.TipObjects.Add(this);
+            TiltObjectsOnCamera.TipObjects.Add(this);
         }
     }
     private void Start()
     {
         initialized = true;
-        TipObjectForCamera.TipObjects.Add(this);
+        TiltObjectsOnCamera.TipObjects.Add(this);
     }
 
     private void OnDisable()
     {
-        TipObjectForCamera.TipObjects.Remove(this);
+        TiltObjectsOnCamera.TipObjects.Remove(this);
     }
 }

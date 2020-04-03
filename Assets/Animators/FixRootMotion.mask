@@ -61,7 +61,10 @@ AvatarMask:
     m_Weight: 1
   - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/neck/head/Hat
     m_Weight: 1
-  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/neck/head/head_end
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/neck/head/Hat/Hat
+      1
+    m_Weight: 1
+  - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/neck/head/Hat/Hat_end
     m_Weight: 1
   - m_Path: Player Armature/root/DummyRoot/body/torso/waist/chest/shoulder.l
     m_Weight: 1
@@ -102,6 +105,10 @@ AvatarMask:
   - m_Path: Player Armature/root/DummyRoot/c.foot.r/ik.leg.r/tar.leg.r
     m_Weight: 1
   - m_Path: Player Armature/root/DummyRoot/c.foot.r/ik.leg.r/tar.leg.r/tar.leg.r_end
+    m_Weight: 1
+  - m_Path: Player Armature/root/DummyRoot/HatTarget
+    m_Weight: 1
+  - m_Path: Player Armature/root/DummyRoot/HatTarget/HatTarget_end
     m_Weight: 1
   - m_Path: Player Armature/root/root.001
     m_Weight: 1

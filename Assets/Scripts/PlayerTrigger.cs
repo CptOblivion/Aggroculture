@@ -8,14 +8,14 @@ public class PlayerTrigger : MonoBehaviour
     public bool Colliding = false;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == PlayerMove.currentPlayer.gameObject)
+        if (other.gameObject == PlayerMain.current.gameObject)
         {
             Colliding = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == PlayerMove.currentPlayer.gameObject)
+        if (other.gameObject == PlayerMain.current.gameObject)
         {
             Colliding = false;
         }

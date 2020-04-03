@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InventoryItem : MonoBehaviour
 {
-    public enum ToolTypes { Empty, Hoe, WateringCan }
+    public enum ToolTypes { Empty, Hoe, WateringCan, trowel }
     public bool TwoHanded = false;
     public ToolTypes toolType = ToolTypes.Empty;
 }

@@ -11,16 +11,16 @@ public class PlayerAnimTarget : MonoBehaviour
     public bool Unequip = false;
     public void PlayAnim()
     {
-        PlayerMove.currentPlayer.AllowNextInput(0);
-        Animator playerAnim = PlayerMove.currentPlayer.GetComponent<Animator>();
+        PlayerMain.current.InputDisable();
+        Animator playerAnim = PlayerMain.current.GetComponent<Animator>();
         if (MoveToTarget)
         {
             playerAnim.SetTrigger(Animation);
-            PlayerMove.currentPlayer.TargetToMatch = transform;
+            PlayerMain.current.TargetToMatch = transform;
         }
         if (Unequip)
         {
-            PlayerMove.currentPlayer.Unequip();
+            PlayerMain.current.Unequip();
         }
 
 

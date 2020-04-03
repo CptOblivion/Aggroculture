@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PushStrengthScale: 1
   PushDistanceLimit: 1
-  PushSpringiness: 0.08
+  PushSpringiness: 0.05
 --- !u!114 &4319628027889182736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754c7544ae94d294cbbaecc7ba2c2473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PullAnimation: 1
+  PullAnimation: 2
   PullEffect: {fileID: 3422162452396914966, guid: 4cfafe9d175c6bb47b3fd743cd8b0501,
     type: 3}
   EffectLife: 1

@@ -9,17 +9,18 @@ public class PauseManager : MonoBehaviour
     public GameObject PauseParent;
     public InputActionAsset inputsAsset;
     public Dropdown windowModeDropdown;
+    public bool PauseOnFocusLoss = true;
 
     public static bool Paused = false;
     public static bool CanPause = true;
-    public static PauseManager pauseManager;
+    public static PauseManager current;
 
     [HideInInspector]
     public InputActionMap inputsUI;
     InputAction inputsGameplay;
     private void Awake()
     {
-        pauseManager = this;
+        current = this;
         inputsUI = inputsAsset.FindActionMap("UI");
         inputsGameplay = inputsAsset.FindActionMap("Gameplay").FindAction("Pause");
         inputsUI.Disable();
@@ -30,7 +31,7 @@ public class PauseManager : MonoBehaviour
     {
         if (!Paused && CanPause)
         {
-            if ((inputsGameplay.triggered && inputsGameplay.ReadValue<float>() > 0) || !Application.isFocused)
+            if ((inputsGameplay.triggered && inputsGameplay.ReadValue<float>() > 0) || (PauseOnFocusLoss && !Application.isFocused))
             {
                 Pause();
             }
@@ -55,9 +56,9 @@ public class PauseManager : MonoBehaviour
     {
         if (CanPause)
         {
-            pauseManager.PauseParent.SetActive(false);
-            pauseManager.inputsGameplay.Enable();
-            pauseManager.inputsUI.Disable();
+            current.PauseParent.SetActive(false);
+            current.inputsGameplay.Enable();
+            current.inputsUI.Disable();
             StartCoroutine(DelayedUnpause());
         }
     }
@@ -68,9 +69,9 @@ public class PauseManager : MonoBehaviour
         {
             Time.timeScale = 0;
             Paused = true;
-            pauseManager.PauseParent.SetActive(true);
-            pauseManager.inputsGameplay.Disable();
-            pauseManager.inputsUI.Enable();
+            current.PauseParent.SetActive(true);
+            current.inputsGameplay.Disable();
+            current.inputsUI.Enable();
         }
     }
 

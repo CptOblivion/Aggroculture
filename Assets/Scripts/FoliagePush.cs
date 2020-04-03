@@ -9,7 +9,8 @@ public class FoliagePush : MonoBehaviour
     public float PushSpringiness = 0.1f;
     float StopThreshold = .001f;
 
-    SkinnedMeshRenderer mesh;
+    SkinnedMeshRenderer sMesh;
+    MeshRenderer mMesh;
     Vector3 PushInput = Vector3.zero;
     Vector3 PushVector;
     Vector3 InputVelocity; //probably not necessary to put this here but hey, a tiny bit less garbage collection to do
@@ -17,13 +18,19 @@ public class FoliagePush : MonoBehaviour
     private void Awake()
     {
 
-        mesh = GetComponent<SkinnedMeshRenderer>();
+        sMesh = GetComponent<SkinnedMeshRenderer>();
+        mMesh = GetComponent<MeshRenderer>();
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.GetComponent<CharacterController>()) InputVelocity = other.GetComponent<CharacterController>().velocity;
         else if (other.GetComponent<Rigidbody>()) InputVelocity = other.GetComponent<Rigidbody>().velocity;
+        ApplyForce(InputVelocity);
+    }
+
+    public void ApplyForce(Vector3 InputVelocity)
+    {
         if (InputVelocity.magnitude > PushInput.magnitude)
         {
             PushInput = InputVelocity;
@@ -47,7 +54,10 @@ public class FoliagePush : MonoBehaviour
             PushVector = PushVector * (1.0f - PushSpringiness);
             if (PushVector.magnitude <= StopThreshold) PushVector = Vector3.zero;
 
-            mesh.material.SetVector("_PushVector", new Vector4(PushVector.x, PushVector.y, PushVector.z));
+            if (sMesh)
+                sMesh.material.SetVector("_PushVector", new Vector4(PushVector.x, PushVector.y, PushVector.z));
+            else if (mMesh)
+                mMesh.material.SetVector("_PushVector", new Vector4(PushVector.x, PushVector.y, PushVector.z));
         }
     }
 }

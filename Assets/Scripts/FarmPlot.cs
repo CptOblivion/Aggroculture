@@ -133,13 +133,9 @@ public class FarmPlot : MonoBehaviour
     }
     public void TargetTile(Vector3 GlobalPosition, InventoryItem.ToolTypes toolType)
     {
-        TargetTileActual(GlobalToTile((Vector3)GlobalPosition), toolType);
+        TargetTile(GlobalToTile((Vector3)GlobalPosition), toolType);
     }
     public void TargetTile(Vector2Int TilePosition, InventoryItem.ToolTypes toolType)
-    {
-        TargetTileActual(TilePosition, toolType);
-    }
-    void TargetTileActual(Vector2Int TilePosition, InventoryItem.ToolTypes toolType)
     {
         /*
          * Eventually replace with a function to set a different highlight depending on the contents of the tile and the tool selected
@@ -154,7 +150,7 @@ public class FarmPlot : MonoBehaviour
 
             bool ShowTarget = false;
             FarmPlotEntry entry = FarmContents[TilePosition.x, TilePosition.y];
-            if (toolType == InventoryItem.ToolTypes.Hoe && entry.Contents == null && !entry.Tilled) ShowTarget = true;
+            if ((toolType == InventoryItem.ToolTypes.Hoe || toolType == InventoryItem.ToolTypes.trowel) && entry.Contents == null && !entry.Tilled) ShowTarget = true;
             else if (toolType == InventoryItem.ToolTypes.WateringCan && entry.Tilled && !entry.Watered) ShowTarget = true;
             else if (toolType == InventoryItem.ToolTypes.Empty && entry.Contents) ShowTarget = true;
             if (ShowTarget)
@@ -182,24 +178,20 @@ public class FarmPlot : MonoBehaviour
     public string PullTileContents(Vector3 GlobalPosition, bool test = false)
     {
 
-        return PullTileContentsActual(GlobalToTile(GlobalPosition), test);
+        return PullTileContents(GlobalToTile(GlobalPosition), test);
     }
     public string PullTileContents(Vector2Int TilePosition, bool test = false)
     {
-        return PullTileContentsActual(TilePosition, test);
-    }
-    string PullTileContentsActual(Vector2Int TilePosition, bool test = false)
-    {
         /*
-         * returns true if the tile is valid for weeding/rock removing, otherwise returns false
+         * returns the name of the relevant animation if the tile is valid for weeding/rock removing, otherwise returns null
          */
         string anim = null;
         if (PointInFarm(TilePosition))
         {
-            FarmPlotEntry entry = FarmContents[TilePosition[0], TilePosition[1]];
+            FarmPlotEntry entry = FarmContents[TilePosition.x, TilePosition.y];
             if (entry.Contents)
             {
-                if (test)
+                if (test && entry.Contents.PullAnimation != FarmTileContents.PullAnims.NoPull)
                 {
                     anim = entry.Contents.PullAnimation.ToString();
                 }
@@ -218,33 +210,29 @@ public class FarmPlot : MonoBehaviour
     public bool HoeTile(Vector3 GlobalPosition, bool test = false)
     {
 
-        return HoeTileActual(GlobalToTile(GlobalPosition), test);
+        return HoeTile(GlobalToTile(GlobalPosition), test);
     }
     public bool HoeTile(Vector2Int TilePosition, bool test = false)
-    {
-        return HoeTileActual(TilePosition, test);
-    }
-    bool HoeTileActual(Vector2Int TilePosition, bool test)
     {
         /*
          * returns true if the tile is valid to be hoed (and hoeing is initiated), otherwise returns false
          */
-        bool start = false;
+        bool CanTill = false;
         if (PointInFarm(TilePosition))
         {
-            FarmPlotEntry entry = FarmContents[TilePosition[0], TilePosition[1]];
+            FarmPlotEntry entry = FarmContents[TilePosition.x, TilePosition.y];
             if (!entry.Tilled && entry.Contents == null)
             {
-                start = true;
+                CanTill = true;
                 if (!test)
                 {
                     entry.Tilled = true;
-                    AddToLerpList(TilePosition[0], TilePosition[1], 0, HoeTime);
-                    FarmContents[TilePosition[0], TilePosition[1]] = entry;
+                    AddToLerpList(TilePosition.x, TilePosition.y, 0, HoeTime);
+                    FarmContents[TilePosition.x, TilePosition.y] = entry;
                 }
             }
         }
-        return start;
+        return CanTill;
     }
     public bool WaterTile(Vector3 GlobalPosition, bool test = false)
     {
@@ -260,26 +248,48 @@ public class FarmPlot : MonoBehaviour
         /*
          * returns true if tile is valid to be watered (and watering is initiated), otherwise returns false
          */
-        bool start = false;
+        bool CanWater = false;
         if (PointInFarm(TilePosition))
         {
-            FarmPlotEntry entry = FarmContents[TilePosition[0], TilePosition[1]];
+            FarmPlotEntry entry = FarmContents[TilePosition.x, TilePosition.y];
             if (entry.Tilled && !entry.Watered)
             {
-                start = true;
+                CanWater = true;
                 if (!test)
                 {
                     entry.Watered = true;
-                    AddToLerpList(TilePosition[0], TilePosition[1], 1, WaterTime);
-                    FarmContents[TilePosition[0], TilePosition[1]] = entry;
+                    AddToLerpList(TilePosition.x, TilePosition.y, 1, WaterTime);
+                    FarmContents[TilePosition.x, TilePosition.y] = entry;
                 }
                 //farmPlotDisplay.SetPixel(TilePosition[0], TilePosition[1], new Color(1, 1, 0));
                 //farmPlotDisplay.Apply();
             }
         }
-        return start;
+        return CanWater;
     }
 
+    public bool PlantTile(Vector3 GlobalPosition, FarmTileContents contents = null, bool test = false)
+    {
+        return PlantTile(GlobalToTile(GlobalPosition), contents, test);
+    }
+
+    public bool PlantTile(Vector2Int TilePosition, FarmTileContents contents = null,  bool test = false)
+    {
+        bool CanPlant = false;
+        if (PointInFarm(TilePosition))
+        {
+            FarmPlotEntry entry = FarmContents[TilePosition.x, TilePosition.y];
+            if (entry.Tilled && entry.Contents == null)
+            {
+                CanPlant = true;
+                if (!test)
+                {
+                    entry.Contents = contents;
+                }
+            }
+        }
+        return CanPlant;
+    }
     void FillTile(int X, int Y, float rand = 0)
     {
         FarmPlotEntry tileEntry = FarmContents[X, Y];

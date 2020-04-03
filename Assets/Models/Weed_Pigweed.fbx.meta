@@ -1,0 +1,458 @@
+fileFormatVersion: 2
+guid: e63bcc1ebae47ad4d929f27f8ef2d7df
+ModelImporter:
+  serializedVersion: 19300
+  internalIDToNameTable:
+  - first:
+      74: 409243972436294112
+    second: Pigweed Slam
+  - first:
+      74: 7758804277826316956
+    second: Pigweed Walk
+  - first:
+      74: -8364857785875020901
+    second: Pigweed Rise
+  - first:
+      74: -5224379733525954297
+    second: Pigweed Idle
+  - first:
+      74: 5058797864985051395
+    second: Pigweed Death
+  externalObjects: {}
+  materials:
+    materialImportMode: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Pigweed Slam
+      takeName: Pigweed Slam
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.95555556
+        functionName: SetCanMove
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.026666665
+        functionName: ScaleTurnSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.75
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.36095238
+        functionName: ScaleTurnSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9114286
+        functionName: ScaleTurnSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.4990476
+        functionName: PerformAttack
+        data: OverheadSlam
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Pigweed Walk
+      takeName: Pigweed Walk
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Pigweed_Armature
+        weight: 0
+      - path: Pigweed_Armature/Root
+        weight: 0
+      - path: Pigweed_Armature/Root/root1
+        weight: 1
+      - path: Pigweed_Armature/Root/root1/root1_end
+        weight: 1
+      - path: Pigweed_Armature/Root/root2
+        weight: 1
+      - path: Pigweed_Armature/Root/root2/root2_end
+        weight: 1
+      - path: Pigweed_Armature/Root/root3
+        weight: 1
+      - path: Pigweed_Armature/Root/root3/root3_end
+        weight: 1
+      - path: Pigweed_Armature/Root/root4
+        weight: 1
+      - path: Pigweed_Armature/Root/root4/root4_end
+        weight: 1
+      - path: Pigweed_Armature/Root/root5
+        weight: 1
+      - path: Pigweed_Armature/Root/root5/root5_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Leaf1a
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Leaf1a/Leaf1a_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Leaf1b
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Leaf1b/Leaf1b_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Leaf1c
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Leaf1c/Leaf1c_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Leaf2a
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Leaf2a/Leaf2a_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Leaf2b
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Leaf2b/Leaf2b_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Leaf2c
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Leaf2c/Leaf2c_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4/Leaf3a
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4/Leaf3a/Leaf3a_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4/Leaf3b
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4/Leaf3b/Leaf3b_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4/Leaf3c
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4/Leaf3c/Leaf3c_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4/Pigweed_Monster 1
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4/Pigweed_Monster 1/Head2
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4/Pigweed_Monster 1/Head2/Head2_end
+        weight: 1
+      - path: Pigweed_Monster
+        weight: 0
+      - path: Pigweed_Planted
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Pigweed Rise
+      takeName: Pigweed Rise
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.96158737
+        functionName: Spawned
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Pigweed Idle
+      takeName: Pigweed Idle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 130
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Pigweed Death
+      takeName: Pigweed Death
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 240
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Pigweed_Armature
+        weight: 0
+      - path: Pigweed_Armature/Root
+        weight: 0
+      - path: Pigweed_Armature/Root/root1
+        weight: 1
+      - path: Pigweed_Armature/Root/root1/root1_end
+        weight: 1
+      - path: Pigweed_Armature/Root/root2
+        weight: 1
+      - path: Pigweed_Armature/Root/root2/root2_end
+        weight: 1
+      - path: Pigweed_Armature/Root/root3
+        weight: 1
+      - path: Pigweed_Armature/Root/root3/root3_end
+        weight: 1
+      - path: Pigweed_Armature/Root/root4
+        weight: 1
+      - path: Pigweed_Armature/Root/root4/root4_end
+        weight: 1
+      - path: Pigweed_Armature/Root/root5
+        weight: 1
+      - path: Pigweed_Armature/Root/root5/root5_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Leaf1a
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Leaf1a/Leaf1a_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Leaf1b
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Leaf1b/Leaf1b_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Leaf1c
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Leaf1c/Leaf1c_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Leaf2a
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Leaf2a/Leaf2a_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Leaf2b
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Leaf2b/Leaf2b_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Leaf2c
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Leaf2c/Leaf2c_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4/Leaf3a
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4/Leaf3a/Leaf3a_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4/Leaf3b
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4/Leaf3b/Leaf3b_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4/Leaf3c
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4/Leaf3c/Leaf3c_end
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4/Pigweed_Monster 1
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4/Pigweed_Monster 1/Head2
+        weight: 1
+      - path: Pigweed_Armature/Root/Stem1/Stem2/Stem3/Stem4/Pigweed_Monster 1/Head2/Head2_end
+        weight: 1
+      - path: Pigweed_Monster
+        weight: 0
+      - path: Pigweed_Planted
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: Root
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

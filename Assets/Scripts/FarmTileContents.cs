@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FarmTileContents : MonoBehaviour
 {
-    public enum PullAnims {PullWeed_Big, PullWeed_Small, PullRock}
+    public enum PullAnims {NoPull, PullWeed_Big, PullWeed_Small, PullRock}
     public PullAnims PullAnimation = PullAnims.PullWeed_Small;
     public GameObject PullEffect;
     public float EffectLife = 0;
@@ -16,22 +16,22 @@ public class FarmTileContents : MonoBehaviour
     public bool FixRotation = true;
     public void PullFromFarm()
     {
-        //Debug.Break();
         if (PullEffect)
         {
-            PullEffect = Instantiate(PullEffect);
-            PullEffect.transform.position = transform.position;
-            PullEffect.transform.rotation = transform.rotation;
-            PullEffect.transform.localScale = transform.lossyScale;
+            RandomizeObject oldRandomizer = GetComponentInChildren<RandomizeObject>();
+            Transform oldTransform = transform;
+            if (oldRandomizer) oldTransform = oldRandomizer.transform;
+
+            PullEffect = Instantiate(PullEffect, oldTransform.position, oldTransform.rotation);
             if (EffectLife != 0) Destroy(PullEffect, EffectLife);
 
-            RandomizeObject Randomizer = PullEffect.GetComponent<RandomizeObject>();
+            RandomizeObject newRandomizer = PullEffect.GetComponent<RandomizeObject>();
             GameObject NewOb = null;
-            if (Randomizer)
+            if (newRandomizer)
             {
                 foreach (RandomizeObject rand in PullEffect.GetComponentsInChildren<RandomizeObject>())
                 {
-                    if (rand != Randomizer)
+                    if (rand != newRandomizer)
                     {
                         NewOb = rand.gameObject;
                         rand.enabled = false;
@@ -40,15 +40,15 @@ public class FarmTileContents : MonoBehaviour
                 }
                 if (NewOb)
                 {
-                    if (Randomizer.Meshes.Length > 0)
+                    if (newRandomizer.Meshes.Length > 0)
                     {
                         NewOb.GetComponent<MeshFilter>().mesh = GetComponent<MeshFilter>().mesh;
                     }
-                    if (Randomizer.BlendShapes.Length > 0)
+                    if (newRandomizer.BlendShapes.Length > 0)
                     {
-                        SkinnedMeshRenderer mesh = GetComponent<SkinnedMeshRenderer>();
+                        SkinnedMeshRenderer mesh = oldRandomizer.GetComponent<SkinnedMeshRenderer>();
                         SkinnedMeshRenderer newMesh = NewOb.GetComponent<SkinnedMeshRenderer>();
-                        for (int i = 0; i < Randomizer.BlendShapes.Length; i++)
+                        for (int i = 0; i < newRandomizer.BlendShapes.Length; i++)
                         {
                             newMesh.SetBlendShapeWeight(i, mesh.GetBlendShapeWeight(i));
                         }
@@ -62,12 +62,13 @@ public class FarmTileContents : MonoBehaviour
 
             if (AlignWithPlayer)
             {
-                Transform newObParent = NewOb.transform.parent;
+                Transform newObParent = null;
                 if (MaintainChildOrientation)
                 {
-                    NewOb.transform.SetParent(null);
+                        newObParent = NewOb.transform.parent;
+                        NewOb.transform.SetParent(null);
                 }
-                PullEffect.transform.rotation = Quaternion.LookRotation(PullEffect.transform.position - PlayerMove.currentPlayer.transform.position, Vector3.up);
+                PullEffect.transform.rotation = Quaternion.LookRotation(PullEffect.transform.position - PlayerMain.current.transform.position, Vector3.up);
                 if (MaintainChildOrientation)
                 { 
                     NewOb.transform.SetParent(newObParent);

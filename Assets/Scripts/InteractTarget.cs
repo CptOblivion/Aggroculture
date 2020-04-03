@@ -7,6 +7,7 @@ public class InteractTarget : MonoBehaviour
 {
     public PlayerTrigger playerStand;
     public UnityEvent OnInteract;
+    public UnityEvent OnHiglight;
 
     public void Interact()
     {
@@ -16,9 +17,18 @@ public class InteractTarget : MonoBehaviour
         }
         else OnInteract.Invoke();
     }
+    public void Highlight()
+    {
+
+        if (playerStand)
+        {
+            if (playerStand.Colliding) OnHiglight.Invoke();
+        }
+        else OnHiglight.Invoke();
+    }
 
     public void CallOnPlayer(string Function)
     {
-        PlayerMove.currentPlayer.SendMessage(Function);
+        PlayerMain.current.SendMessage(Function);
     }
 }

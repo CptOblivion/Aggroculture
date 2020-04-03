@@ -8,10 +8,10 @@ public class ExitAnimation : StateMachineBehaviour
     {
         if (animatorStateInfo.normalizedTime >= 1)
         {
-            if (!PauseManager.Paused && PlayerMove.currentPlayer.inputActions.FindAction("Interact").triggered &&
-                PlayerMove.currentPlayer.inputActions.FindAction("Interact").ReadValue<float>() > 0)
+            if (!PauseManager.Paused && ((PlayerMain.current.inputInteract.triggered && PlayerMain.current.inputInteract.ReadValue<float>() > 0) || 
+                (PlayerMain.current.inputLastMove == Vector2.zero && PlayerMain.current.inputMove.ReadValue<Vector2>() != Vector2.zero)))
             {
-                PlayerMove.currentPlayer.animator.SetTrigger("ReturnFromAnim");
+                PlayerMain.current.animator.SetTrigger("ReturnFromAnim");
             }
         }
     }

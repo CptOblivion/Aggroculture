@@ -12,7 +12,7 @@ public class MenuCancel : MonoBehaviour
     private void Start()
     {
         CancelButton = GetComponent<Button>();
-        cancel = PauseManager.pauseManager.inputsUI.FindAction("Cancel");
+        cancel = PauseManager.current.inputsUI.FindAction("Cancel");
     }
     private void LateUpdate()
     {

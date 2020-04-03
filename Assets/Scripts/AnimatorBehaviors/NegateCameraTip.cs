@@ -8,24 +8,27 @@ public class NegateCameraTip : StateMachineBehaviour
     public float StartTime = 0;
     public float FadeTime = 0;
     float Weight = 1;
-    ObjectToTipForCamera tipComponent;
+    TiltForCamera tipComponent;
     public override void OnStateEnter (Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        tipComponent = animator.GetComponent<ObjectToTipForCamera>();
+        tipComponent = animator.GetComponent<TiltForCamera>();
     }
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        if (FadeTime == 0)
+        if (animatorStateInfo.normalizedTime >= StartTime)
         {
-            if (animatorStateInfo.normalizedTime < StartTime)
-                Weight = 1;
+            if (FadeTime == 0)
+            {
+                if (animatorStateInfo.normalizedTime < StartTime)
+                    Weight = 1;
+                else
+                    Weight = 0;
+            }
             else
-                Weight = 0;
-        }
-        else
-            Weight = Mathf.Clamp01((animatorStateInfo.normalizedTime - StartTime)/ FadeTime);
-        if (!Exit) Weight = 1 - Weight;
+                Weight = Mathf.Clamp01((animatorStateInfo.normalizedTime - StartTime) / FadeTime);
+            if (!Exit) Weight = 1 - Weight;
 
-        tipComponent.TipWeight = Weight;
+            tipComponent.TipWeight = Weight;
+        }
     }
 }

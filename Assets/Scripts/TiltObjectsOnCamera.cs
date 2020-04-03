@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class TipObjectForCamera : MonoBehaviour
+public class TiltObjectsOnCamera : MonoBehaviour
 {
     /*
      * Put this on the camera, and put ObjectToTipForCamera on anything that should be tipped
@@ -11,13 +11,13 @@ public class TipObjectForCamera : MonoBehaviour
      */
     public float DefaultTipAmount = 15;
 
-    public static TipObjectForCamera current;
+    public static TiltObjectsOnCamera current;
 
-    public static List<ObjectToTipForCamera> TipObjects;
+    public static List<TiltForCamera> TipObjects;
 
     void Awake()
     {
-        TipObjects = new List<ObjectToTipForCamera>() { };
+        TipObjects = new List<TiltForCamera>() { };
         current = this;
     }
 
@@ -45,7 +45,7 @@ public class TipObjectForCamera : MonoBehaviour
     {
         for (int i = 0; i < TipObjects.Count; i++)
         {
-            ObjectToTipForCamera tipObject = TipObjects[i];
+            TiltForCamera tipObject = TipObjects[i];
             tipObject.Rotation = tipObject.transform.rotation;
             tipObject.Position = tipObject.transform.position;
 
