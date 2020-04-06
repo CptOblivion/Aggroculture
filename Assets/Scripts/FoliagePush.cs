@@ -7,8 +7,11 @@ public class FoliagePush : MonoBehaviour
     public float PushStrengthScale = 1;
     public float PushDistanceLimit = 1;
     public float PushSpringiness = 0.1f;
+    public bool Attacks = true;
+    public bool PhysicsObjects = true;
     float StopThreshold = .001f;
 
+    CharacterBase characterBase;
     SkinnedMeshRenderer sMesh;
     MeshRenderer mMesh;
     Vector3 PushInput = Vector3.zero;
@@ -24,16 +27,22 @@ public class FoliagePush : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<CharacterController>()) InputVelocity = other.GetComponent<CharacterController>().velocity;
-        else if (other.GetComponent<Rigidbody>()) InputVelocity = other.GetComponent<Rigidbody>().velocity;
-        ApplyForce(InputVelocity);
+        if (PhysicsObjects)
+        {
+            if (other.GetComponent<CharacterController>()) InputVelocity = other.GetComponent<CharacterController>().velocity;
+            else if (other.GetComponent<Rigidbody>()) InputVelocity = other.GetComponent<Rigidbody>().velocity;
+            ApplyForce(InputVelocity);
+        }
     }
 
     public void ApplyForce(Vector3 InputVelocity)
     {
-        if (InputVelocity.magnitude > PushInput.magnitude)
+        if (Attacks)
         {
-            PushInput = InputVelocity;
+            if (InputVelocity.magnitude > PushInput.magnitude)
+            {
+                PushInput = InputVelocity;
+            }
         }
     }
 

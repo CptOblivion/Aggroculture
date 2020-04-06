@@ -519,7 +519,7 @@ public class PlayerMain : CharacterBase
     {
         base.ApplyDamage(receiver);
 
-        if (IFramesDamage) //there's probably a better way to figure out if a flinch/slide/knockdown was triggered in base.ApplyDamage
+        if (DamageFadeTimer > 0) //there's probably a better way to figure out if a flinch/slide/knockdown was triggered in base.ApplyDamage
         {
             SoftForceAnimator();
             SpinBone.localRotation = SpinboneHome;

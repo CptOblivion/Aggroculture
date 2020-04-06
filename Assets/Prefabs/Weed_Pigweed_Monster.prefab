@@ -1159,6 +1159,9 @@ MonoBehaviour:
   DamageFlinchStateName: DamageFlinch
   DamageSlideStateName: DamageSlide
   DamageKnockdownStateName: DamageKnockdown
+  DamageFadeTime: 0.2
+  DeathDamageFadeTime: 1.5
+  DamageColor: {r: 1, g: 0, b: 0, a: 1}
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -1354,6 +1357,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6676285248027564737}
   - component: {fileID: 3726079494374161138}
+  - component: {fileID: 6552002298291563420}
+  - component: {fileID: 8093503815672463247}
   m_Layer: 9
   m_Name: Pigweed_Monster
   m_TagString: Untagged
@@ -1393,7 +1398,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4c61091dd304b8d48a72c48f797468f2, type: 2}
+  - {fileID: 2100000, guid: d7ae4b7a8b122ea4b809f818d65c1543, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1447,6 +1452,36 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0009815805, y: -0.001669962, z: -0.057265453}
     m_Extent: {x: 0.028756037, y: 0.028771706, z: 0.067001276}
   m_DirtyAABB: 0
+--- !u!114 &6552002298291563420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7898140056767896305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab080cbcad1b424cbe94c8f1dba675f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PushStrengthScale: 1
+  PushDistanceLimit: 1
+  PushSpringiness: 0.1
+  Attacks: 1
+  PhysicsObjects: 0
+--- !u!65 &8093503815672463247
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7898140056767896305}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.031999033, y: 0.032983817, z: 0.13400255}
+  m_Center: {x: 0.0005091059, y: -0.0011638367, z: 0.057265453}
 --- !u!1 &7926971639811322830
 GameObject:
   m_ObjectHideFlags: 0

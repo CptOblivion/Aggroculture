@@ -43,15 +43,19 @@ public class CharacterBase : MonoBehaviour
     public string DamageSlideStateName = "DamageSlide";
     public string DamageKnockdownStateName = "DamageKnockdown";
 
+    public float DamageFadeTime = .2f;
+    public float DeathDamageFadeTime = 1.5f;
+    public Color DamageColor = new Color(1, 0, 0);
+    protected Color[][] BaseColors;
+    protected float DamageFadeSpeed = 0;
+    protected float DamageFadeTimer;
+
     public UnityEvent OnDeath;
 
     float IFramesTime = .2f;
     protected float IFramesTimer = 0;
 
-    protected bool IFramesDamage = false;
-    protected float IFramesFlickerOnTime = 1f / 60f;
-    protected float IFramesFlickerOffTime = 1f / 60f;
-    protected float IFramesFlickerTimer;
+
 
     protected bool alive = true;
 
@@ -78,38 +82,37 @@ public class CharacterBase : MonoBehaviour
 
         damageReceiver = GetComponent<DamageReceiver>();
         damageReceiver.OnDamaged.AddListener(delegate { ApplyDamage(damageReceiver); });
+        BaseColors = new Color[Renderers.Length][];
+        for (int i = 0; i < Renderers.Length; i++)
+        {
+            BaseColors[i] = new Color[Renderers[i].materials.Length];
+            for (int m = 0; m < Renderers[i].materials.Length; m++)
+            {
+                BaseColors[i][m] = Renderers[i].materials[m].color;
+            } 
+        }
     }
 
     protected virtual void Update()
     {
         if (!PauseManager.Paused)
         {
+            if (DamageFadeTimer > 0)
+            {
+                DamageFadeTimer -= Time.deltaTime * DamageFadeSpeed;
+                for (int i = 0; i < Renderers.Length; i++)
+                {
+                    for (int m = 0; m < Renderers[i].materials.Length; m++)
+                    {
+                        Renderers[i].materials[m].color = Color.Lerp(BaseColors[i][m], BaseColors[i][m] * DamageColor, DamageFadeTimer);
+                    }
+
+                }
+            }
             if (alive)
             {
                 if (iFrames)
                 {
-                    if (IFramesDamage)
-                    {
-                        IFramesFlickerTimer -= Time.deltaTime;
-                        if (IFramesFlickerTimer <= 0)
-                        {
-                            if (Renderers[0].enabled)
-                            {
-                                IFramesFlickerTimer = IFramesFlickerOffTime;
-                                Renderers[0].enabled = false;
-                            }
-                            else
-                            {
-                                IFramesFlickerTimer = IFramesFlickerOnTime;
-                                Renderers[0].enabled = true;
-                            }
-                            for (int i = 1; i < Renderers.Length; i++)
-                            {
-                                Renderers[i].enabled = Renderers[0].enabled;
-                            }
-                        }
-                    }
-
                     if (IFramesTimer > 0)
                     {
                         IFramesTimer -= Time.deltaTime;
@@ -169,16 +172,21 @@ public class CharacterBase : MonoBehaviour
             }
         }
 
-
         float force = receiver.DamageInput.Knockback / DamageResistances.Knockback;
-        if (force >= DamageResistances.ThresholdKnockdown)
+
+        if (CurrentHealth <= 0)
+        {
+            SetIFramesDamage(DeathDamageFadeTime);
+            Kill();
+        }
+        else if (force >= DamageResistances.ThresholdKnockdown)
         {
             transform.rotation = Quaternion.LookRotation(receiver.DamageInput.KnockbackCenter - transform.position, Vector3.up);
             if (DamageKnockdownStateName != "") animator.Play(DamageKnockdownStateName, 0);
             animator.SetFloat("Speed", 0);
             CanMove = false;
             CanTurn = false;
-            SetIFramesDamage();
+            SetIFramesDamage(DamageFadeTime);
         }
         else if (force >= DamageResistances.ThresholdSlide)
         {
@@ -187,7 +195,7 @@ public class CharacterBase : MonoBehaviour
             animator.SetFloat("Speed", 0);
             CanMove = false;
             CanTurn = false;
-            SetIFramesDamage();
+            SetIFramesDamage(DamageFadeTime);
         }
         else if (force >= DamageResistances.ThresholdFlinch)
         {
@@ -196,16 +204,11 @@ public class CharacterBase : MonoBehaviour
             animator.SetFloat("Speed", 0);
             CanMove = false;
             CanTurn = false;
-            SetIFramesDamage();
+            SetIFramesDamage(DamageFadeTime);
         }
         else
         {
-            SetIFramesTimer(IFramesTime);
-        }
-        if (CurrentHealth <= 0)
-        {
-            SetIFrames(0);
-            Kill();
+            SetIFramesTimer(1);
         }
     }
     public void SetIFrames(int input)
@@ -218,28 +221,23 @@ public class CharacterBase : MonoBehaviour
         else
         {
             gameObject.layer = StartingLayer;
-            IFramesDamage = false;
-            for (int i = 0; i < Renderers.Length; i++)
-            {
-                Renderers[i].enabled = true;
-            }
         }
     }
-    public void SetIFramesDamage()
+    public void SetIFramesDamage(float time)
     {
-        SetIFrames(1);
-        IFramesDamage = true;
-        IFramesFlickerTimer = IFramesFlickerOffTime;
-        for (int i = 0; i < Renderers.Length; i++)
+        if (time > 0)
         {
-            Renderers[i].enabled = false;
+            DamageFadeTimer = 1;
+            DamageFadeSpeed = 1f / time;
         }
+        SetIFrames(1);
     }
 
-    public void SetIFramesTimer(float time)
+    public void SetIFramesTimer(int flash)
     {
-        IFramesTimer = time;
-        SetIFramesDamage();
+        IFramesTimer = IFramesTime;
+        if (flash != 0)
+            SetIFramesDamage(DamageFadeTime);
     }
 
     protected Vector3 SnapToGround()

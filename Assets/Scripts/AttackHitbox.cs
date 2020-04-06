@@ -86,6 +86,7 @@ public class AttackHitbox : MonoBehaviour
             Destroy(AttackEffect);
         }
     }
+#if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(.5f,0,0);
@@ -100,4 +101,5 @@ public class AttackHitbox : MonoBehaviour
             }
         }
     }
+#endif
 }

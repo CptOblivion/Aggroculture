@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Weed_Pigweed_Planted
+  m_Name: Weed_Pigweed_Monster
   m_Shader: {fileID: -6465566751694194690, guid: 4cb77ba5107650144b0398d632b7a4c3,
     type: 3}
   m_ShaderKeywords: 
@@ -66,11 +66,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_1E67BE3F: 150
+    - Vector1_1E67BE3F: 0.4
     - Vector1_2966CB11: 0
     - Vector1_3C4258AD: 0
     - Vector1_3CDE60F1: 0.3
-    - Vector1_50F23D42: 20
+    - Vector1_50F23D42: 0.1
     - Vector1_666D62F: 0
     - Vector1_78EDE79B: 1.08
     - Vector1_82CCF9E6: 0
