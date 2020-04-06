@@ -297,8 +297,10 @@ MonoBehaviour:
   OriginOverride: {fileID: 6193400061355059415}
   AttackEffect: {fileID: 1153626123692195929, guid: ca12f51162ff3b04292f1de6d59f3a8c,
     type: 3}
+  EffectIsPrefab: 1
   Sphere: 0
   Radius: 1
+  HitboxOffset: {x: 0, y: 0, z: 0}
   HalfExtents: {x: 1.6, y: 2, z: 8}
   HitOwnLayer: 0
   FoliageForce: 100
@@ -1154,6 +1156,9 @@ MonoBehaviour:
   - {fileID: 2208274135643350934}
   Renderers:
   - {fileID: 3726079494374161138}
+  DamageFlinchStateName: DamageFlinch
+  DamageSlideStateName: DamageSlide
+  DamageKnockdownStateName: DamageKnockdown
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -1242,6 +1247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyTime: 4
+  Disable: 0
 --- !u!1 &7506819859321520008
 GameObject:
   m_ObjectHideFlags: 0

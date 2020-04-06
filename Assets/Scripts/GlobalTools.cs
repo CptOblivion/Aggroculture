@@ -26,9 +26,10 @@ public static Vector2 RotateVector2(Vector2 v, float delta)
         }
         return LayerMask;
     }
-    public static bool PointInHitbox(Vector3 point, Transform transform, Vector3 HalfSize)
+    public static bool PointInHitbox(Vector3 point, Transform transform, Vector3 offset, Vector3 HalfSize)
     {
-        point = transform.InverseTransformPoint(point);
+        //broken for some reason
+        point = transform.InverseTransformPoint(point) - offset;
 
         if (point.x < HalfSize.x && point.x > -HalfSize.x &&
            point.y < HalfSize.y && point.y > -HalfSize.y &&

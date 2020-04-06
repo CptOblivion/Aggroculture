@@ -38,6 +38,11 @@ public class PlayerMain : CharacterBase
     public float DodgeRollCooldown = .25f;
     float DodgeRollCooldownTimer = 0;
 
+    public float MaxTurnSpeed = 15f;
+    public float MaxTurnSpeedAttack = 5f;
+    Quaternion TurnTarget;
+    Quaternion TurnOrigin;
+
     int LastInventorySlot = 0;
 
     FarmTileContents EquippedSeed = null;
@@ -61,11 +66,11 @@ public class PlayerMain : CharacterBase
     [HideInInspector]
     public PlayerInput playerInput;
     Quaternion SpinboneHome;
-    [SerializeField]
     bool ReachTooFar = false;
     Vector2Int FromTile;
     Vector2Int ToTile;
     Transform DummyHat;
+    bool ControlEnabledThisTurn = true;
 
     string LastControlScheme;
 
@@ -157,47 +162,50 @@ public class PlayerMain : CharacterBase
                         }
                     }
                 }
-                if (CanMove)
+                if (CanMove || CanTurn)
                 {
-                    if (inputUseL.ReadValue<float>() > 0 && !InCombat)
+                    if (CanMove)
                     {
-                        if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Hoe || Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.trowel)
+                        if (inputUseL.ReadValue<float>() > 0 && !InCombat)
                         {
-                            bool hoeing = HoeGround(1);
-                            if (hoeing)
+                            if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Hoe || Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.trowel)
                             {
-                                StartToolAnim("UseHoe");
-                                goto InputsFinished;
+                                bool hoeing = HoeGround(1);
+                                if (hoeing)
+                                {
+                                    StartToolAnim("UseHoe");
+                                    goto InputsFinished;
+                                }
+                            }
+                            else if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.WateringCan)
+                            {
+                                bool watering = WaterGround(1);
+                                if (watering)
+                                {
+                                    StartToolAnim("UseWateringCan");
+                                    goto InputsFinished;
+                                }
+                            }
+                            else if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Empty && inputUseL.triggered)
+                            {
+                                string InteractAnim = InteractTileContents(1);
+                                if (InteractAnim != null)
+                                {
+                                    StartToolAnim(InteractAnim);
+                                    goto InputsFinished;
+                                }
                             }
                         }
-                        else if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.WateringCan)
+                        else if (Physics.Raycast(FacingObject.position, FacingObject.forward, out RaycastHit hit, InteractDistance))
                         {
-                            bool watering = WaterGround(1);
-                            if (watering)
+                            InteractTarget interactTarget = hit.transform.GetComponent<InteractTarget>();
+                            if (interactTarget)
                             {
-                                StartToolAnim("UseWateringCan");
-                                goto InputsFinished;
+                                if (inputInteract.ReadValue<float>() > 0 && inputInteract.triggered)
+                                    interactTarget.Interact();
+                                else
+                                    interactTarget.Highlight();
                             }
-                        }
-                        else if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Empty && inputUseL.triggered)
-                        {
-                            string InteractAnim = InteractTileContents(1);
-                            if (InteractAnim != null)
-                            {
-                                StartToolAnim(InteractAnim);
-                                goto InputsFinished;
-                            }
-                        }
-                    }
-                    else if (Physics.Raycast(FacingObject.position, FacingObject.forward, out RaycastHit hit, InteractDistance))
-                    {
-                        InteractTarget interactTarget = hit.transform.GetComponent<InteractTarget>();
-                        if (interactTarget)
-                        {
-                            if (inputInteract.ReadValue<float>() > 0 && inputInteract.triggered)
-                                interactTarget.Interact();
-                            else
-                                interactTarget.Highlight();
                         }
                     }
 
@@ -267,7 +275,8 @@ public class PlayerMain : CharacterBase
                         if (LookInput == Vector2.zero)
                         {
                             ToolDistance = ToolDistanceDefault;
-                            if (MoveVector != Vector2.zero) LookVector = MoveVector.normalized;
+                            if (MoveVector != Vector2.zero)
+                                LookVector = MoveVector.normalized;
                         }
                         else
                         {
@@ -278,61 +287,84 @@ public class PlayerMain : CharacterBase
 
                     if (followCam.enabled)
                     {
+                        TurnOrigin = SpinBone.rotation;
                         if (MoveInput == Vector2.zero)
                         {
-                            transform.rotation = Quaternion.LookRotation(new Vector3(LookVector[0], 0, LookVector[1]), Vector3.up);
-                            transform.Rotate(new Vector3(0, followCam.TwistAngle, 0));
-                            SpinBone.localRotation = SpinboneHome;
-                            FacingObject.localRotation = Quaternion.identity;
+                            if (LookInput != Vector2.zero)
+                            {
+                                transform.rotation = Quaternion.LookRotation(new Vector3(LookVector[0], 0, LookVector[1]), Vector3.up);
+                                transform.Rotate(new Vector3(0, followCam.TwistAngle, 0));
+                            }
+                            TurnTarget = transform.rotation;
                         }
                         else //if we're moving
                         {
                             transform.rotation = Quaternion.LookRotation(new Vector3(MoveVector[0], 0, MoveVector[1]), Vector3.up);
                             transform.Rotate(new Vector3(0, followCam.TwistAngle, 0));
                             if (LookInput == Vector2.zero)
-                            {
-                                SpinBone.localRotation = SpinboneHome;
-                                FacingObject.localRotation = Quaternion.identity;
-                            }
+                                TurnTarget = transform.rotation;
                             else //if we're facing a direction (right stick pushed, or always on in mouse/keyboard mode)
-                            {
-                                SpinBone.rotation = Quaternion.LookRotation(new Vector3(LookVector[0], 0, LookVector[1]), Vector3.up);
-                                SpinBone.Rotate(new Vector3(0, followCam.TwistAngle, 0));
-                                FacingObject.rotation = SpinBone.rotation;
-                            }
+                                TurnTarget = Quaternion.LookRotation(new Vector3(LookVector[0], 0, LookVector[1]), Vector3.up);
                         }
+                        if (CanMove)
+                        {
+                            SpinBone.rotation = Quaternion.RotateTowards(TurnOrigin, TurnTarget, MaxTurnSpeed * Time.deltaTime * 60f);
+                        }
+                        else
+                        {
+                            transform.rotation = Quaternion.RotateTowards(TurnOrigin, TurnTarget, MaxTurnSpeedAttack * Time.deltaTime * 60f);
+                            SpinBone.rotation = transform.rotation;
+                            //SpinBone.rotation = Quaternion.RotateTowards(TurnOrigin, TurnTarget, MaxTurnSpeedAttack * Time.deltaTime * 60f);
+                            //transform.rotation = SpinBone.rotation;
+                        }
+                        FacingObject.rotation = SpinBone.rotation;
 
                     }
 
-                    animator.SetFloat("NormalizedSpeed", MoveInput.magnitude);
-                    animator.SetBool("Moving", MoveInput.magnitude != 0);
-
-                    if (LookVector == Vector2.zero)
+                    if (CanMove)
                     {
-                        animator.SetFloat("SpeedX", 0);
-                        animator.SetFloat("SpeedY", MoveVector[1]);
+                        animator.SetFloat("NormalizedSpeed", MoveInput.magnitude);
+                        animator.SetBool("Moving", MoveInput.magnitude != 0);
 
+                        if (LookVector == Vector2.zero)
+                        {
+                            animator.SetFloat("SpeedX", 0);
+                            animator.SetFloat("SpeedY", MoveVector[1]);
+
+                        }
+                        else
+                        {
+                            animator.SetFloat("SpeedX", Vector3.Dot(transform.forward, -SpinBone.right) * MoveInput.magnitude);
+                            animator.SetFloat("SpeedY", Vector3.Dot(transform.forward, SpinBone.forward) * MoveInput.magnitude);
+                        }
+                        MoveVector *= RunSpeed;
+                        animator.SetFloat("Speed", MoveVector.magnitude);
+
+                        if (actionsGameplay.FindAction("Dodge").triggered && actionsGameplay.FindAction("Dodge").ReadValue<float>() > 0)
+                        {
+                            if (MoveInput != Vector2.zero)
+                                animator.SetBool("Moving", true);
+                            /*
+                            if (MoveInput == Vector2.zero) SoftForceAnimator("DodgeHop");
+                            else
+                            {
+                                SoftForceAnimator("DodgeRoll");
+                            }
+                            */
+                            SoftForceAnimator("Dodge");
+                            SetIFrames(1);
+                            AllowNextInput(false);
+                            goto InputsFinished;
+                        }
                     }
                     else
                     {
-                        animator.SetFloat("SpeedX", Vector2.Dot(LookVector.normalized, GlobalTools.RotateVector2(MoveVector, -90)));
-                        animator.SetFloat("SpeedY", Vector2.Dot(LookVector.normalized, MoveVector));
+                        animator.SetBool("Moving", false);
+                        animator.SetFloat("NormalizedSpeed", 0);
+                        animator.SetFloat("Speed", 0);
                     }
-                    MoveVector *= RunSpeed;
-                    animator.SetFloat("Speed", MoveVector.magnitude);
 
 
-                    if (actionsGameplay.FindAction("Dodge").triggered && actionsGameplay.FindAction("Dodge").ReadValue<float>() > 0)
-                    {
-                        if (MoveInput == Vector2.zero) SoftForceAnimator("DodgeHop");
-                        else
-                        {
-                            SoftForceAnimator("DodgeRoll");
-                        }
-                        SetIFrames(1);
-                        AllowNextInput(false);
-                        goto InputsFinished;
-                    }
 
                     //item selection
                     ItemButton = 0;
@@ -380,6 +412,8 @@ public class PlayerMain : CharacterBase
             {
 
             }
+            if (ControlEnabledThisTurn)
+                ControlEnabledThisTurn = false;
         }
         if (MatchTargetFade > 0)
         {
@@ -464,7 +498,8 @@ public class PlayerMain : CharacterBase
         }
     }
 
-    string[] TriggerList = new string[] { "Attack", "DodgeRoll", "DodgeHop" };
+    //string[] TriggerList = new string[] { "Attack", "DodgeRoll", "DodgeHop" };
+    string[] TriggerList = new string[] { "Attack", "Dodge" };
 
     void SoftForceAnimator(string trigger = "")
     {
@@ -507,8 +542,10 @@ public class PlayerMain : CharacterBase
     }
     void AllowNextInput(bool Allow, bool AttackOnly = false)
     {
+        if (!CanMove && Allow)
+            ControlEnabledThisTurn = true;
         CanAct = CanMove = CanTurn =  Allow;
-        if (AttackOnly) CanAct = true;
+        if (AttackOnly) CanAct = CanTurn = true;
     }
     public void InputDisable()
     {

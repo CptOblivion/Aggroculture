@@ -40,6 +40,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnHiglight:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3657106376698504358
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,7 +90,7 @@ MonoBehaviour:
   MoveToTarget: 1
   MatchStartTime: 0.01
   MatchTime: 0.75
-  Unequip: 0
+  Unequip: 1
 --- !u!1 &3657106377031548523
 GameObject:
   m_ObjectHideFlags: 0

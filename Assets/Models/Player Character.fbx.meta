@@ -426,17 +426,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -533,7 +535,7 @@ ModelImporter:
       takeName: Player_Attacks Standard_2H
       internalID: 0
       firstFrame: 0
-      lastFrame: 1
+      lastFrame: 190
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -552,7 +554,84 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.007619048
+        functionName: AttackReleaseReset
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.08102426
+        functionName: InputAttackOnly
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.10875112
+        functionName: PerformAttack
+        data: 2H_Standard_A
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.16607368
+        functionName: AttackRelease
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.17236298
+        functionName: InputAllow
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.40713388
+        functionName: InputAttackOnly
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.43376458
+        functionName: PerformAttack
+        data: 2H_Standard_B
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5475382
+        functionName: InputAllow
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5475382
+        functionName: AttackRelease
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.70477986
+        functionName: PerformAttack
+        data: 2H_Standard_C
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.85870624
+        functionName: InputAllow
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -564,17 +643,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -716,17 +797,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -868,17 +951,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -1027,17 +1112,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -1165,17 +1252,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -1303,17 +1392,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -1441,17 +1532,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -1593,17 +1686,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -1745,17 +1840,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -1883,17 +1980,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -2035,17 +2134,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -2187,17 +2288,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -2339,17 +2442,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -2491,17 +2596,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -2629,17 +2736,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -2767,17 +2876,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -2919,17 +3030,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -3064,17 +3177,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -3216,17 +3331,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -3368,17 +3485,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -3520,17 +3639,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -3672,17 +3793,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -3810,17 +3933,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -3948,17 +4073,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -4086,17 +4213,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -4224,17 +4353,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -4362,17 +4493,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -4500,17 +4633,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -4638,17 +4773,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -4776,17 +4913,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -4914,17 +5053,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -5052,17 +5193,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -5190,17 +5333,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -5342,17 +5487,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -5480,17 +5627,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -5625,17 +5774,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -5777,17 +5928,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -5929,17 +6082,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -6074,17 +6229,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -6226,17 +6383,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -6378,17 +6537,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1
@@ -6530,17 +6691,19 @@ ModelImporter:
         weight: 0
       - path: Player Armature/root/DummyRoot/body
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
         weight: 1
-      - path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+        weight: 1
+      - path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
         weight: 1
       - path: Player Armature/root/DummyRoot/body/torso
         weight: 1

@@ -19,17 +19,19 @@ AvatarMask:
     m_Weight: 0
   - m_Path: Player Armature/root/DummyRoot/body
     m_Weight: 1
-  - m_Path: Player Armature/root/DummyRoot/body/ik.arm.l
+  - m_Path: Player Armature/root/DummyRoot/body/handParent
     m_Weight: 1
-  - m_Path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l
+  - m_Path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l
     m_Weight: 1
-  - m_Path: Player Armature/root/DummyRoot/body/ik.arm.l/tar.arm.l/tar.arm.l_end
+  - m_Path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l
     m_Weight: 1
-  - m_Path: Player Armature/root/DummyRoot/body/ik.arm.r
+  - m_Path: Player Armature/root/DummyRoot/body/handParent/ik.arm.l/tar.arm.l/tar.arm.l_end
     m_Weight: 1
-  - m_Path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r
+  - m_Path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r
     m_Weight: 1
-  - m_Path: Player Armature/root/DummyRoot/body/ik.arm.r/tar.arm.r/tar.arm.r_end
+  - m_Path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r
+    m_Weight: 1
+  - m_Path: Player Armature/root/DummyRoot/body/handParent/ik.arm.r/tar.arm.r/tar.arm.r_end
     m_Weight: 1
   - m_Path: Player Armature/root/DummyRoot/body/torso
     m_Weight: 1
