@@ -16,7 +16,8 @@ public class AIAttack
 public class MonsterAI : CharacterBase
 {
     public float MoveSpeed = 1;
-    public float FollowDistance = 3;
+    public float PreferredCombatDistance = 10;
+    public float CombatDistanceMoveThreshold = 1;
     public float TurnSpeed = .2f;
     public Renderer visuals;
     public AIAttack[] AttackTriggers;
@@ -65,6 +66,7 @@ public class MonsterAI : CharacterBase
                 {
 
                     //might want to loop through all attacks to check validity, then loop through again to decrement cooldowns?
+                    //on the other hand it probably doesn't matter
                     for (int i = 0; i < AttackTriggers.Length; i++)
                     {
                         if (AttackTriggers[i].CooldownTimer > 0)
@@ -83,7 +85,23 @@ public class MonsterAI : CharacterBase
                             }
                         }
                     }
-                    if (VecToPlayer.magnitude <= FollowDistance)
+
+                    if (VecToPlayer.magnitude > PreferredCombatDistance + CombatDistanceMoveThreshold)
+                    {
+                        animator.SetBool("Idle", false);
+                        animator.SetFloat("Speed", MoveSpeed);
+                    }
+                    else if (VecToPlayer.magnitude < PreferredCombatDistance - CombatDistanceMoveThreshold)
+                    {
+                        animator.SetBool("Idle", false);
+                        animator.SetFloat("Speed", -MoveSpeed);
+                    }
+                    else
+                    {
+                        animator.SetBool("Idle", true);
+                    }
+                    /*
+                    if (VecToPlayer.magnitude <= PreferredCombatDistance)
                     {
                         animator.SetBool("Idle", true);
                     }
@@ -91,6 +109,7 @@ public class MonsterAI : CharacterBase
                     {
                         animator.SetBool("Idle", false);
                     }
+                    */
                     SkipMovement:;
                 }
             }

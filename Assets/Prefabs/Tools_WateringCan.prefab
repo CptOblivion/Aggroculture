@@ -94,3 +94,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TwoHanded: 0
   toolType: 2
+  Tags:
+  - WateringCan

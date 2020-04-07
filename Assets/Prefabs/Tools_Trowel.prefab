@@ -94,3 +94,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TwoHanded: 0
   toolType: 3
+  Tags:
+  - Hoe
+  - Weapon

@@ -1189,7 +1189,7 @@ MonoBehaviour:
         m_CallState: 2
   animator: {fileID: 0}
   MoveSpeed: 2
-  FollowDistance: 10
+  PreferredCombatDistance: 10
   TurnSpeed: 0.08
   visuals: {fileID: 3726079494374161138}
   AttackTriggers:

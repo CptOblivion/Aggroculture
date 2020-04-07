@@ -43,7 +43,7 @@ public class PlayerMain : CharacterBase
     Quaternion TurnTarget;
     Quaternion TurnOrigin;
 
-    int LastInventorySlot = 0;
+    int LastSelectedWeapon = 1;
 
     FarmTileContents EquippedSeed = null;
     bool CanAct = true;
@@ -152,7 +152,8 @@ public class PlayerMain : CharacterBase
                 {
                     if ((inputUseR.triggered && inputUseR.ReadValue<float>() > 0) || (InCombat && inputUseL.triggered && inputUseL.ReadValue<float>() > 0))
                     {
-                        if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Hoe || Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.trowel)
+                        //if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Hoe || Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.trowel)
+                        if(CheckTagInItem("Weapon"))
                         {
                             SoftForceAnimator("Attack");
                             animator.SetFloat("Speed", 0);
@@ -168,7 +169,22 @@ public class PlayerMain : CharacterBase
                     {
                         if (inputUseL.ReadValue<float>() > 0 && !InCombat)
                         {
-                            if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Hoe || Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.trowel)
+                            string ToolType = null;
+
+                            for (int i = 0; i < Hotbar[ActiveHotbarSlot].Tags.Length; i++)
+                            {
+                                if (Hotbar[ActiveHotbarSlot].Tags[i] == "Hoe")
+                                {
+                                    ToolType = "Hoe";
+                                    break;
+                                }
+                                else if (Hotbar[ActiveHotbarSlot].Tags[i] == "WateringCan")
+                                {
+                                    ToolType = "WateringCan";
+                                    break;
+                                }
+                            }
+                            if (ToolType == "Hoe")
                             {
                                 bool hoeing = HoeGround(1);
                                 if (hoeing)
@@ -177,7 +193,7 @@ public class PlayerMain : CharacterBase
                                     goto InputsFinished;
                                 }
                             }
-                            else if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.WateringCan)
+                            else if (ToolType == "WateringCan")
                             {
                                 bool watering = WaterGround(1);
                                 if (watering)
@@ -186,7 +202,7 @@ public class PlayerMain : CharacterBase
                                     goto InputsFinished;
                                 }
                             }
-                            else if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Empty && inputUseL.triggered)
+                            else if (ToolType == null && inputUseL.triggered)
                             {
                                 string InteractAnim = InteractTileContents(1);
                                 if (InteractAnim != null)
@@ -433,6 +449,20 @@ public class PlayerMain : CharacterBase
 
     }
 
+    bool CheckTagInItem(string tag, int InventorySlot = -1)
+    {
+        if (InventorySlot == -1)
+            InventorySlot = ActiveHotbarSlot;
+        for (int i = 0; i < Hotbar[InventorySlot].Tags.Length; i++)
+        {
+            if (Hotbar[InventorySlot].Tags[i]== tag)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     protected override void AddToTargetedBy(CharacterBase targeter)
     {
         base.AddToTargetedBy(targeter);
@@ -442,7 +472,7 @@ public class PlayerMain : CharacterBase
         {
             InCombat = true;
             ExitCombatCooldownTimer = -1;
-            ChangeHotbarSlot(1);
+            ChangeHotbarSlot(LastSelectedWeapon);
             animator.SetBool("InCombat", true);
         }
     }
@@ -464,7 +494,8 @@ public class PlayerMain : CharacterBase
     {
         if (ActiveHotbarSlot != SlotNumber)
         {
-            LastInventorySlot = ActiveHotbarSlot;
+            if (CheckTagInItem("Weapon"))
+                LastSelectedWeapon = ActiveHotbarSlot;
             ActiveHotbarSlot = SlotNumber;
             //enable this line once (if) there's a "change items" animation (and when I've figured out playing upper-body animations on top of running)
             //animator.SetTrigger("ChangeItems");
