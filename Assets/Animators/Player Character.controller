@@ -195,7 +195,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 1822911193109523182, guid: 7d6a6f4400c6ff1409f4bef1625935c1,
     type: 3}
-  m_Tag: 
+  m_Tag: Attack
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -435,7 +435,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 5323764877552360772, guid: 7d6a6f4400c6ff1409f4bef1625935c1,
     type: 3}
-  m_Tag: 
+  m_Tag: Dodge
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -1132,7 +1132,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 1822911193109523182, guid: 7d6a6f4400c6ff1409f4bef1625935c1,
     type: 3}
-  m_Tag: 
+  m_Tag: Attack
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -1709,11 +1709,11 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 1090611322019342906, guid: 7d6a6f4400c6ff1409f4bef1625935c1,
     type: 3}
-  m_Tag: 
+  m_Tag: Attack
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
-  m_TimeParameter: 
+  m_TimeParameter: Speed
 --- !u!1101 &-2918086373242454020
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -3408,7 +3408,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 1090611322019342906, guid: 7d6a6f4400c6ff1409f4bef1625935c1,
     type: 3}
-  m_Tag: 
+  m_Tag: Attack
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -3533,7 +3533,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 6912320478980786123}
-  m_Tag: 
+  m_Tag: Dodge
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -3895,7 +3895,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 1977961173859971882}
-  m_Tag: 
+  m_Tag: Dodge
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -4619,7 +4619,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: -8697187785243023461, guid: 7d6a6f4400c6ff1409f4bef1625935c1,
     type: 3}
-  m_Tag: 
+  m_Tag: Dodge
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -4888,9 +4888,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.1
+  m_TransitionDuration: 0.05
   m_TransitionOffset: 0
-  m_ExitTime: 0.9
+  m_ExitTime: 0.95
   m_HasExitTime: 1
   m_HasFixedDuration: 0
   m_InterruptionSource: 0

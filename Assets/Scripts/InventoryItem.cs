@@ -8,4 +8,5 @@ public class InventoryItem : MonoBehaviour
     public bool TwoHanded = false;
     public ToolTypes toolType = ToolTypes.Empty;
     public string[] Tags = new string[0];
+    public Texture Icon;
 }

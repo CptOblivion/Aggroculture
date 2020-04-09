@@ -338,19 +338,12 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.022857143
-        functionName: AttackReleaseReset
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 1
-        messageOptions: 0
       - time: 0.07163522
         functionName: InputAttackOnly
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: -1
+        intParameter: 1
         messageOptions: 0
       - time: 0.10004493
         functionName: PerformAttack
@@ -378,7 +371,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: -1
+        intParameter: 1
         messageOptions: 0
       - time: 0.3555885
         functionName: PerformAttack
@@ -555,19 +548,12 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.007619048
-        functionName: AttackReleaseReset
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0.08102426
         functionName: InputAttackOnly
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 0
+        intParameter: 1
         messageOptions: 0
       - time: 0.10875112
         functionName: PerformAttack
@@ -595,7 +581,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 0
+        intParameter: 1
         messageOptions: 0
       - time: 0.43376458
         functionName: PerformAttack
@@ -2102,12 +2088,12 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.88539195
-        functionName: InputAllow
+      - time: 0.45257863
+        functionName: InputAttackOnly
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 1
+        intParameter: 0
         messageOptions: 0
       - time: 0.66952384
         functionName: SetIFrames
@@ -2115,6 +2101,20 @@ ModelImporter:
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
+        messageOptions: 0
+      - time: 0.8632075
+        functionName: AttackRelease
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.88539195
+        functionName: InputAllow
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
         messageOptions: 0
       transformMask:
       - path: 
@@ -2256,8 +2256,22 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.47160822
+        functionName: InputAttackOnly
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.4991914
         functionName: SetIFrames
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.89478886
+        functionName: AttackRelease
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -3152,6 +3166,20 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.5015724
+        functionName: InputAttackOnly
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.8679245
+        functionName: AttackRelease
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.8933333
         functionName: InputAllow
         data: 
@@ -3299,12 +3327,12 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.88000005
-        functionName: InputAllow
+      - time: 0.49685535
+        functionName: InputAttackOnly
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 1
+        intParameter: 0
         messageOptions: 0
       - time: 0.67142856
         functionName: SetIFrames
@@ -3312,6 +3340,20 @@ ModelImporter:
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
+        messageOptions: 0
+      - time: 0.8506289
+        functionName: AttackRelease
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.88000005
+        functionName: InputAllow
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
         messageOptions: 0
       transformMask:
       - path: 
@@ -3453,12 +3495,12 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.887619
-        functionName: InputAllow
+      - time: 0.5
+        functionName: InputAttackOnly
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 1
+        intParameter: 0
         messageOptions: 0
       - time: 0.6704762
         functionName: SetIFrames
@@ -3466,6 +3508,20 @@ ModelImporter:
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
+        messageOptions: 0
+      - time: 0.8663522
+        functionName: AttackRelease
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.887619
+        functionName: InputAllow
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
         messageOptions: 0
       transformMask:
       - path: 
@@ -3607,12 +3663,26 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.45754716
+        functionName: InputAttackOnly
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.49666667
         functionName: SetIFrames
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
+        messageOptions: 0
+      - time: 0.8632075
+        functionName: AttackRelease
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
         messageOptions: 0
       - time: 0.8838095
         functionName: InputAllow
@@ -3761,12 +3831,26 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.4701258
+        functionName: InputAttackOnly
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.50233597
         functionName: SetIFrames
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
+        messageOptions: 0
+      - time: 0.8569182
+        functionName: AttackRelease
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
         messageOptions: 0
       - time: 0.8805031
         functionName: InputAllow
@@ -5455,12 +5539,26 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.47484276
+        functionName: InputAttackOnly
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.49919137
         functionName: SetIFrames
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
+        messageOptions: 0
+      - time: 0.8553459
+        functionName: AttackRelease
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
         messageOptions: 0
       - time: 0.8815874
         functionName: InputAllow

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 public class PlayerMain : CharacterBase
 {
     public InputActionAsset inputActions;
@@ -71,8 +72,13 @@ public class PlayerMain : CharacterBase
     Vector2Int ToTile;
     Transform DummyHat;
     bool ControlEnabledThisTurn = true;
+    int LastAttackState = 0;
+    float LastAttackStateTime;
 
-    string LastControlScheme;
+    [HideInInspector]
+    public string LastControlScheme;
+    [HideInInspector]
+    public UnityEvent ControlSchemeChanged = new UnityEvent();
 
     [HideInInspector]
     public InputAction inputMove;
@@ -135,6 +141,7 @@ public class PlayerMain : CharacterBase
             {
                 LastControlScheme = playerInput.currentControlScheme;
                 Cursor.visible = LastControlScheme == "Keyboard";
+                ControlSchemeChanged.Invoke();
             }
             if (InCombat && ExitCombatCooldownTimer > 0)
             {
@@ -370,6 +377,11 @@ public class PlayerMain : CharacterBase
                             SoftForceAnimator("Dodge");
                             SetIFrames(1);
                             AllowNextInput(false);
+                            if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+                            {
+                                LastAttackState = animator.GetCurrentAnimatorStateInfo(0).fullPathHash;
+                                LastAttackStateTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+                            }
                             goto InputsFinished;
                         }
                     }
@@ -529,8 +541,7 @@ public class PlayerMain : CharacterBase
         }
     }
 
-    //string[] TriggerList = new string[] { "Attack", "DodgeRoll", "DodgeHop" };
-    string[] TriggerList = new string[] { "Attack", "Dodge" };
+    string[] TriggerList = new string[] { "Attack", "Dodge"};
 
     void SoftForceAnimator(string trigger = "")
     {
@@ -571,12 +582,16 @@ public class PlayerMain : CharacterBase
             characterController.Move(animator.rootPosition - transform.position + SnapToGround());
         }
     }
-    void AllowNextInput(bool Allow, bool AttackOnly = false)
+    void AllowNextInput(bool Move, bool Attack = false, bool Turn = false)
     {
-        if (!CanMove && Allow)
+        if (!CanMove && Move)
             ControlEnabledThisTurn = true;
-        CanAct = CanMove = CanTurn =  Allow;
-        if (AttackOnly) CanAct = CanTurn = true;
+        CanMove = Move;
+        CanAct = Attack;
+        CanTurn = Turn;
+        //CanAct = CanMove = CanTurn =  Move;
+        //if (Attack) CanAct = true;
+        //if (Turn) CanTurn = true;
     }
     public void InputDisable()
     {
@@ -595,17 +610,25 @@ public class PlayerMain : CharacterBase
         }
         if (!NextMoveAlreadyQueued)
         {
-            AllowNextInput(true);
+            AllowNextInput(true, true, true);
         }
 
     }
-    public void InputAttackOnly()
+    public void InputAttackOnly(int Turn)
     {
-        AllowNextInput(false, true);
+        AttackReleaseReset();
+        AllowNextInput(false, true, Turn != 0);
     }
     public void AttackRelease()
     {
         animator.SetTrigger("AttackRelease");
+        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Dodge") && LastAttackState != 0 && animator.GetBool("Attack"))
+        {
+            animator.Play(LastAttackState, 0, LastAttackStateTime);
+            LastAttackState = 0;
+            AttackRelease();
+        }
+        LastAttackState = 0;
     }
     public void AttackReleaseReset()
     {

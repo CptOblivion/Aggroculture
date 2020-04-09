@@ -96,3 +96,4 @@ MonoBehaviour:
   toolType: 2
   Tags:
   - WateringCan
+  Icon: {fileID: 2800000, guid: 889e91f68b284984cb431d56bc71e257, type: 3}

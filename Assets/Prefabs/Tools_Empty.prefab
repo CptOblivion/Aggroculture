@@ -45,3 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TwoHanded: 0
   toolType: 0
+  Tags: []
+  Icon: {fileID: 2800000, guid: b6b5bc415c29d8a4284afffd82190c72, type: 3}

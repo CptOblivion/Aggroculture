@@ -31,7 +31,7 @@ public class CharacterBase : MonoBehaviour
     public float RunSpeed = 1.5f;
 
     public float MaxHealth = 10;
-    protected float CurrentHealth;
+    public float CurrentHealth;
     public GlobalTools.Layers IFramesLayer = GlobalTools.Layers.MonsterIFrames;
 
     public float GroundSnapDistance = 2.5f;
