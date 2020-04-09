@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7445317410170864377}
   - component: {fileID: 7018627105716579587}
   - component: {fileID: 3943316349611789806}
+  - component: {fileID: 5591144928245953346}
   m_Layer: 0
   m_Name: Weed_Pigweed_Planted
   m_TagString: Untagged
@@ -98,6 +99,8 @@ MonoBehaviour:
   PushStrengthScale: 1
   PushDistanceLimit: 1
   PushSpringiness: 0.06
+  Attacks: 1
+  PhysicsObjects: 1
 --- !u!65 &7445317410170864377
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -149,3 +152,16 @@ MonoBehaviour:
   AlignWithPlayer: 1
   MaintainChildOrientation: 0
   FixRotation: 1
+--- !u!114 &5591144928245953346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7039534394326044422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d224d5407e8f04f84c5721dfd8f46c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialTag: Plant

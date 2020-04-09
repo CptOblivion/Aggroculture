@@ -1175,14 +1175,18 @@ MonoBehaviour:
   Healthbar: {fileID: 532285523}
   HealthbarFrame: {fileID: 1993001224}
   HotbarFrame: {fileID: 504716161}
-  IconDpad1: {fileID: 1865716044}
-  IconDpad2: {fileID: 1260399386}
-  IconDpad3: {fileID: 333731952}
-  IconDpad4: {fileID: 233199127}
-  IconRow1: {fileID: 792048281}
-  IconRow2: {fileID: 946849426}
-  IconRow3: {fileID: 949641830}
-  IconRow4: {fileID: 1832246192}
+  HotbarSelected: {r: 1, g: 1, b: 1, a: 1}
+  HotbarUnselected: {r: 0.46226418, g: 0.3095068, b: 0.26165897, a: 1}
+  IconDpad:
+  - {fileID: 1865716044}
+  - {fileID: 1260399386}
+  - {fileID: 333731952}
+  - {fileID: 233199127}
+  IconRow:
+  - {fileID: 792048281}
+  - {fileID: 946849426}
+  - {fileID: 949641830}
+  - {fileID: 1832246192}
   TargetWidth: 1920
   TargetHeight: 1080
 --- !u!4 &269137596 stripped
@@ -3958,6 +3962,7 @@ MonoBehaviour:
   targets: []
   SmoothSpeed: 0.1
   OverrideSmoothSpeed: 0.5
+  cam: {fileID: 0}
 --- !u!114 &725737590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12356,11 +12361,6 @@ PrefabInstance:
       propertyPath: InteractDistanceNear
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 218647505558065206, guid: 0c7570c8e1f4791429af7930794892e2,
-        type: 3}
-      propertyPath: MaxTurnSpeedAttack
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 241559796591721133, guid: 0c7570c8e1f4791429af7930794892e2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -13661,11 +13661,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 2.0835645e-14
       objectReference: {fileID: 0}
-    - target: {fileID: 5650365680238989355, guid: 0c7570c8e1f4791429af7930794892e2,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1ea900015d17bba428fd0cfafd9f60cc, type: 2}
     - target: {fileID: 5655058534223905615, guid: 0c7570c8e1f4791429af7930794892e2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -13964,17 +13959,32 @@ PrefabInstance:
     - target: {fileID: 6838704948105566597, guid: 0c7570c8e1f4791429af7930794892e2,
         type: 3}
       propertyPath: m_ControlsChangedEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6838704948105566597, guid: 0c7570c8e1f4791429af7930794892e2,
         type: 3}
       propertyPath: m_ControlsChangedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6838704948105566597, guid: 0c7570c8e1f4791429af7930794892e2,
         type: 3}
       propertyPath: m_ControlsChangedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6838704948105566597, guid: 0c7570c8e1f4791429af7930794892e2,
+        type: 3}
+      propertyPath: m_ControlsChangedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 249803943}
+    - target: {fileID: 6838704948105566597, guid: 0c7570c8e1f4791429af7930794892e2,
+        type: 3}
+      propertyPath: m_ControlsChangedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PrintThisThing
+      objectReference: {fileID: 0}
+    - target: {fileID: 6838704948105566597, guid: 0c7570c8e1f4791429af7930794892e2,
+        type: 3}
+      propertyPath: m_ControlsChangedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6953711620888373060, guid: 0c7570c8e1f4791429af7930794892e2,
         type: 3}

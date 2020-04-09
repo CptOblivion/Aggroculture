@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 6424101730017817111}
   - component: {fileID: 7269998916867810236}
   - component: {fileID: -2189454367937260970}
+  - component: {fileID: 8661999490491648887}
   m_Layer: 0
   m_Name: Scenery_Rocks
   m_TagString: Untagged
@@ -163,3 +164,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5, y: 2, z: 2.5}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &8661999490491648887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8033761634679373828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d224d5407e8f04f84c5721dfd8f46c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialTag: Stone

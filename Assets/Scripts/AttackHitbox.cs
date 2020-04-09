@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-//add something to render the hitbox in the gui
 public class AttackHitbox : MonoBehaviour
 {
     public string AttackName = "Attack1";
@@ -11,6 +10,10 @@ public class AttackHitbox : MonoBehaviour
     public Transform OriginOverride;
     public GameObject AttackEffect;
     public bool EffectIsPrefab;
+    public AttackHitEffectsStandard attackHitEffectDefaults;
+
+    //not implemented yet:
+    //public AttackHitEffect[] HitEffectsOverride;
 
     public bool Sphere = false;
     public float Radius = 1;
@@ -18,6 +21,8 @@ public class AttackHitbox : MonoBehaviour
     public Vector3 HalfExtents;
     public bool HitOwnLayer = false;
     public float FoliageForce = 100;
+
+    bool SingleEffects = false;
 
 
     private void OnEnable()
@@ -32,6 +37,8 @@ public class AttackHitbox : MonoBehaviour
     {
         Collider[] colliders;
         DamageReceiver damageReceiver;
+        MaterialTags materialTags = null;
+        int MadeContact = -1;
 
         int LayerMask = GlobalTools.GenerateLayerMask(gameObject.layer);
         if (!HitOwnLayer) LayerMask &= ~(1 << gameObject.layer);
@@ -53,15 +60,15 @@ public class AttackHitbox : MonoBehaviour
             }
         }
         colliders = Physics.OverlapBox(transform.TransformPoint(HitboxOffset), HalfExtents, transform.rotation, LayerMask, QueryTriggerInteraction.Collide);
-        Debug.DrawLine(transform.TransformPoint(HitboxOffset), transform.TransformPoint(HitboxOffset) + Vector3.up * 10);
+        //Debug.DrawLine(transform.TransformPoint(HitboxOffset), transform.TransformPoint(HitboxOffset) + Vector3.up * 10);
         for (int i = 0; i < colliders.Length; i++)
         {
             damageReceiver = colliders[i].GetComponent<DamageReceiver>();
             if (damageReceiver)
             {
                 damageReceiver.Damage(AttackDetails);
+                MadeContact = i;
             }
-
             if (FoliageForce > 0)
             {
                 FoliagePush foliagePush = colliders[i].GetComponent<FoliagePush>();
@@ -71,6 +78,42 @@ public class AttackHitbox : MonoBehaviour
                 }
             }
         }
+
+        if (colliders.Length > 0 && attackHitEffectDefaults)
+        {
+            if (SingleEffects)
+            {
+                //we should really only spawn one effect per swing: prioritize hits that dealt damage, and then ones with a defined material, and if not that then just whatever was hit first
+                if (MadeContact != -1)
+                    materialTags = colliders[MadeContact].GetComponent<MaterialTags>();
+                else
+                {
+                    for (MadeContact = 0; MadeContact < colliders.Length; MadeContact++)
+                    {
+                        materialTags = colliders[MadeContact].GetComponent<MaterialTags>();
+                        if (materialTags)
+                            break;
+                    }
+                }
+                if (materialTags)
+                {
+                    attackHitEffectDefaults.SpawnHitEffect(materialTags.MaterialTag, colliders[MadeContact].ClosestPoint(transform.position), transform);
+                }
+            }
+            else
+            {
+                for(int i = 0; i < colliders.Length; i++)
+                {
+                    materialTags = colliders[i].GetComponent<MaterialTags>();
+                    if (materialTags)
+                    {
+                        attackHitEffectDefaults.SpawnHitEffect(materialTags.MaterialTag, colliders[i].ClosestPoint(transform.position), transform);
+                    }
+
+                }
+            }
+        }
+
         if (recursive)
         {
             foreach (AttackHitbox child in GetComponentsInChildren<AttackHitbox>())
@@ -86,6 +129,7 @@ public class AttackHitbox : MonoBehaviour
             Destroy(AttackEffect);
         }
     }
+
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {

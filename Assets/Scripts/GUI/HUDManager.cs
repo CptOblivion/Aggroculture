@@ -12,15 +12,10 @@ public class HUDManager : MonoBehaviour
     public Transform HotbarFrame;
     float HotbarFrameSize;
 
-    public RawImage IconDpad1;
-    public RawImage IconDpad2;
-    public RawImage IconDpad3;
-    public RawImage IconDpad4;
-
-    public RawImage IconRow1;
-    public RawImage IconRow2;
-    public RawImage IconRow3;
-    public RawImage IconRow4;
+    public Color HotbarSelected = Color.white;
+    public Color HotbarUnselected = Color.gray;
+    public RawImage[] IconDpad = new RawImage[4];
+    public RawImage[] IconRow = new RawImage[4];
 
     public float TargetWidth = 1920;
     public float TargetHeight = 1080;
@@ -34,13 +29,20 @@ public class HUDManager : MonoBehaviour
         HealthbarFrameSize = HealthbarFrame.localScale.x;
         HotbarFrameSize = HotbarFrame.localScale.x;
         animator = GetComponent<Animator>();
-        PlayerMain.current.ControlSchemeChanged.AddListener(ChangeControlScheme);
-        animator.SetBool("Dpad", PlayerMain.current.LastControlScheme != "Keyboard");
+        PlayerMain.current.OnChangeHotbar.AddListener(UpdateHotbar);
+        animator.SetBool("Dpad", PlayerMain.current.playerInput.currentControlScheme != "Keyboard");
         LastWindowHeight = Screen.height;
         LastWindowWidth = Screen.width;
         UpdateElementPositions();
-        UpdateHotbar();
+        UpdateHotbar(PlayerMain.current);
 
+        if (PlayerMain.current)
+        {
+            PlayerMain.current.playerInput.controlsChangedEvent.AddListener(ChangeControlScheme);
+            Cursor.visible = PlayerMain.current.playerInput.currentControlScheme == "Keyboard";
+        }
+        else
+            Debug.Log("No current player!");
     }
 
     void Update()
@@ -54,10 +56,10 @@ public class HUDManager : MonoBehaviour
         Healthbar.localScale = new Vector3(PlayerMain.current.CurrentHealth / PlayerMain.current.MaxHealth, 1, 1);
     }
 
-    void ChangeControlScheme()
+    void ChangeControlScheme(UnityEngine.InputSystem.PlayerInput playerInput)
     {
-        //Debug.Log($"Changing control scheme to {PlayerMain.current.LastControlScheme}");
-        animator.SetBool("Dpad", PlayerMain.current.LastControlScheme != "Keyboard");
+        animator.SetBool("Dpad", playerInput.currentControlScheme != "Keyboard");
+        Cursor.visible = playerInput.currentControlScheme == "Keyboard";
     }
 
     void UpdateElementPositions()
@@ -71,16 +73,22 @@ public class HUDManager : MonoBehaviour
 
     }
 
-    void UpdateHotbar()
+    void UpdateHotbar(PlayerMain playerMain)
     {
-        IconDpad1.texture = PlayerMain.current.Hotbar[1].Icon;
-        IconDpad2.texture = PlayerMain.current.Hotbar[2].Icon;
-        IconDpad3.texture = PlayerMain.current.Hotbar[3].Icon;
-        IconDpad4.texture = PlayerMain.current.Hotbar[4].Icon;
-
-        IconRow1.texture = PlayerMain.current.Hotbar[1].Icon;
-        IconRow2.texture = PlayerMain.current.Hotbar[2].Icon;
-        IconRow3.texture = PlayerMain.current.Hotbar[3].Icon;
-        IconRow4.texture = PlayerMain.current.Hotbar[4].Icon;
+        for (int i = 0; i < 4; i++)
+        {
+            IconDpad[i].texture = playerMain.Hotbar[i+1].Icon;
+            IconRow[i].texture = playerMain.Hotbar[i+1].Icon;
+            if (playerMain.ActiveHotbarSlot == i+1)
+            {
+                IconDpad[i].color = HotbarSelected;
+                IconRow[i].color = HotbarSelected;
+            }
+            else
+            {
+                IconDpad[i].color = HotbarUnselected;
+                IconRow[i].color = HotbarUnselected;
+            }
+        }
     }
 }

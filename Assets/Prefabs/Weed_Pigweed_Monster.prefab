@@ -298,6 +298,7 @@ MonoBehaviour:
   AttackEffect: {fileID: 1153626123692195929, guid: ca12f51162ff3b04292f1de6d59f3a8c,
     type: 3}
   EffectIsPrefab: 1
+  attackHitEffectDefaults: {fileID: 0}
   Sphere: 0
   Radius: 1
   HitboxOffset: {x: 0, y: 0, z: 0}
@@ -1139,6 +1140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RunSpeed: 1.5
   MaxHealth: 20
+  CurrentHealth: 0
   IFramesLayer: 11
   GroundSnapDistance: 2.5
   DamageResistances:
@@ -1190,6 +1192,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   MoveSpeed: 2
   PreferredCombatDistance: 10
+  CombatDistanceMoveThreshold: 1
   TurnSpeed: 0.08
   visuals: {fileID: 3726079494374161138}
   AttackTriggers:
@@ -1359,6 +1362,7 @@ GameObject:
   - component: {fileID: 3726079494374161138}
   - component: {fileID: 6552002298291563420}
   - component: {fileID: 8093503815672463247}
+  - component: {fileID: 1518386046122648847}
   m_Layer: 9
   m_Name: Pigweed_Monster
   m_TagString: Untagged
@@ -1482,6 +1486,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.031999033, y: 0.032983817, z: 0.13400255}
   m_Center: {x: 0.0005091059, y: -0.0011638367, z: 0.057265453}
+--- !u!114 &1518386046122648847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7898140056767896305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d224d5407e8f04f84c5721dfd8f46c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialTag: Plant
 --- !u!1 &7926971639811322830
 GameObject:
   m_ObjectHideFlags: 0

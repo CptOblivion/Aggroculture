@@ -15,12 +15,13 @@ public class FollowCam : MonoBehaviour
     [Range(0, 1)]
     public float OverrideSmoothSpeed = .5f;
 
-    Camera cam;
+    public static FollowCam current;
+    [HideInInspector]
+    public Camera cam;
     Camera currentTarget;
     float StartingSize;
-    float OverrideFade = 0;
-    float OverrideSpeed = 0;
-    float OverrideSize = 0;
+    // float OverrideFade = 0;
+    // float OverrideSpeed = 0;
     Vector3 TargetPosition;
 
 
@@ -29,6 +30,12 @@ public class FollowCam : MonoBehaviour
     {
         cam = GetComponent<Camera>();
         StartingSize = cam.orthographicSize;
+        current = this;
+    }
+    private void OnDestroy()
+    {
+        if (current == this)
+            current = null;
     }
 
     void Update()
@@ -51,7 +58,6 @@ public class FollowCam : MonoBehaviour
     public void OverrideLocation(Camera newLocation)
     {
         targets.Add(newLocation);
-        OverrideFade = 0;
     }
 
     public void CancelOverrideLocation(Camera newLocation)

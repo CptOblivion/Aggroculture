@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3669359929282702018}
   - component: {fileID: 4319628027889182736}
   - component: {fileID: -104923470469506939}
+  - component: {fileID: 5688443488915885529}
   m_Layer: 0
   m_Name: Scenery_GrassTuft3
   m_TagString: Untagged
@@ -117,6 +118,8 @@ MonoBehaviour:
   PushStrengthScale: 1
   PushDistanceLimit: 1
   PushSpringiness: 0.05
+  Attacks: 1
+  PhysicsObjects: 1
 --- !u!114 &4319628027889182736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,3 +160,16 @@ MonoBehaviour:
   AlignWithPlayer: 1
   MaintainChildOrientation: 1
   FixRotation: 1
+--- !u!114 &5688443488915885529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24193433439872434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d224d5407e8f04f84c5721dfd8f46c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialTag: Plant

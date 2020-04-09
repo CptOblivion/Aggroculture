@@ -22,6 +22,7 @@ class FarmPlotLerpEntry
 
 public class FarmPlot : MonoBehaviour
 {
+    public static FarmPlot current;
     public static Texture2D farmPlotDisplay;
     public FarmPlotEntry[,] FarmContents;
     public int FarmWidth = 32;
@@ -41,6 +42,7 @@ public class FarmPlot : MonoBehaviour
     Vector2Int LastTargetedLocation = Vector2Int.zero;
     void Awake()
     {
+        current = this;
         TileScale = transform.lossyScale.x * 10 / FarmWidth;
         if (farmPlotDisplay == null)
         {
@@ -77,6 +79,11 @@ public class FarmPlot : MonoBehaviour
             }
         }
         GetComponent<MeshRenderer>().material.SetTexture("_PlotArray", farmPlotDisplay);
+    }
+    private void OnDestroy()
+    {
+        if (current == this)
+            current = null;
     }
 
     private void Update()

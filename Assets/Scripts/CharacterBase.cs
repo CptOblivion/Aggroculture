@@ -31,6 +31,7 @@ public class CharacterBase : MonoBehaviour
     public float RunSpeed = 1.5f;
 
     public float MaxHealth = 10;
+    [HideInInspector]
     public float CurrentHealth;
     public GlobalTools.Layers IFramesLayer = GlobalTools.Layers.MonsterIFrames;
 
