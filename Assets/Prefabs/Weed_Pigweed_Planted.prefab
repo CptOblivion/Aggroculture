@@ -148,6 +148,7 @@ MonoBehaviour:
   PullAnimation: 1
   PullEffect: {fileID: 7492567495050848473, guid: fc4d8932d2135934b8b164e24b09a38d,
     type: 3}
+  TillWhenPulled: 1
   EffectLife: 0
   AlignWithPlayer: 1
   MaintainChildOrientation: 0

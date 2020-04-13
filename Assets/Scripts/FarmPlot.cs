@@ -205,7 +205,15 @@ public class FarmPlot : MonoBehaviour
                 else
                 {
                     entry.InitializedContents.PullFromFarm();
-                    entry.Contents = null;
+
+                    if (entry.Contents.TillWhenPulled)
+                    {
+                        //gotta null the tile contents after the text, but before tilling- maybe put a "till regardless of tile contents" option in HoeTile?
+                        entry.Contents = null;
+                        HoeTile(TilePosition);
+                    }
+                    else
+                        entry.Contents = null;
                     Destroy(entry.InitializedContents.gameObject);
                     entry.InitializedContents = null;
                 }

@@ -7,6 +7,7 @@ public class FarmTileContents : MonoBehaviour
     public enum PullAnims {NoPull, PullWeed_Big, PullWeed_Small, PullRock}
     public PullAnims PullAnimation = PullAnims.PullWeed_Small;
     public GameObject PullEffect;
+    public bool TillWhenPulled = false;
     public float EffectLife = 0;
     [Tooltip("An object within the pulleffect prefab that should receive the randomizer values from the spawning object")]
     public bool AlignWithPlayer = false;
