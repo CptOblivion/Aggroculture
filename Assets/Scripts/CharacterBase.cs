@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [System.Serializable]
 public class ResistanceArray
@@ -321,3 +324,83 @@ public class CharacterBase : MonoBehaviour
         }
     }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(CharacterBase))]
+public class CharacterBaseInspector : Editor
+{
+    bool ShowSetup = false;
+    bool ShowDamageStuff = false;
+    SerializedProperty RunSpeed;
+    SerializedProperty MaxHealth;
+    SerializedProperty GroundSnapDistance;
+    SerializedProperty DamageResistances;
+    SerializedProperty Attacks;
+    SerializedProperty IFramesLayer;
+    SerializedProperty Renderers;
+    SerializedProperty DamageFlinchStateName;
+    SerializedProperty DamageSlideStateName;
+    SerializedProperty DamageKnockdownStateName;
+    SerializedProperty DamageFadeTime;
+    SerializedProperty DeathDamageFadeTime;
+    SerializedProperty DamageColor;
+    SerializedProperty OnDeath;
+    protected virtual void OnEnable()
+    {
+        RunSpeed = serializedObject.FindProperty("RunSpeed");
+        MaxHealth = serializedObject.FindProperty("MaxHealth");
+        IFramesLayer = serializedObject.FindProperty("IFramesLayer");
+        GroundSnapDistance = serializedObject.FindProperty("GroundSnapDistance");
+        DamageResistances = serializedObject.FindProperty("DamageResistances");
+        Attacks = serializedObject.FindProperty("Attacks");
+        Renderers = serializedObject.FindProperty("Renderers");
+        DamageFlinchStateName = serializedObject.FindProperty("DamageFlinchStateName");
+        DamageSlideStateName = serializedObject.FindProperty("DamageSlideStateName");
+        DamageKnockdownStateName = serializedObject.FindProperty("DamageKnockdownStateName");
+        DamageFadeTime = serializedObject.FindProperty("DamageFadeTime");
+        DeathDamageFadeTime = serializedObject.FindProperty("DeathDamageFadeTime");
+        DamageColor = serializedObject.FindProperty("DamageColor");
+        OnDeath = serializedObject.FindProperty("OnDeath");
+    }
+    public override void OnInspectorGUI()
+    {
+        EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+
+        EditorGUILayout.BeginVertical("box");
+        ShowSetup = EditorGUILayout.Foldout(ShowSetup, "Setup", true);
+        if (ShowSetup)
+        {
+            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+            EditorGUILayout.PropertyField(Renderers);
+            EditorGUILayout.PropertyField(IFramesLayer);
+            EditorGUILayout.EndVertical();
+        }
+        EditorGUILayout.EndVertical();
+
+        EditorGUILayout.PropertyField(RunSpeed);
+        EditorGUILayout.PropertyField(MaxHealth);
+        EditorGUILayout.PropertyField(GroundSnapDistance);
+        EditorGUILayout.PropertyField(Attacks);
+        EditorGUILayout.PropertyField(DamageResistances);
+
+        EditorGUILayout.BeginVertical("box");
+        ShowDamageStuff = EditorGUILayout.Foldout(ShowDamageStuff, "Damage Stuff", true);
+        if (ShowDamageStuff)
+        {
+            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+            EditorGUILayout.PropertyField(DamageFlinchStateName);
+            EditorGUILayout.PropertyField(DamageSlideStateName);
+            EditorGUILayout.PropertyField(DamageKnockdownStateName);
+            EditorGUILayout.PropertyField(DamageFadeTime);
+            EditorGUILayout.PropertyField(DeathDamageFadeTime);
+            EditorGUILayout.PropertyField(DamageColor);
+            EditorGUILayout.EndVertical();
+        }
+        EditorGUILayout.EndVertical();
+
+        EditorGUILayout.PropertyField(OnDeath);
+
+        EditorGUILayout.EndVertical();
+    }
+}
+#endif

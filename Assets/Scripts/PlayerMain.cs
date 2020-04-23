@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class ChangeHotbar: UnityEvent<PlayerMain>
 {
@@ -10,7 +13,6 @@ public class ChangeHotbar: UnityEvent<PlayerMain>
 
 public class PlayerMain : CharacterBase
 {
-    public InputActionAsset inputActions;
     public bool NoInteractionIfTooFar = true;
     public bool InteractFromTileCenter = true;
 
@@ -102,9 +104,9 @@ public class PlayerMain : CharacterBase
         base.Awake();
         current = this;
 
-        inputActions.Enable();
-        actionsGameplay = inputActions.FindActionMap("Gameplay");
         playerInput = GetComponent<PlayerInput>();
+        playerInput.actions.Enable();
+        actionsGameplay = playerInput.actions.FindActionMap("Gameplay");
         SpinboneHome = SpinBone.localRotation;
         FacingObject.localRotation = Quaternion.identity;
 
@@ -735,3 +737,98 @@ public class PlayerMain : CharacterBase
         }
     }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(PlayerMain))]
+public class PlayerMainInspector : CharacterBaseInspector
+{
+    static bool ShowCharacterBase = true;
+    static bool ShowSetupPlayer = false;
+
+    SerializedProperty LeftHand;
+    SerializedProperty RightHand;
+    SerializedProperty SpinBone;
+    SerializedProperty FacingObject;
+    SerializedProperty Hat;
+    SerializedProperty Tools_Empty;
+
+    SerializedProperty NoInteractionIfTooFar;
+    SerializedProperty InteractFromTileCenter;
+    SerializedProperty Hotbar;
+    SerializedProperty ToolDistanceFar;
+    SerializedProperty GrabDistanceFar;
+    SerializedProperty InteractDistance;
+    SerializedProperty ExitCombatCooldown;
+    SerializedProperty DodgeRollCooldown;
+    SerializedProperty MaxTurnSpeed;
+    SerializedProperty MaxTurnSpeedAttack;
+
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        NoInteractionIfTooFar = serializedObject.FindProperty("NoInteractionIfTooFar");
+        InteractFromTileCenter = serializedObject.FindProperty("InteractFromTileCenter");
+        Hotbar = serializedObject.FindProperty("Hotbar");
+        LeftHand = serializedObject.FindProperty("LeftHand");
+        RightHand = serializedObject.FindProperty("RightHand");
+        ToolDistanceFar = serializedObject.FindProperty("ToolDistanceFar");
+        GrabDistanceFar = serializedObject.FindProperty("GrabDistanceFar");
+        InteractDistance = serializedObject.FindProperty("InteractDistance");
+        SpinBone = serializedObject.FindProperty("SpinBone");
+        FacingObject = serializedObject.FindProperty("FacingObject");
+        Hat = serializedObject.FindProperty("Hat");
+        Tools_Empty = serializedObject.FindProperty("Tools_Empty");
+        ExitCombatCooldown = serializedObject.FindProperty("ExitCombatCooldown");
+        DodgeRollCooldown = serializedObject.FindProperty("DodgeRollCooldown");
+        MaxTurnSpeed = serializedObject.FindProperty("MaxTurnSpeed");
+        MaxTurnSpeedAttack = serializedObject.FindProperty("MaxTurnSpeedAttack");
+    }
+
+    public override void OnInspectorGUI()
+    {
+        serializedObject.Update();
+        EditorGUILayout.BeginVertical("box");
+        EditorGUI.indentLevel++;
+        ShowCharacterBase = EditorGUILayout.Foldout(ShowCharacterBase, "Character Base Properties", true);
+        if (ShowCharacterBase)
+        {
+            base.OnInspectorGUI();
+        }
+        EditorGUI.indentLevel--;
+        EditorGUILayout.EndVertical();
+        EditorGUILayout.BeginVertical("box");
+        EditorGUI.indentLevel++;
+        ShowSetupPlayer = EditorGUILayout.Foldout(ShowSetupPlayer, "Player Setup", true);
+        if (ShowSetupPlayer)
+        {
+            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+
+            EditorGUILayout.PropertyField(LeftHand);
+            EditorGUILayout.PropertyField(RightHand);
+            EditorGUILayout.PropertyField(SpinBone);
+            EditorGUILayout.PropertyField(FacingObject);
+            EditorGUILayout.PropertyField(Hat);
+            EditorGUILayout.PropertyField(Tools_Empty);
+
+            EditorGUILayout.EndVertical();
+        }
+        EditorGUI.indentLevel--;
+        EditorGUILayout.EndVertical();
+
+
+        EditorGUILayout.PropertyField(NoInteractionIfTooFar);
+        EditorGUILayout.PropertyField(InteractFromTileCenter);
+        EditorGUILayout.PropertyField(Hotbar);
+        EditorGUILayout.PropertyField(ToolDistanceFar);
+        EditorGUILayout.PropertyField(GrabDistanceFar);
+        EditorGUILayout.PropertyField(InteractDistance);
+        EditorGUILayout.PropertyField(ExitCombatCooldown);
+        EditorGUILayout.PropertyField(DodgeRollCooldown);
+        EditorGUILayout.PropertyField(MaxTurnSpeed);
+        EditorGUILayout.PropertyField(MaxTurnSpeedAttack);
+
+        serializedObject.ApplyModifiedProperties();
+    }
+}
+#endif

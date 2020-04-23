@@ -1203,7 +1203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078236a487f24c146aea70b5c276b0ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RunSpeed: 1.5
+  RunSpeed: 2
   MaxHealth: 20
   CurrentHealth: 0
   IFramesLayer: 11
@@ -1270,7 +1270,6 @@ MonoBehaviour:
   PreferredCombatDistance: 10
   CombatDistanceMoveThreshold: 1
   TurnSpeed: 0.08
-  visuals: {fileID: 3726079494374161138}
   AttackTriggers:
   - Name: Overhead Slam
     AttackZones:

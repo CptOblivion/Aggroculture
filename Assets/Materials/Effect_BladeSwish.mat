@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: vertex Shadeless
-  m_Shader: {fileID: -6465566751694194690, guid: e76faa665b0948540822767cb5cfd465,
+  m_Name: Effect_BladeSwish
+  m_Shader: {fileID: -6465566751694194690, guid: 3ea2d0310c9147e4bb464285563d4577,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4

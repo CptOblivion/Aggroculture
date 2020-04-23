@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: vertex Shadeless
-  m_Shader: {fileID: -6465566751694194690, guid: e76faa665b0948540822767cb5cfd465,
+  m_Name: Effect_Fire
+  m_Shader: {fileID: -6465566751694194690, guid: 3ea2d0310c9147e4bb464285563d4577,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -88,8 +88,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_25A6E30C: {r: 0.77254903, g: 1, b: 0.95226055, a: 1}
-    - Color_CE5626C: {r: 0, g: 0.04915124, b: 0.2264151, a: 0}
+    - Color_25A6E30C: {r: 1, g: 0.98915553, b: 0, a: 1}
+    - Color_CE5626C: {r: 1, g: 0.14858223, b: 0, a: 0.5019608}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
