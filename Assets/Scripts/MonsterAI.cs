@@ -53,7 +53,7 @@ public class MonsterAI : CharacterBase
                 Renderers[i].enabled = true;
             }
         }
-        else if (!spawning && !PauseManager.Paused && alive)
+        else if (!spawning && !TimeManager.Paused && alive)
         {
             VecToPlayer = PlayerMain.current.transform.position - transform.position;
             if (!InCombat)
@@ -127,12 +127,19 @@ public class MonsterAI : CharacterBase
     public void SetCanMove(int intToBool)
     {
         CanMove = intToBool != 0;
-        AttackTriggers[CurrentAttack].CooldownTimer = AttackTriggers[CurrentAttack].Cooldown;
+        if (CurrentAttack != -1) AttackTriggers[CurrentAttack].CooldownTimer = AttackTriggers[CurrentAttack].Cooldown;
         CurrentAttack = -1;
     }
     public void SetCanTurn(int intToBool)
     {
         CanTurn = intToBool != 0;
+    }
+    public void ReturnFromDamage()
+    {
+        SetCanMove(1);
+        SetCanTurn(1);
+        ScaleTurnSpeed(1);
+        SetIFrames(0);
     }
     public void ScaleTurnSpeed(float NewTurnSpeedScale)
     {

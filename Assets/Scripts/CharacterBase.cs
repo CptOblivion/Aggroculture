@@ -10,6 +10,7 @@ using UnityEditor;
 public class ResistanceArray
 {
     //poise-- find a better name
+    [Tooltip("knockback = attack force / knockback resistance, flinch at 5, slide at 10, knockdown at 15")]
     public float Knockback = 1;
     public float Cutting = 1;
     public float Crushing = 1;
@@ -53,6 +54,9 @@ public class CharacterBase : MonoBehaviour
     protected Color[][] BaseColors;
     protected float DamageFadeSpeed = 0;
     protected float DamageFadeTimer;
+    protected float SuperArmor = 0;
+    protected bool Staggered = false;
+
 
     public UnityEvent OnDeath;
 
@@ -99,7 +103,7 @@ public class CharacterBase : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (!PauseManager.Paused)
+        if (!TimeManager.Paused)
         {
             if (DamageFadeTimer > 0)
             {
@@ -176,43 +180,33 @@ public class CharacterBase : MonoBehaviour
             }
         }
 
-        float force = receiver.DamageInput.Knockback / DamageResistances.Knockback;
+        float force = receiver.DamageInput.Knockback / (DamageResistances.Knockback + SuperArmor);
 
         if (CurrentHealth <= 0)
         {
             SetIFramesDamage(DeathDamageFadeTime);
-            Kill();
+            Kill(); //ah, time is die
         }
-        else if (force >= DamageResistances.ThresholdKnockdown)
+        else if (force < DamageResistances.ThresholdFlinch) //smol hit, no flinch
         {
-            transform.rotation = Quaternion.LookRotation(receiver.DamageInput.KnockbackCenter - transform.position, Vector3.up);
-            if (DamageKnockdownStateName != "") animator.Play(DamageKnockdownStateName, 0);
-            animator.SetFloat("Speed", 0);
-            CanMove = false;
-            CanTurn = false;
-            SetIFramesDamage(DamageFadeTime);
-        }
-        else if (force >= DamageResistances.ThresholdSlide)
-        {
-            transform.rotation = Quaternion.LookRotation(receiver.DamageInput.KnockbackCenter - transform.position, Vector3.up);
-            if (DamageSlideStateName != "") animator.Play(DamageSlideStateName, 0);
-            animator.SetFloat("Speed", 0);
-            CanMove = false;
-            CanTurn = false;
-            SetIFramesDamage(DamageFadeTime);
-        }
-        else if (force >= DamageResistances.ThresholdFlinch)
-        {
-            transform.rotation = Quaternion.LookRotation(receiver.DamageInput.KnockbackCenter - transform.position, Vector3.up);
-            if (DamageFlinchStateName != "") animator.Play(DamageFlinchStateName, 0);
-            animator.SetFloat("Speed", 0);
-            CanMove = false;
-            CanTurn = false;
-            SetIFramesDamage(DamageFadeTime);
-        }
-        else
-        {
+            Staggered = false;
             SetIFramesTimer(1);
+        }
+        else //bigge hit, stop what you're doing
+        {
+            transform.rotation = Quaternion.LookRotation(receiver.DamageInput.KnockbackCenter - transform.position, Vector3.up);
+            Staggered = true;
+            SuperArmor = 0;
+            animator.SetFloat("Speed", 0);
+            CanMove = false;
+            CanTurn = false;
+            SetIFramesDamage(DamageFadeTime);
+            if (force < DamageResistances.ThresholdSlide)
+                animator.Play(DamageFlinchStateName, 0);
+            else if (force < DamageResistances.ThresholdKnockdown)
+                animator.Play(DamageSlideStateName, 0);
+            else
+                animator.Play(DamageKnockdownStateName, 0);
         }
     }
     public void SetIFrames(int input)
@@ -242,6 +236,11 @@ public class CharacterBase : MonoBehaviour
         IFramesTimer = IFramesTime;
         if (flash != 0)
             SetIFramesDamage(DamageFadeTime);
+    }
+
+    public void SetSuperArmor(float armor)
+    {
+        SuperArmor = armor;
     }
 
     protected Vector3 SnapToGround()
@@ -298,6 +297,9 @@ public class CharacterBase : MonoBehaviour
 
     public virtual void Kill()
     {
+        CanMove = false;
+        CanTurn = false;
+
         if(Targeting != null)
         {
             Targeting.RemoveFromTargetedBy(this);

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MonsterBaseOV_Pigweed
+  m_Controller: {fileID: 9100000, guid: c3a485d277dddfd46a739fa767a9f23b, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 67d9738e8bf00db4e8ae4a7b664559a9, type: 2}
+    m_OverrideClip: {fileID: 5058797864985051395, guid: e63bcc1ebae47ad4d929f27f8ef2d7df,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 591fee988b1f6c846a436e07a182b218, type: 2}
+    m_OverrideClip: {fileID: -5224379733525954297, guid: e63bcc1ebae47ad4d929f27f8ef2d7df,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 921be343c7924b149a6af8f3eacbdf8d, type: 2}
+    m_OverrideClip: {fileID: 7758804277826316956, guid: e63bcc1ebae47ad4d929f27f8ef2d7df,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 475f39789f907b54e9a876b168d39988, type: 2}
+    m_OverrideClip: {fileID: 409243972436294112, guid: e63bcc1ebae47ad4d929f27f8ef2d7df,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 9e2066e65c8129043a11c5f11e95c157, type: 2}
+    m_OverrideClip: {fileID: -8364857785875020901, guid: e63bcc1ebae47ad4d929f27f8ef2d7df,
+      type: 3}

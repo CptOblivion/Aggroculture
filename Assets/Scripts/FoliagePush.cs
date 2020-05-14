@@ -21,8 +21,8 @@ public class FoliagePush : MonoBehaviour
     private void Awake()
     {
 
-        sMesh = GetComponent<SkinnedMeshRenderer>();
-        mMesh = GetComponent<MeshRenderer>();
+        sMesh = GetComponentInChildren<SkinnedMeshRenderer>();
+        mMesh = GetComponentInChildren<MeshRenderer>();
     }
 
     private void OnTriggerStay(Collider other)

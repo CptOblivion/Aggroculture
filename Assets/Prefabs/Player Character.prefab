@@ -80,7 +80,7 @@ MonoBehaviour:
     Damage:
     - Type: 0
       Amount: 5
-    Knockback: 0
+    Knockback: 20
     KnockbackCenter: {x: 0, y: 0, z: 0}
   OriginOverride: {fileID: 2368931232384859473}
   AttackEffect: {fileID: 6830502771813669254}
@@ -890,9 +890,9 @@ MonoBehaviour:
     Cutting: 1
     Crushing: 1
     Skewering: 1
-    Spicy: 0
-    Sour: 0
-    Salty: 0
+    Spicy: 1
+    Sour: 1
+    Salty: 1
     ThresholdFlinch: 5
     ThresholdSlide: 10
     ThresholdKnockdown: 15
@@ -916,15 +916,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   animator: {fileID: 0}
-  inputActions: {fileID: -944628639613478452, guid: 8ca5b4bc33f7cd94f92041e535c16295,
-    type: 3}
   NoInteractionIfTooFar: 1
   InteractFromTileCenter: 1
   Hotbar:
   - {fileID: -2546530451316790373, guid: 3e338fcc02bf9904db986afdfff17173, type: 3}
   - {fileID: -4659624919448764414, guid: 09fb016c36c8e434abea8a33346f3f97, type: 3}
-  - {fileID: 8851746920123168855, guid: 7e3dfd29d05bfd340852b5b3e441b65b, type: 3}
   - {fileID: 8851746920123168855, guid: d59cd9ed12e4fd049b76ff789825fa9a, type: 3}
+  - {fileID: 8851746920123168855, guid: 7e3dfd29d05bfd340852b5b3e441b65b, type: 3}
   - {fileID: -2546530451316790373, guid: 3e338fcc02bf9904db986afdfff17173, type: 3}
   LeftHand: {fileID: 2317887552352909257}
   RightHand: {fileID: 5136071220862822911}
@@ -1217,7 +1215,7 @@ MonoBehaviour:
     Damage:
     - Type: 0
       Amount: 4
-    Knockback: 0
+    Knockback: 10
     KnockbackCenter: {x: 0, y: 0, z: 0}
   OriginOverride: {fileID: 2368931232384859473}
   AttackEffect: {fileID: 4509038544393635229}
@@ -1404,7 +1402,7 @@ MonoBehaviour:
     Damage:
     - Type: 0
       Amount: 4
-    Knockback: 0
+    Knockback: 20
     KnockbackCenter: {x: 0, y: 0, z: 0}
   OriginOverride: {fileID: 2368931232384859473}
   AttackEffect: {fileID: 5945870627631539870}
@@ -1531,7 +1529,7 @@ MonoBehaviour:
     Damage:
     - Type: 0
       Amount: 3
-    Knockback: 0
+    Knockback: 10
     KnockbackCenter: {x: 0, y: 0, z: 0}
   OriginOverride: {fileID: 2368931232384859473}
   AttackEffect: {fileID: 6953711620888373060}
@@ -1717,7 +1715,7 @@ MonoBehaviour:
     Damage:
     - Type: 0
       Amount: 3
-    Knockback: 0
+    Knockback: 10
     KnockbackCenter: {x: 0, y: 0, z: 0}
   OriginOverride: {fileID: 2368931232384859473}
   AttackEffect: {fileID: 6783912191582672364}
@@ -2215,7 +2213,7 @@ MonoBehaviour:
     Damage:
     - Type: 0
       Amount: 5
-    Knockback: 0
+    Knockback: 20
     KnockbackCenter: {x: 0, y: 0, z: 0}
   OriginOverride: {fileID: 2368931232384859473}
   AttackEffect: {fileID: 3974412652246346823}

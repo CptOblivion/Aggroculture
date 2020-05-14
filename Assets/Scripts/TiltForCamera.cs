@@ -36,6 +36,6 @@ public class TiltForCamera : MonoBehaviour
 
     private void OnDisable()
     {
-        TiltObjectsOnCamera.TipObjects.Remove(this);
+        if (initialized) TiltObjectsOnCamera.TipObjects.Remove(this);
     }
 }

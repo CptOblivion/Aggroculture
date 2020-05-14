@@ -78,6 +78,8 @@ public class PlayerMain : CharacterBase
     bool ControlEnabledThisTurn = true;
     int LastAttackState = 0;
     float LastAttackStateTime;
+    [HideInInspector] 
+    public ExitAnimationEvent OnInteractFinished; //this stores the current interaction point, while the player is locked into an interaction
 
     [HideInInspector]
     public InputAction inputMove;
@@ -103,6 +105,7 @@ public class PlayerMain : CharacterBase
     {
         base.Awake();
         current = this;
+        OnInteractFinished = new ExitAnimationEvent();
 
         playerInput = GetComponent<PlayerInput>();
         playerInput.actions.Enable();
@@ -132,7 +135,7 @@ public class PlayerMain : CharacterBase
     protected override void Update()
     {
         base.Update();
-        if (!PauseManager.Paused)
+        if (!TimeManager.Paused)
         {
             if (InCombat && ExitCombatCooldownTimer > 0)
             {
@@ -181,6 +184,11 @@ public class PlayerMain : CharacterBase
                                     ToolType = "WateringCan";
                                     break;
                                 }
+                                else if (Hotbar[ActiveHotbarSlot].Tags[i] == "Plantable")
+                                {
+                                    ToolType = "Plantable";
+                                    break;
+                                }
                             }
                             if (ToolType == "Hoe")
                             {
@@ -197,6 +205,15 @@ public class PlayerMain : CharacterBase
                                 if (watering)
                                 {
                                     StartToolAnim("UseWateringCan");
+                                    goto InputsFinished;
+                                }
+                            }
+                            else if (ToolType == "Plantable")
+                            {
+                                bool planting = PlantSeed(1);
+                                if (planting)
+                                {
+                                    StartToolAnim("UsePlantSeed");
                                     goto InputsFinished;
                                 }
                             }
@@ -233,7 +250,8 @@ public class PlayerMain : CharacterBase
 
                     if (playerInput.currentControlScheme == "Keyboard")
                     {
-                        Vector3 ScreenPosition = FollowCam.current.cam.WorldToScreenPoint(transform.position);
+                        LookInput = LookInput * HUDManager.ActualRenderScale;
+                        Vector3 ScreenPosition = FollowCam.current.cam.WorldToScreenPoint(transform.position);// / HUDManager.ActualRenderScale;
                         LookVector = LookInput - new Vector2(ScreenPosition[0], ScreenPosition[1]);
 
                         if (FarmPlot.current.GetComponent<Collider>().Raycast(FollowCam.current.cam.ScreenPointToRay(new Vector3(LookInput[0], LookInput[1])), out RaycastHit hit, 100))
@@ -497,9 +515,14 @@ public class PlayerMain : CharacterBase
     {
         if (ActiveHotbarSlot != SlotNumber)
         {
-            if (CheckTagInItem("Weapon"))
+            if (CheckTagInItem("Weapon", SlotNumber))
+                LastSelectedWeapon = SlotNumber;
+            else if (CheckTagInItem("Weapon"))
                 LastSelectedWeapon = ActiveHotbarSlot;
             ActiveHotbarSlot = SlotNumber;
+
+            //if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.plantable) Debug.Log("plantable");
+
             //enable this line once (if) there's a "change items" animation (and when I've figured out playing upper-body animations on top of running)
             //animator.SetTrigger("ChangeItems");
 
@@ -554,8 +577,9 @@ public class PlayerMain : CharacterBase
     {
         base.ApplyDamage(receiver);
 
-        if (DamageFadeTimer > 0) //there's probably a better way to figure out if a flinch/slide/knockdown was triggered in base.ApplyDamage
+        if (Staggered)
         {
+            Debug.Log("staggered");
             SoftForceAnimator();
             SpinBone.localRotation = SpinboneHome;
             CanAct = false;
@@ -563,6 +587,7 @@ public class PlayerMain : CharacterBase
     }
     public override void Kill()
     {
+        CanAct = false;
         CurrentHealth = MaxHealth;
         PauseManager.Pause();
     }
@@ -668,10 +693,10 @@ public class PlayerMain : CharacterBase
             {
                 if (playerInput.currentControlScheme != "Keyboard")
                     ToTile = FarmPlot.current.GlobalToTile(FarmPlot.current.TileToGlobal(FarmPlot.current.GlobalToTile(transform.position)) + FacingObject.forward * GrabDistance * FarmPlot.current.TileScale);
-                return FarmPlot.current.PlantTile(ToTile, EquippedSeed, test != 0);
+                return FarmPlot.current.PlantTile(ToTile, Hotbar[ActiveHotbarSlot].plantable, test != 0);
             }
             else
-                return FarmPlot.current.PlantTile(transform.position + FacingObject.forward * ToolDistance * FarmPlot.current.TileScale, EquippedSeed, test != 0);
+                return FarmPlot.current.PlantTile(transform.position + FacingObject.forward * ToolDistance * FarmPlot.current.TileScale, Hotbar[ActiveHotbarSlot].plantable, test != 0);
         }
         else return false;
     }

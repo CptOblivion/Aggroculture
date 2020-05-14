@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FarmTileContents : MonoBehaviour
 {
+    public string Name;
     public enum PullAnims {NoPull, PullWeed_Big, PullWeed_Small, PullRock}
     public PullAnims PullAnimation = PullAnims.PullWeed_Small;
     public GameObject PullEffect;
@@ -15,6 +16,16 @@ public class FarmTileContents : MonoBehaviour
     public bool MaintainChildOrientation = false;
     [Tooltip("For some reason when unparenting, the object is rotated -90 degrees around the X axis. No idea why this is, but this toggle undoes that.")]
     public bool FixRotation = true;
+
+    public FarmTileContents GrowsInto;
+
+    public FarmTileContents Spawn(Vector3 Position)
+    {
+        GameObject newObject = Instantiate(gameObject);
+        newObject.transform.position = Position;
+        return newObject.GetComponent<FarmTileContents>();
+
+    }
     public void PullFromFarm()
     {
         if (PullEffect)

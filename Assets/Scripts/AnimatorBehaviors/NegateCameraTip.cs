@@ -15,7 +15,7 @@ public class NegateCameraTip : StateMachineBehaviour
     }
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        if (animatorStateInfo.normalizedTime >= StartTime)
+        if (tipComponent && animatorStateInfo.normalizedTime >= StartTime)
         {
             if (FadeTime == 0)
             {

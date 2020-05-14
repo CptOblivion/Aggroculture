@@ -11,7 +11,6 @@ public class PauseManager : MonoBehaviour
     public Dropdown windowModeDropdown;
     public bool PauseOnFocusLoss = true;
 
-    public static bool Paused = false;
     public static bool CanPause = true;
     public static PauseManager current;
 
@@ -29,7 +28,7 @@ public class PauseManager : MonoBehaviour
 
     private void Update()
     {
-        if (!Paused && CanPause)
+        if (!TimeManager.Paused && CanPause)
         {
             if ((inputsGameplay.triggered && inputsGameplay.ReadValue<float>() > 0) || (PauseOnFocusLoss && !Application.isFocused))
             {
@@ -67,8 +66,7 @@ public class PauseManager : MonoBehaviour
     {
         if (CanPause)
         {
-            Time.timeScale = 0;
-            Paused = true;
+            TimeManager.Pause();
             current.PauseParent.SetActive(true);
             current.inputsGameplay.Disable();
             current.inputsUI.Enable();
@@ -78,8 +76,7 @@ public class PauseManager : MonoBehaviour
     IEnumerator DelayedUnpause()
     {
         yield return null;
-        Time.timeScale = 1;
-        Paused = false;
+        TimeManager.Unpause();
     }
 
     public void SetWindowModeDropdown()

@@ -24,6 +24,7 @@ public class FollowCam : MonoBehaviour
     // float OverrideSpeed = 0;
     Vector3 TargetPosition;
 
+    bool init = false;
 
 
     void Awake()
@@ -40,7 +41,14 @@ public class FollowCam : MonoBehaviour
 
     void Update()
     {
-        if (targets.Count >0)
+        if (!init)
+        {
+            init = true;
+            transform.rotation = Quaternion.Euler(TiltAngle, TwistAngle, 0);
+            transform.position = PlayerMain.current.transform.position - (transform.forward * Distance);
+
+        }
+        else if (targets.Count >0)
         {
             currentTarget = targets[targets.Count - 1];
             TargetPosition = currentTarget.transform.position;

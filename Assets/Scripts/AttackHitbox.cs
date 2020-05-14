@@ -139,7 +139,7 @@ public class AttackHitbox : MonoBehaviour
         
         if (AttackEffect)
         {
-            if (!PrefabUtility.IsPartOfPrefabAsset(AttackEffect))
+            if (!PrefabUtility.IsPartOfPrefabAsset(AttackEffect) && !EditorApplication.isPlaying)
             {
                 AttackEffect.SetActive(true);
             }

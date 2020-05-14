@@ -1,0 +1,909 @@
+fileFormatVersion: 2
+guid: 4d6aaee3b76df074989be19d3dde6936
+ModelImporter:
+  serializedVersion: 19300
+  internalIDToNameTable:
+  - first:
+      74: -2006615293963055544
+    second: Radish_Idle
+  - first:
+      74: 2593209436133751827
+    second: Radish_Run
+  - first:
+      74: 3459374885442266431
+    second: Radish_BlowFire
+  - first:
+      74: 4220593350409221889
+    second: Radish_Flinch
+  - first:
+      74: -2945298980803677939
+    second: Radish_Slide
+  - first:
+      74: 9211851164104109876
+    second: Radish_Knockdown
+  - first:
+      74: -223543165914366871
+    second: Radish_Die
+  - first:
+      74: -1676833880214952695
+    second: Radish_Rise
+  externalObjects: {}
+  materials:
+    materialImportMode: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Radish_Idle
+      takeName: Radish_Idle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Monster_Radish_Armature
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT
+        weight: 0
+      - path: Monster_Radish_Armature/ROOT/Body
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone/FireCone
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone/Flame_Cone_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/IK_Tail
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/IK_Tail/IK_Tail_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1/Tail2
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1/Tail2/Tail2_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground/Flame_Ground 1
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground/Flame_Ground_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_B
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_B/Leaf_B_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_L
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_L/Leaf_L_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_R
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_R/Leaf_R_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Blow
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Blow/ShapeController_Blow_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Inhale
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Inhale/ShapeController_Inhale_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Squint
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Squint/ShapeController_Squint_end
+        weight: 1
+      - path: Monster_Radish_Mesh
+        weight: 1
+      - path: Plant_Radish_Growh C
+        weight: 1
+      - path: Plant_Radish_Growth B
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Radish_Run
+      takeName: Radish_Run
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Monster_Radish_Armature
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT
+        weight: 0
+      - path: Monster_Radish_Armature/ROOT/Body
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone/FireCone
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone/Flame_Cone_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/IK_Tail
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/IK_Tail/IK_Tail_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1/Tail2
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1/Tail2/Tail2_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground/Flame_Ground 1
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground/Flame_Ground_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_B
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_B/Leaf_B_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_L
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_L/Leaf_L_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_R
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_R/Leaf_R_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Blow
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Blow/ShapeController_Blow_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Inhale
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Inhale/ShapeController_Inhale_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Squint
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Squint/ShapeController_Squint_end
+        weight: 1
+      - path: Monster_Radish_Mesh
+        weight: 1
+      - path: Plant_Radish_Growh C
+        weight: 1
+      - path: Plant_Radish_Growth B
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Radish_BlowFire
+      takeName: Radish_BlowFire
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 127
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.055238098
+        functionName: ScaleTurnSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.75
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.2562893
+        functionName: SetSuperArmor
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.46034142
+        functionName: ScaleTurnSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.48716083
+        functionName: PerformAttack
+        data: BlowFire
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.89561546
+        functionName: ScaleTurnSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9541509
+        functionName: SetCanMove
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.8704762
+        functionName: SetSuperArmor
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Monster_Radish_Armature
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT
+        weight: 0
+      - path: Monster_Radish_Armature/ROOT/Body
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone/FireCone
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone/Flame_Cone_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/IK_Tail
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/IK_Tail/IK_Tail_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1/Tail2
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1/Tail2/Tail2_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground/Flame_Ground 1
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground/Flame_Ground_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_B
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_B/Leaf_B_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_L
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_L/Leaf_L_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_R
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_R/Leaf_R_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Blow
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Blow/ShapeController_Blow_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Inhale
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Inhale/ShapeController_Inhale_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Squint
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Squint/ShapeController_Squint_end
+        weight: 1
+      - path: Monster_Radish_Mesh
+        weight: 1
+      - path: Plant_Radish_Growh C
+        weight: 1
+      - path: Plant_Radish_Growth B
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Radish_Flinch
+      takeName: Radish_Flinch
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.8952381
+        functionName: ReturnFromDamage
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Monster_Radish_Armature
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT
+        weight: 0
+      - path: Monster_Radish_Armature/ROOT/Body
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone/FireCone
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone/Flame_Cone_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/IK_Tail
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/IK_Tail/IK_Tail_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1/Tail2
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1/Tail2/Tail2_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground/Flame_Ground 1
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground/Flame_Ground_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_B
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_B/Leaf_B_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_L
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_L/Leaf_L_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_R
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_R/Leaf_R_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Blow
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Blow/ShapeController_Blow_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Inhale
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Inhale/ShapeController_Inhale_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Squint
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Squint/ShapeController_Squint_end
+        weight: 1
+      - path: Monster_Radish_Mesh
+        weight: 1
+      - path: Plant_Radish_Growh C
+        weight: 1
+      - path: Plant_Radish_Growth B
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Radish_Slide
+      takeName: Radish_Slide
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.8616352
+        functionName: ReturnFromDamage
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Monster_Radish_Armature
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT
+        weight: 0
+      - path: Monster_Radish_Armature/ROOT/Body
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone/FireCone
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone/Flame_Cone_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/IK_Tail
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/IK_Tail/IK_Tail_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1/Tail2
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1/Tail2/Tail2_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground/Flame_Ground 1
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground/Flame_Ground_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_B
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_B/Leaf_B_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_L
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_L/Leaf_L_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_R
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_R/Leaf_R_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Blow
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Blow/ShapeController_Blow_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Inhale
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Inhale/ShapeController_Inhale_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Squint
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Squint/ShapeController_Squint_end
+        weight: 1
+      - path: Monster_Radish_Mesh
+        weight: 1
+      - path: Plant_Radish_Growh C
+        weight: 1
+      - path: Plant_Radish_Growth B
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Radish_Knockdown
+      takeName: Radish_Knockdown
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.8254717
+        functionName: ReturnFromDamage
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Monster_Radish_Armature
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT
+        weight: 0
+      - path: Monster_Radish_Armature/ROOT/Body
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone/FireCone
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone/Flame_Cone_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/IK_Tail
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/IK_Tail/IK_Tail_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1/Tail2
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1/Tail2/Tail2_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground/Flame_Ground 1
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground/Flame_Ground_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_B
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_B/Leaf_B_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_L
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_L/Leaf_L_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_R
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_R/Leaf_R_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Blow
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Blow/ShapeController_Blow_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Inhale
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Inhale/ShapeController_Inhale_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Squint
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Squint/ShapeController_Squint_end
+        weight: 1
+      - path: Monster_Radish_Mesh
+        weight: 1
+      - path: Plant_Radish_Growh C
+        weight: 1
+      - path: Plant_Radish_Growth B
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Radish_Die
+      takeName: Radish_Die
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Monster_Radish_Armature
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT
+        weight: 0
+      - path: Monster_Radish_Armature/ROOT/Body
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone/FireCone
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone/Flame_Cone_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/IK_Tail
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/IK_Tail/IK_Tail_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1/Tail2
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1/Tail2/Tail2_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground/Flame_Ground 1
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground/Flame_Ground_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_B
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_B/Leaf_B_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_L
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_L/Leaf_L_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_R
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_R/Leaf_R_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Blow
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Blow/ShapeController_Blow_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Inhale
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Inhale/ShapeController_Inhale_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Squint
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Squint/ShapeController_Squint_end
+        weight: 1
+      - path: Monster_Radish_Mesh
+        weight: 1
+      - path: Plant_Radish_Growh C
+        weight: 1
+      - path: Plant_Radish_Growth B
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Radish_Rise
+      takeName: Radish_Rise
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.918239
+        functionName: Spawned
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Monster_Radish_Armature
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone/FireCone
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Flame_Cone/Flame_Cone_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/IK_Tail
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/IK_Tail/IK_Tail_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1/Tail2
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Body/Tail1/Tail2/Tail2_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground/Flame_Ground 1
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Flame_Ground/Flame_Ground_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_B
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_B/Leaf_B_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_L
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_L/Leaf_L_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_R
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/Leaf_R/Leaf_R_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Blow
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Blow/ShapeController_Blow_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Inhale
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Inhale/ShapeController_Inhale_end
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Squint
+        weight: 1
+      - path: Monster_Radish_Armature/ROOT/ShapeController_Squint/ShapeController_Squint_end
+        weight: 1
+      - path: Monster_Radish_Mesh
+        weight: 1
+      - path: Plant_Radish_Growh C
+        weight: 1
+      - path: Plant_Radish_Growth B
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 2
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 2
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: ROOT
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

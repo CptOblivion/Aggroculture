@@ -15,7 +15,7 @@ class FarmPlotLerpEntry
 {
     public int X;
     public int Y;
-    public int Channel;
+    public int Channel; //R = Tilled/untilled, G = watered/unwatered
     public float Progress = 0;
     public float LerpTime;
 }
@@ -117,6 +117,41 @@ public class FarmPlot : MonoBehaviour
         TileIsTargeted = false;
     }
 
+    void UpdateTexture(int x, int y, bool apply = true)
+    {
+        Color color = new Color(FarmContents[x, y].Tilled ? 1 : 0, FarmContents[x, y].Watered ? 1 : 0, 0, 0);
+        farmPlotDisplay.SetPixels(x * 2, y * 2, 2, 2, new Color[] { color, color, color, color });
+        if (apply)
+            farmPlotDisplay.Apply();
+    }
+
+    public void AdvanceDay()
+    {
+        Vector3 tileContentsPosition;
+        if (TimeManager.DayOfTheWeek == TimeManager.Weekdays.Grow1 || TimeManager.DayOfTheWeek == TimeManager.Weekdays.Grow2 || TimeManager.DayOfTheWeek == TimeManager.Weekdays.Harvest)
+        {
+            for (int x = 0; x < FarmWidth; x++)
+            {
+                for (int y = 0; y < FarmHeight; y++)
+                {
+                    if (FarmContents[x, y].Watered)
+                    {
+                        FarmContents[x, y].Watered = false;
+                        UpdateTexture(x, y, false);
+                    }
+                    if (FarmContents[x, y].Contents != null && FarmContents[x, y].Contents.GrowsInto != null)
+                    {
+                        tileContentsPosition = FarmContents[x, y].InitializedContents.transform.position;
+                        FarmContents[x, y].Contents = FarmContents[x, y].Contents.GrowsInto;
+                        Destroy(FarmContents[x, y].InitializedContents.gameObject);
+                        FillTile(x, y, Position:tileContentsPosition);
+                        //tileContents.InitializedContents = tileContents.Contents.Spawn(TileToGlobal(x,y));
+                    }
+                }
+            }
+            farmPlotDisplay.Apply();
+        }
+    }
     public object PickFromList(object[] List, float[] PickPercentages, float RandRange = 1)
     {
         int i = 0;
@@ -159,7 +194,8 @@ public class FarmPlot : MonoBehaviour
             FarmPlotEntry entry = FarmContents[TilePosition.x, TilePosition.y];
             if ((toolType == InventoryItem.ToolTypes.Hoe || toolType == InventoryItem.ToolTypes.trowel) && entry.Contents == null && !entry.Tilled) ShowTarget = true;
             else if (toolType == InventoryItem.ToolTypes.WateringCan && entry.Tilled && !entry.Watered) ShowTarget = true;
-            else if (toolType == InventoryItem.ToolTypes.Empty && entry.Contents) ShowTarget = true;
+            else if (toolType == InventoryItem.ToolTypes.plantable && entry.Tilled && entry.Contents == null) ShowTarget = true;
+            else if (toolType == InventoryItem.ToolTypes.Empty && entry.Contents && entry.Contents.PullAnimation != FarmTileContents.PullAnims.NoPull) ShowTarget = true;
             if (ShowTarget)
             {
                 color.b = 1;
@@ -198,9 +234,12 @@ public class FarmPlot : MonoBehaviour
             FarmPlotEntry entry = FarmContents[TilePosition.x, TilePosition.y];
             if (entry.Contents)
             {
-                if (test && entry.Contents.PullAnimation != FarmTileContents.PullAnims.NoPull)
+                if (test)
                 {
-                    anim = entry.Contents.PullAnimation.ToString();
+                    if (entry.Contents.PullAnimation != FarmTileContents.PullAnims.NoPull)
+                    {
+                        anim = entry.Contents.PullAnimation.ToString();
+                    }
                 }
                 else
                 {
@@ -300,19 +339,25 @@ public class FarmPlot : MonoBehaviour
                 if (!test)
                 {
                     entry.Contents = contents;
+                    FillTile(TilePosition.x, TilePosition.y);
                 }
             }
         }
         return CanPlant;
     }
-    void FillTile(int X, int Y, float rand = 0)
+    void FillTile(int X, int Y, float rand = 0, Vector3? Position = null)
     {
         FarmPlotEntry tileEntry = FarmContents[X, Y];
         if (tileEntry.Contents)
         {
+            if (Position == null)
+                tileEntry.InitializedContents = tileEntry.Contents.Spawn(TileToGlobal(X, Y,rand));
+            else
+                tileEntry.InitializedContents = tileEntry.Contents.Spawn((Vector3)Position);
+
             //tileEntry.InitializedContents = Instantiate(tileEntry.Contents.gameObject).GetComponent<FarmTileContents>();
-            tileEntry.InitializedContents = Instantiate(tileEntry.Contents);
-            tileEntry.InitializedContents.transform.position = TileToGlobal(X, Y, rand);
+            //tileEntry.InitializedContents = Instantiate(tileEntry.Contents);
+            //tileEntry.InitializedContents.transform.position = TileToGlobal(X, Y, rand);
         }
     }
 
