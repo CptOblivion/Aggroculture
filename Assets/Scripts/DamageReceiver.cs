@@ -10,14 +10,6 @@ public class DamageType
     public DamageTypes Type = DamageTypes.Cutting;
     public float Amount = 0;
 }
-[System.Serializable]
-public class AttackContainer
-{
-    public DamageType[] Damage = new DamageType[0];
-    public float Knockback = 0;
-    [HideInInspector]
-    public Vector3 KnockbackCenter = Vector3.zero;
-}
 
 public class DamageReceiver : MonoBehaviour
 {

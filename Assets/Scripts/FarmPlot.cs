@@ -37,12 +37,13 @@ public class FarmPlot : MonoBehaviour
 
     public float TileScale = 1f;
 
-    List<FarmPlotLerpEntry> Lerplist = new List<FarmPlotLerpEntry>();
+    List<FarmPlotLerpEntry> Lerplist;
     bool TileIsTargeted = false;
     Vector2Int LastTargetedLocation = Vector2Int.zero;
     void Awake()
     {
         current = this;
+        Lerplist = new List<FarmPlotLerpEntry>();
         TileScale = transform.lossyScale.x * 10 / FarmWidth;
         if (farmPlotDisplay == null)
         {
@@ -370,24 +371,28 @@ public class FarmPlot : MonoBehaviour
         return TilePosition.x >= 0 && TilePosition.x < FarmWidth && TilePosition.y >= 0 && TilePosition.y < FarmHeight;
     }
 
-    void AddToLerpList(int X, int Y, int Channel, float LerpTime)
+    void AddToLerpList(int inX, int inY, int inChannel, float inLerpTime)
     {
+        /*
         FarmPlotLerpEntry lerpEntry = new FarmPlotLerpEntry();
-        lerpEntry.X = X;
-        lerpEntry.Y = Y;
-        lerpEntry.Channel = Channel;
-        lerpEntry.LerpTime = LerpTime;
+        lerpEntry.X = inX;
+        lerpEntry.Y = inY;
+        lerpEntry.Channel = inChannel;
+        lerpEntry.LerpTime = inLerpTime;
+        */
+        FarmPlotLerpEntry lerpEntry = new FarmPlotLerpEntry() {X = inX, Y = inY, Channel = inChannel, LerpTime = inLerpTime};
+        Lerplist.Add(lerpEntry);
+
+    }
+
+    //TODO: add AddToLerpList int[] edition (or just get rid of it)
+    /*
+    void AddToLerpList(int[] TilePosition, int inChannel, float inLerpTime)
+    {
+        FarmPlotLerpEntry lerpEntry = new FarmPlotLerpEntry() {X = TilePosition[0], Y = TilePosition[1], Channel = inChannel, LerpTime = inLerpTime };
         Lerplist.Add(lerpEntry);
     }
-    void AddToLerpList(int[] TilePosition, int Channel, float LerpTime)
-    {
-        FarmPlotLerpEntry lerpEntry = new FarmPlotLerpEntry();
-        lerpEntry.X = TilePosition[0];
-        lerpEntry.Y = TilePosition[1];
-        lerpEntry.Channel = Channel;
-        lerpEntry.LerpTime = LerpTime;
-        Lerplist.Add(lerpEntry);
-    }
+    */
 
 
     public Vector3 TileToGlobal(int X, int Y, float rand = 0)

@@ -11,4 +11,6 @@ public class InventoryItem : MonoBehaviour
     public Texture Icon;
     public FarmTileContents plantable;
     public int Count = 1;
+    [Tooltip("This multiplies the default stack limit (minimum 1)")]
+    public float Stacklimit = 0;
 }

@@ -8,7 +8,7 @@ public class TimeManager : MonoBehaviour
     public static string[] WeekdaysText = new string[] {"Plantsday", "Tendsday", "Harvest Eve", "Harvest", "Marketfall" };
     public enum Seasons { Spring, Summer, Fall, Winter};
     public static bool Paused = false;
-    public static int DayCounter = -1;
+    public static int DayCounter = 0;
     public static Weekdays DayOfTheWeek = Weekdays.Planting;
     public static Seasons Season = Seasons.Summer;
     
@@ -25,13 +25,22 @@ public class TimeManager : MonoBehaviour
     public static void AdvanceDay()
     {
         DayCounter++;
-        DayOfTheWeek = (Weekdays)(DayCounter % System.Enum.GetNames(typeof(Weekdays)).Length);
+        UpdateDay(true);
         if (FarmPlot.current)
             FarmPlot.current.AdvanceDay();
         Debug.Log($"Sleeping! Now the day is {WeekdaysText[(int)DayOfTheWeek]}");
-        HUDManager.current.SeasonTitleText.gameObject.SetActive(true);
-        HUDManager.current.WeekdayTitleText.text = WeekdaysText[(int)DayOfTheWeek];
-        HUDManager.current.WeekdayTitleText.gameObject.SetActive(true);
+
+    }
+
+    public static void UpdateDay(bool display = false)
+    {
+        DayOfTheWeek = (Weekdays)(DayCounter % System.Enum.GetNames(typeof(Weekdays)).Length);
+        if (display)
+        {
+            HUDManager.current.SeasonTitleText.gameObject.SetActive(true);
+            HUDManager.current.WeekdayTitleText.text = WeekdaysText[(int)DayOfTheWeek];
+            HUDManager.current.WeekdayTitleText.gameObject.SetActive(true);
+        }
 
     }
 

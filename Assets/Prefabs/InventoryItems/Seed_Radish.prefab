@@ -51,3 +51,4 @@ MonoBehaviour:
   plantable: {fileID: -7016028441576692760, guid: 8852676cae4b13a4783740f9dc51c617,
     type: 3}
   Count: 0
+  Stacklimit: 1

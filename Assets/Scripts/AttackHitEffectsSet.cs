@@ -4,14 +4,15 @@ using UnityEngine;
 
 
 [System.Serializable]
-public class AttackHitEffect_OLD
+public class AttackHitEffect
 {
     public string Material = "Default";
     public GameObject Effect;
     public bool PointAtSource = false;
     public bool StayUpright = false;
 }
-public class AttackHitEffectsStandard : MonoBehaviour
+[CreateAssetMenu(fileName = "AttackHitEffectSet_", menuName = "Attack Hit Effect Set")]
+public class AttackHitEffectsSet : ScriptableObject
 {
     public AttackHitEffect[] HitEffects;
 

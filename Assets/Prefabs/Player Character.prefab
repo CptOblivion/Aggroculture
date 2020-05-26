@@ -77,22 +77,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackName: 2H_Standard_B
   AttackDetails:
+    Knockback: 20
     Damage:
     - Type: 0
       Amount: 5
-    Knockback: 20
     KnockbackCenter: {x: 0, y: 0, z: 0}
   OriginOverride: {fileID: 2368931232384859473}
   AttackEffect: {fileID: 6830502771813669254}
   EffectIsPrefab: 0
-  attackHitEffectDefaults: {fileID: 7986213167528457528, guid: e2392647b230931409a849a2d198ea6e,
-    type: 3}
+  attackHitEffectDefaults: {fileID: 11400000, guid: 7d5186435adf629439dd1fbc7816c901,
+    type: 2}
   Sphere: 0
   Radius: 1
   HitboxOffset: {x: 0, y: 0, z: 1}
   HalfExtents: {x: 2, y: 2, z: 3}
   HitOwnLayer: 0
   FoliageForce: 50
+  SingleEffects: 0
 --- !u!1 &122473968149956248
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,8 +863,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageInput:
-    Damage: []
     Knockback: 0
+    Damage: []
     KnockbackCenter: {x: 0, y: 0, z: 0}
   OnDamaged:
     m_PersistentCalls:
@@ -918,12 +919,15 @@ MonoBehaviour:
   animator: {fileID: 0}
   NoInteractionIfTooFar: 1
   InteractFromTileCenter: 1
-  Hotbar:
-  - {fileID: -2546530451316790373, guid: 3e338fcc02bf9904db986afdfff17173, type: 3}
-  - {fileID: -4659624919448764414, guid: 09fb016c36c8e434abea8a33346f3f97, type: 3}
-  - {fileID: 8851746920123168855, guid: d59cd9ed12e4fd049b76ff789825fa9a, type: 3}
-  - {fileID: 8851746920123168855, guid: 7e3dfd29d05bfd340852b5b3e441b65b, type: 3}
-  - {fileID: -2546530451316790373, guid: 3e338fcc02bf9904db986afdfff17173, type: 3}
+  StartingInventory:
+  - item: {fileID: -4659624919448764414, guid: 09fb016c36c8e434abea8a33346f3f97, type: 3}
+    StackSize: 1
+  - item: {fileID: 8851746920123168855, guid: d59cd9ed12e4fd049b76ff789825fa9a, type: 3}
+    StackSize: 1
+  - item: {fileID: 8851746920123168855, guid: 7e3dfd29d05bfd340852b5b3e441b65b, type: 3}
+    StackSize: 1
+  - item: {fileID: 8851746920123168855, guid: c708bd016a981644184eb4041009a72b, type: 3}
+    StackSize: 1
   LeftHand: {fileID: 2317887552352909257}
   RightHand: {fileID: 5136071220862822911}
   ToolDistanceFar: 2.1
@@ -939,7 +943,6 @@ MonoBehaviour:
   DodgeRollCooldown: 0.25
   MaxTurnSpeed: 15
   MaxTurnSpeedAttack: 2
-  ActiveHotbarSlot: 0
   TargetToMatch: {fileID: 0}
   playerInput: {fileID: 0}
   inputMove:
@@ -1094,6 +1097,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 5e9a9393-1a32-41cc-ad40-33b0fe6c586b
     m_ActionName: Gameplay/UseL[/XInputControllerWindows/buttonWest,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2c0d18aa-24f0-4b96-80f7-b8e20a796813
+    m_ActionName: UI/Item1[/Keyboard/1]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0249157f-084e-4044-b336-d77f1d3262ff
+    m_ActionName: UI/Item2[/Keyboard/2]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4ae12c0d-3781-4f7c-86a1-f327d6fd65f3
+    m_ActionName: UI/Item3[/Keyboard/3]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9e98997b-9d9d-4ac7-9698-716ab74abdaf
+    m_ActionName: UI/Item4[/Keyboard/4]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -1212,22 +1231,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackName: 1H_Standard_C
   AttackDetails:
+    Knockback: 10
     Damage:
     - Type: 0
       Amount: 4
-    Knockback: 10
     KnockbackCenter: {x: 0, y: 0, z: 0}
   OriginOverride: {fileID: 2368931232384859473}
   AttackEffect: {fileID: 4509038544393635229}
   EffectIsPrefab: 0
-  attackHitEffectDefaults: {fileID: 7986213167528457528, guid: e2392647b230931409a849a2d198ea6e,
-    type: 3}
+  attackHitEffectDefaults: {fileID: 11400000, guid: 7d5186435adf629439dd1fbc7816c901,
+    type: 2}
   Sphere: 0
   Radius: 1
   HitboxOffset: {x: 0, y: 0, z: 0}
   HalfExtents: {x: 1, y: 2, z: 2}
   HitOwnLayer: 0
   FoliageForce: 50
+  SingleEffects: 0
 --- !u!1 &2317887552352909257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,22 +1419,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackName: 2H_Standard_A
   AttackDetails:
+    Knockback: 20
     Damage:
     - Type: 0
       Amount: 4
-    Knockback: 20
     KnockbackCenter: {x: 0, y: 0, z: 0}
   OriginOverride: {fileID: 2368931232384859473}
   AttackEffect: {fileID: 5945870627631539870}
   EffectIsPrefab: 0
-  attackHitEffectDefaults: {fileID: 7986213167528457528, guid: e2392647b230931409a849a2d198ea6e,
-    type: 3}
+  attackHitEffectDefaults: {fileID: 11400000, guid: 7d5186435adf629439dd1fbc7816c901,
+    type: 2}
   Sphere: 0
   Radius: 1
   HitboxOffset: {x: -1, y: 0, z: 0}
   HalfExtents: {x: 3, y: 2, z: 4}
   HitOwnLayer: 0
   FoliageForce: 50
+  SingleEffects: 0
 --- !u!1 &3694109580193277929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,22 +1547,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackName: 1H_Standard_B
   AttackDetails:
+    Knockback: 10
     Damage:
     - Type: 0
       Amount: 3
-    Knockback: 10
     KnockbackCenter: {x: 0, y: 0, z: 0}
   OriginOverride: {fileID: 2368931232384859473}
   AttackEffect: {fileID: 6953711620888373060}
   EffectIsPrefab: 0
-  attackHitEffectDefaults: {fileID: 7986213167528457528, guid: e2392647b230931409a849a2d198ea6e,
-    type: 3}
+  attackHitEffectDefaults: {fileID: 11400000, guid: 7d5186435adf629439dd1fbc7816c901,
+    type: 2}
   Sphere: 0
   Radius: 1
   HitboxOffset: {x: -0.5, y: 0, z: 0}
   HalfExtents: {x: 2, y: 2, z: 4}
   HitOwnLayer: 0
   FoliageForce: 50
+  SingleEffects: 0
 --- !u!1 &4234901254552633985
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,22 +1734,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackName: 1H_Standard_A
   AttackDetails:
+    Knockback: 10
     Damage:
     - Type: 0
       Amount: 3
-    Knockback: 10
     KnockbackCenter: {x: 0, y: 0, z: 0}
   OriginOverride: {fileID: 2368931232384859473}
   AttackEffect: {fileID: 6783912191582672364}
   EffectIsPrefab: 0
-  attackHitEffectDefaults: {fileID: 7986213167528457528, guid: e2392647b230931409a849a2d198ea6e,
-    type: 3}
+  attackHitEffectDefaults: {fileID: 11400000, guid: 7d5186435adf629439dd1fbc7816c901,
+    type: 2}
   Sphere: 0
   Radius: 1
   HitboxOffset: {x: 0.5, y: 0, z: 0}
   HalfExtents: {x: 2, y: 2, z: 4}
   HitOwnLayer: 0
   FoliageForce: 50
+  SingleEffects: 0
 --- !u!1 &4916455445658751358
 GameObject:
   m_ObjectHideFlags: 0
@@ -2210,22 +2233,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackName: 2H_Standard_C
   AttackDetails:
+    Knockback: 20
     Damage:
     - Type: 0
       Amount: 5
-    Knockback: 20
     KnockbackCenter: {x: 0, y: 0, z: 0}
   OriginOverride: {fileID: 2368931232384859473}
   AttackEffect: {fileID: 3974412652246346823}
   EffectIsPrefab: 0
-  attackHitEffectDefaults: {fileID: 7986213167528457528, guid: e2392647b230931409a849a2d198ea6e,
-    type: 3}
+  attackHitEffectDefaults: {fileID: 11400000, guid: 7d5186435adf629439dd1fbc7816c901,
+    type: 2}
   Sphere: 0
   Radius: 1
   HitboxOffset: {x: 0, y: 0, z: 1}
   HalfExtents: {x: 1, y: 2, z: 4}
   HitOwnLayer: 0
   FoliageForce: 50
+  SingleEffects: 0
 --- !u!1 &6367669477974763926
 GameObject:
   m_ObjectHideFlags: 0
@@ -2799,7 +2823,7 @@ PrefabInstance:
     - target: {fileID: 908925639437484180, guid: 9046a8af02d0dd648b764e1502fd9e1d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5038961446380960942, guid: 9046a8af02d0dd648b764e1502fd9e1d,
         type: 3}
@@ -2950,7 +2974,7 @@ PrefabInstance:
     - target: {fileID: 908925639437484180, guid: 9046a8af02d0dd648b764e1502fd9e1d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5038961446380960942, guid: 9046a8af02d0dd648b764e1502fd9e1d,
         type: 3}

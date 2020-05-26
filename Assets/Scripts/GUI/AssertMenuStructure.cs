@@ -18,7 +18,17 @@ public class AssertMenuStructure : MonoBehaviour
         {
             Disable[i].SetActive(false);
         }
-        Select.Select();
-        Select.OnSelect(null);
+        if (Select)
+        {
+            Select.Select();
+            if (PlayerMain.current.playerInput.currentControlScheme == "Keyboard")
+            {
+                Select.OnDeselect(null);
+            }
+            else
+            {
+                Select.OnSelect(null);
+            }
+        }
     }
 }

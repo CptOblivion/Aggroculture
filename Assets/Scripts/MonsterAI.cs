@@ -1,9 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 [System.Serializable]
 public class AIAttack
@@ -18,7 +15,6 @@ public class AIAttack
 
 public class MonsterAI : CharacterBase
 {
-    //public float MoveSpeed = 1;
     public float PreferredCombatDistance = 10;
     public float CombatDistanceMoveThreshold = 1;
     public float TurnSpeed = .2f;
@@ -108,16 +104,6 @@ public class MonsterAI : CharacterBase
                     {
                         animator.SetBool("Idle", true);
                     }
-                    /*
-                    if (VecToPlayer.magnitude <= PreferredCombatDistance)
-                    {
-                        animator.SetBool("Idle", true);
-                    }
-                    else
-                    {
-                        animator.SetBool("Idle", false);
-                    }
-                    */
                     SkipMovement:;
                 }
             }
@@ -152,48 +138,3 @@ public class MonsterAI : CharacterBase
         CanTurn = true;
     }
 }
-#if UNITY_EDITOR
-[CustomEditor(typeof(MonsterAI))]
-public class MonsterAIEditor : CharacterBaseInspector
-{
-    static bool ShowCharacterBase = true;
-
-    SerializedProperty PreferredCombatDistance;
-    SerializedProperty CombatDistanceMoveThreshold;
-    SerializedProperty TurnSpeed;
-    SerializedProperty AttackTriggers;
-    SerializedProperty AggroDistance;
-
-    protected override void OnEnable()
-    {
-        base.OnEnable();
-        PreferredCombatDistance = serializedObject.FindProperty("PreferredCombatDistance");
-        CombatDistanceMoveThreshold = serializedObject.FindProperty("CombatDistanceMoveThreshold");
-        TurnSpeed = serializedObject.FindProperty("TurnSpeed");
-        AttackTriggers = serializedObject.FindProperty("AttackTriggers");
-        AggroDistance = serializedObject.FindProperty("AggroDistance");
-    }
-    public override void OnInspectorGUI()
-    {
-        serializedObject.Update();
-        EditorGUILayout.BeginVertical("box");
-        EditorGUI.indentLevel++;
-        ShowCharacterBase = EditorGUILayout.Foldout(ShowCharacterBase, "Character Base Properties", true);
-        if (ShowCharacterBase)
-        {
-            base.OnInspectorGUI();
-        }
-        EditorGUI.indentLevel--;
-        EditorGUILayout.EndVertical();
-
-        EditorGUILayout.PropertyField(TurnSpeed);
-        EditorGUILayout.PropertyField(AggroDistance);
-        EditorGUILayout.PropertyField(PreferredCombatDistance);
-        EditorGUILayout.PropertyField(CombatDistanceMoveThreshold);
-        EditorGUILayout.PropertyField(AttackTriggers);
-
-
-        serializedObject.ApplyModifiedProperties();
-    }
-}
-#endif

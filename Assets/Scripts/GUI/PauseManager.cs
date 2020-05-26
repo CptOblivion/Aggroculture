@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
-    public GameObject PauseParent;
+    public GameObject HardPauseParent;
+    public GameObject SoftPauseParent;
     public InputActionAsset inputsAsset;
     public Dropdown windowModeDropdown;
     public bool PauseOnFocusLoss = true;
@@ -16,23 +17,33 @@ public class PauseManager : MonoBehaviour
 
     [HideInInspector]
     public InputActionMap inputsUI;
-    InputAction inputsGameplay;
+    [HideInInspector]
+    public InputActionMap inputsGameplay;
+    InputAction inputPause;
+    InputAction inputSoftPause;
     private void Awake()
     {
         current = this;
         inputsUI = inputsAsset.FindActionMap("UI");
-        inputsGameplay = inputsAsset.FindActionMap("Gameplay").FindAction("Pause");
+        inputsGameplay = inputsAsset.FindActionMap("Gameplay");
+        inputPause = inputsGameplay.FindAction("Pause");
+        inputSoftPause = inputsGameplay.FindAction("SoftPause");
         inputsUI.Disable();
-        PauseParent.SetActive(false);
+        HardPauseParent.SetActive(false);
+        SoftPauseParent.SetActive(false);
     }
 
     private void Update()
     {
         if (!TimeManager.Paused && CanPause)
         {
-            if ((inputsGameplay.triggered && inputsGameplay.ReadValue<float>() > 0) || (PauseOnFocusLoss && !Application.isFocused))
+            if ((inputPause.triggered && inputPause.ReadValue<float>() > 0) || (PauseOnFocusLoss && !Application.isFocused))
             {
-                Pause();
+                HardPause();
+            }
+            else if (inputSoftPause.triggered && inputSoftPause.ReadValue<float>() > 0)
+            {
+                SoftPause();
             }
         }
     }
@@ -55,19 +66,30 @@ public class PauseManager : MonoBehaviour
     {
         if (CanPause)
         {
-            current.PauseParent.SetActive(false);
+            current.HardPauseParent.SetActive(false);
+            current.SoftPauseParent.SetActive(false);
             current.inputsGameplay.Enable();
             current.inputsUI.Disable();
             StartCoroutine(DelayedUnpause());
         }
     }
 
-    public static void Pause()
+    public static void HardPause()
     {
         if (CanPause)
         {
             TimeManager.Pause();
-            current.PauseParent.SetActive(true);
+            current.HardPauseParent.SetActive(true);
+            current.inputsGameplay.Disable();
+            current.inputsUI.Enable();
+        }
+    }
+    public static void SoftPause()
+    {
+        if (CanPause)
+        {
+            TimeManager.Pause();
+            current.SoftPauseParent.SetActive(true);
             current.inputsGameplay.Disable();
             current.inputsUI.Enable();
         }

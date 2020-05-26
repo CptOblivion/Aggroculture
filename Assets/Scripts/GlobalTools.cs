@@ -22,13 +22,12 @@ public static Vector2 RotateVector2(Vector2 v, float delta)
         for (int i = 0; i < 32; i++)
         {
             if (!Physics.GetIgnoreLayerCollision(Layer, i))
-                LayerMask = LayerMask | 1 << i;
+                LayerMask |= 1 << i;
         }
         return LayerMask;
     }
     public static bool PointInHitbox(Vector3 point, Transform transform, Vector3 offset, Vector3 HalfSize)
     {
-        //broken for some reason
         point = transform.InverseTransformPoint(point) - offset;
 
         if (point.x < HalfSize.x && point.x > -HalfSize.x &&

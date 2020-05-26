@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 public class ChangeHotbar: UnityEvent<PlayerMain>
 {
@@ -16,8 +13,7 @@ public class PlayerMain : CharacterBase
     public bool NoInteractionIfTooFar = true;
     public bool InteractFromTileCenter = true;
 
-    //empty, hoe, watering can, empty, empty
-    public InventoryItem[] Hotbar = new InventoryItem[5];
+    public InventorySlot[] StartingInventory;
     [HideInInspector]
     public ChangeHotbar OnChangeHotbar = new ChangeHotbar();
     public GameObject LeftHand;
@@ -40,21 +36,22 @@ public class PlayerMain : CharacterBase
     public float ExitCombatCooldown = .5f;
     float ExitCombatCooldownTimer = 0;
     public float DodgeRollCooldown = .25f;
-    float DodgeRollCooldownTimer = 0;
+
+    //TODO: Dodge Roll Cooldown
+    //float DodgeRollCooldownTimer = .5f;
 
     public float MaxTurnSpeed = 15f;
     public float MaxTurnSpeedAttack = 5f;
     Quaternion TurnTarget;
     Quaternion TurnOrigin;
 
-    int LastSelectedWeapon = 1;
+    int? LastSelectedWeapon;
 
-    FarmTileContents EquippedSeed = null;
     bool CanAct = true;
-    GameObject[] HeldItems = { null, null };
+    GameObject[] HeldItems;
     [HideInInspector]
-    public int ActiveHotbarSlot = 0;
-    int ItemButton = 0;
+    public int? ActiveHotbarSlot = null;
+    int? ItemButton = 0;
     float ToolDistance = 0;
     float GrabDistance = 0;
     Vector2 LookInput;
@@ -104,8 +101,11 @@ public class PlayerMain : CharacterBase
     protected override void Awake()
     {
         base.Awake();
+        HeldItems = new GameObject[]{ null, null };
         current = this;
         OnInteractFinished = new ExitAnimationEvent();
+        PlayerInventory.InitializeInventory(StartingInventory);
+        LastSelectedWeapon = FindTagInHotbar("Weapon");
 
         playerInput = GetComponent<PlayerInput>();
         playerInput.actions.Enable();
@@ -153,7 +153,7 @@ public class PlayerMain : CharacterBase
                 {
                     if ((inputUseR.triggered && inputUseR.ReadValue<float>() > 0) || (InCombat && inputUseL.triggered && inputUseL.ReadValue<float>() > 0))
                     {
-                        //if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Hoe || Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.trowel)
+                        //if (PlayerInventory.GetHotbarEntry(ActiveHotbarSlot).toolType == InventoryItem.ToolTypes.Hoe || PlayerInventory.GetHotbarEntry(ActiveHotbarSlot).toolType == InventoryItem.ToolTypes.trowel)
                         if(CheckTagInItem("Weapon"))
                         {
                             SoftForceAnimator("Attack");
@@ -172,22 +172,25 @@ public class PlayerMain : CharacterBase
                         {
                             string ToolType = null;
 
-                            for (int i = 0; i < Hotbar[ActiveHotbarSlot].Tags.Length; i++)
+                            if (ActiveHotbarSlot != null)
                             {
-                                if (Hotbar[ActiveHotbarSlot].Tags[i] == "Hoe")
+                                for (int i = 0; i < PlayerInventory.GetHotbarEntry((int)ActiveHotbarSlot).item.Tags.Length; i++)
                                 {
-                                    ToolType = "Hoe";
-                                    break;
-                                }
-                                else if (Hotbar[ActiveHotbarSlot].Tags[i] == "WateringCan")
-                                {
-                                    ToolType = "WateringCan";
-                                    break;
-                                }
-                                else if (Hotbar[ActiveHotbarSlot].Tags[i] == "Plantable")
-                                {
-                                    ToolType = "Plantable";
-                                    break;
+                                    if (PlayerInventory.GetHotbarEntry((int)ActiveHotbarSlot).item.Tags[i] == "Hoe")
+                                    {
+                                        ToolType = "Hoe";
+                                        break;
+                                    }
+                                    else if (PlayerInventory.GetHotbarEntry((int)ActiveHotbarSlot).item.Tags[i] == "WateringCan")
+                                    {
+                                        ToolType = "WateringCan";
+                                        break;
+                                    }
+                                    else if (PlayerInventory.GetHotbarEntry((int)ActiveHotbarSlot).item.Tags[i] == "Plantable")
+                                    {
+                                        ToolType = "Plantable";
+                                        break;
+                                    }
                                 }
                             }
                             if (ToolType == "Hoe")
@@ -250,7 +253,7 @@ public class PlayerMain : CharacterBase
 
                     if (playerInput.currentControlScheme == "Keyboard")
                     {
-                        LookInput = LookInput * HUDManager.ActualRenderScale;
+                        LookInput *= HUDManager.ActualRenderScale;
                         Vector3 ScreenPosition = FollowCam.current.cam.WorldToScreenPoint(transform.position);// / HUDManager.ActualRenderScale;
                         LookVector = LookInput - new Vector2(ScreenPosition[0], ScreenPosition[1]);
 
@@ -262,7 +265,7 @@ public class PlayerMain : CharacterBase
                                 ToTile = FarmPlot.current.GlobalToTile(hit.point);
 
                                 float TestDistance = ((Vector2)ToTile - (Vector2)FromTile).magnitude;
-                                if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Empty) TestDistance += (ToolDistanceFar - GrabDistance);
+                                if (ActiveHotbarSlot == null || PlayerInventory.GetHotbarEntry((int)ActiveHotbarSlot)== null) TestDistance += (ToolDistanceFar - GrabDistance);
                                 if (TestDistance - .5f > ToolDistanceFar)
                                 {
                                     if (NoInteractionIfTooFar)
@@ -395,31 +398,31 @@ public class PlayerMain : CharacterBase
 
 
                     //item selection
-                    ItemButton = 0;
-                    if (actionsGameplay.FindAction("Item1").triggered && actionsGameplay.FindAction("Item1").ReadValue<float>() > 0) ItemButton = 1;
-                    else if (actionsGameplay.FindAction("Item2").triggered && actionsGameplay.FindAction("Item2").ReadValue<float>() > 0) ItemButton = 2;
-                    else if (actionsGameplay.FindAction("Item3").triggered && actionsGameplay.FindAction("Item3").ReadValue<float>() > 0) ItemButton = 3;
-                    else if (actionsGameplay.FindAction("Item4").triggered && actionsGameplay.FindAction("Item4").ReadValue<float>() > 0) ItemButton = 4;
+                    ItemButton = null;
+                    if (actionsGameplay.FindAction("Item1").triggered && actionsGameplay.FindAction("Item1").ReadValue<float>() > 0) ItemButton = 0;
+                    else if (actionsGameplay.FindAction("Item2").triggered && actionsGameplay.FindAction("Item2").ReadValue<float>() > 0) ItemButton = 1;
+                    else if (actionsGameplay.FindAction("Item3").triggered && actionsGameplay.FindAction("Item3").ReadValue<float>() > 0) ItemButton = 2;
+                    else if (actionsGameplay.FindAction("Item4").triggered && actionsGameplay.FindAction("Item4").ReadValue<float>() > 0) ItemButton = 3;
 
-                    if (ItemButton != 0)
+                    if (ItemButton != null)
                     {
-                        if (ItemButton == ActiveHotbarSlot) ChangeHotbarSlot(0);
+                        if (ItemButton == ActiveHotbarSlot) ChangeHotbarSlot(null);
                         else ChangeHotbarSlot(ItemButton);
                     }
 
                     //indicate to player if they can interact with the targeted tile with the current tool:
                     if (!ReachTooFar && !InCombat)
                     {
-                        if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.Empty)
+                        if (ActiveHotbarSlot == null || PlayerInventory.GetHotbarEntry((int)ActiveHotbarSlot) == null)
                         {
                             if (InteractFromTileCenter)
                             {
                                 if (playerInput.currentControlScheme != "Keyboard")
                                     ToTile = FarmPlot.current.GlobalToTile(FarmPlot.current.TileToGlobal(FarmPlot.current.GlobalToTile(transform.position)) + FacingObject.forward * GrabDistance * FarmPlot.current.TileScale);
-                                FarmPlot.current.TargetTile(ToTile, Hotbar[ActiveHotbarSlot].toolType);
+                                FarmPlot.current.TargetTile(ToTile, InventoryItem.ToolTypes.Empty);
                             }
                             else
-                                FarmPlot.current.TargetTile(transform.position + FacingObject.forward * GrabDistance, Hotbar[ActiveHotbarSlot].toolType);
+                                FarmPlot.current.TargetTile(transform.position + FacingObject.forward * GrabDistance, InventoryItem.ToolTypes.Empty);
                         }
                         else
                         {
@@ -427,10 +430,10 @@ public class PlayerMain : CharacterBase
                             {
                                 if (playerInput.currentControlScheme != "Keyboard")
                                     ToTile = FarmPlot.current.GlobalToTile(FarmPlot.current.TileToGlobal(FarmPlot.current.GlobalToTile(transform.position)) + FacingObject.forward * ToolDistance * FarmPlot.current.TileScale);
-                                FarmPlot.current.TargetTile(ToTile, Hotbar[ActiveHotbarSlot].toolType);
+                                FarmPlot.current.TargetTile(ToTile, PlayerInventory.GetHotbarEntry((int)ActiveHotbarSlot).item.toolType);
                             }
                             else
-                                FarmPlot.current.TargetTile(transform.position + FacingObject.forward * ToolDistance * FarmPlot.current.TileScale, Hotbar[ActiveHotbarSlot].toolType);
+                                FarmPlot.current.TargetTile(transform.position + FacingObject.forward * ToolDistance * FarmPlot.current.TileScale, PlayerInventory.GetHotbarEntry((int)ActiveHotbarSlot).item.toolType);
                         }
                     }
                     InputsFinished:;
@@ -467,13 +470,15 @@ public class PlayerMain : CharacterBase
             current = null;
     }
 
-    bool CheckTagInItem(string tag, int InventorySlot = -1)
+    bool CheckTagInItem(string tag, int? HotbarSlot = null)
     {
-        if (InventorySlot == -1)
-            InventorySlot = ActiveHotbarSlot;
-        for (int i = 0; i < Hotbar[InventorySlot].Tags.Length; i++)
+        if (HotbarSlot == null) //if we don't pass a specific hotbar slot, use the currently selected one
+            HotbarSlot = ActiveHotbarSlot;
+        if (HotbarSlot == null || PlayerInventory.GetHotbarEntry((int)HotbarSlot) == null) //if there's no currently selected hotbar slot, InventorySlot will be null (if there's a selected slot but it's empty, still null)
+            return false;
+        for (int i = 0; i < PlayerInventory.GetHotbarEntry((int)HotbarSlot).item.Tags.Length; i++)
         {
-            if (Hotbar[InventorySlot].Tags[i]== tag)
+            if (PlayerInventory.GetHotbarEntry((int)HotbarSlot).item.Tags[i]== tag)
             {
                 return true;
             }
@@ -490,7 +495,10 @@ public class PlayerMain : CharacterBase
         {
             InCombat = true;
             ExitCombatCooldownTimer = -1;
-            ChangeHotbarSlot(LastSelectedWeapon);
+            if (LastSelectedWeapon != null)
+            {
+                ChangeHotbarSlot(LastSelectedWeapon);
+            }
             animator.SetFloat("InCombat", 1);
         }
     }
@@ -508,62 +516,82 @@ public class PlayerMain : CharacterBase
         }
     }
 
-    //public delegate void ChangeHotbar();
-    //public ChangeHotbar HotbarChanged;
-
-    void ChangeHotbarSlot(int SlotNumber)
+    /// <summary>
+    /// Switches to a hotbar slot, and updates the relevant slots on the character
+    /// </summary>
+    /// <param name="SlotNumber">If null use the current active hotbar slot</param>
+    /// <param name="forceUdpate">normally telling it to switch to the current slot just ends the function, but with forceUpdate the stats will be upated for the current slot</param>
+    void ChangeHotbarSlot(int? SlotNumber, bool forceUdpate = false)
     {
-        if (ActiveHotbarSlot != SlotNumber)
+        if (ActiveHotbarSlot != SlotNumber || forceUdpate)
         {
-            if (CheckTagInItem("Weapon", SlotNumber))
-                LastSelectedWeapon = SlotNumber;
-            else if (CheckTagInItem("Weapon"))
-                LastSelectedWeapon = ActiveHotbarSlot;
             ActiveHotbarSlot = SlotNumber;
-
-            //if (Hotbar[ActiveHotbarSlot].toolType == InventoryItem.ToolTypes.plantable) Debug.Log("plantable");
-
-            //enable this line once (if) there's a "change items" animation (and when I've figured out playing upper-body animations on top of running)
-            //animator.SetTrigger("ChangeItems");
-
-            animator.SetBool("2H", Hotbar[SlotNumber].TwoHanded);
-
-            if (HeldItems[0]) Destroy(HeldItems[0]);
-            if (HeldItems[1]) Destroy(HeldItems[1]);
-            Transform ActiveHand;
-            GameObject ActiveItem;
-            if (Hotbar[SlotNumber].TwoHanded)
+            if (ActiveHotbarSlot == null || PlayerInventory.GetHotbarEntry((int)ActiveHotbarSlot) == null)
             {
-                GameObject newOb = Hotbar[SlotNumber].gameObject;
-                if (newOb) HeldItems[0] = Instantiate(newOb);
-                ActiveHand = LeftHand.transform;
-                ActiveItem = HeldItems[0];
+                animator.SetBool("2H", false);
+                if (HeldItems[0])
+                {
+                    Destroy(HeldItems[0]);
+                    HeldItems[0] = null;
+                }
+                if (HeldItems[1])
+                {
+                    Destroy(HeldItems[1]);
+                    HeldItems[1] = null;
+                }
+                OnChangeHotbar.Invoke(this);
             }
             else
             {
-                GameObject newOb = Hotbar[SlotNumber].gameObject;
-                if (newOb) HeldItems[1] = Instantiate(newOb);
-                ActiveHand = RightHand.transform;
-                ActiveItem = HeldItems[1];
+                //if we just switched to a weapon, remember the slot for when combat starts (auto-switch back to this slot when targeted by a hostile)
+                if (CheckTagInItem("Weapon"))
+                    LastSelectedWeapon = (int)SlotNumber;
+
+                //enable this line once (if) there's a "change items" animation (and when I've figured out playing upper-body animations on top of running)
+                //animator.SetTrigger("ChangeItems");
+
+                animator.SetBool("2H", PlayerInventory.GetHotbarEntry((int)SlotNumber).item.TwoHanded);
+
+                if (HeldItems[0]) Destroy(HeldItems[0]);
+                if (HeldItems[1]) Destroy(HeldItems[1]);
+                Transform ActiveHand;
+                GameObject ActiveItem;
+                if (PlayerInventory.GetHotbarEntry((int)SlotNumber).item.TwoHanded)
+                {
+                    GameObject newOb = PlayerInventory.GetHotbarEntry((int)SlotNumber).item.gameObject;
+                    if (newOb) HeldItems[0] = Instantiate(newOb);
+                    ActiveHand = LeftHand.transform;
+                    ActiveItem = HeldItems[0];
+                }
+                else
+                {
+                    GameObject newOb = PlayerInventory.GetHotbarEntry((int)SlotNumber).item.gameObject;
+                    if (newOb) HeldItems[1] = Instantiate(newOb);
+                    ActiveHand = RightHand.transform;
+                    ActiveItem = HeldItems[1];
+                }
+                if (ActiveItem)
+                {
+                    ActiveItem.transform.SetParent(ActiveHand);
+                    ActiveItem.transform.localPosition = Vector3.zero;
+                    ActiveItem.transform.localRotation = Quaternion.identity;
+                }
+                //HotbarChanged.Invoke();
+                OnChangeHotbar.Invoke(this);
             }
-            if (ActiveItem)
-            {
-                ActiveItem.transform.SetParent(ActiveHand);
-                ActiveItem.transform.localPosition = Vector3.zero;
-                ActiveItem.transform.localRotation = Quaternion.identity;
-            }
-            //HotbarChanged.Invoke();
-            OnChangeHotbar.Invoke(this);
         }
     }
 
-    string[] TriggerList = new string[] { "Attack", "Dodge"};
+    //TODO: TriggerList probably shouldn't be hardcoded
+    readonly string[] TriggerList = new string[] { "Attack", "Dodge"};
 
+    //TODO: maybe move SoftForceAnimator to CharacterBase?
+    /// <summary>
+    /// Unsets all triggers in Triggerlist (hardcoded), except the one passed in the argument (EG to make sure an attack and a dodge input don't stack up, or to clear everything on taking damage)
+    /// </summary>
+    /// <param name="trigger"></param>
     void SoftForceAnimator(string trigger = "")
     {
-        /*
-         * Unsets all triggers in Triggerlist, except the one passed in the argument (EG to make sure an attack and a dodge input don't stack up, or to clear everything on taking damage)
-         */
         if (trigger != "")
             animator.SetTrigger(trigger);
         for (int i = 0; i < TriggerList.Length; i++)
@@ -589,10 +617,10 @@ public class PlayerMain : CharacterBase
     {
         CanAct = false;
         CurrentHealth = MaxHealth;
-        PauseManager.Pause();
+        PauseManager.HardPause();
     }
 
-    //might not be necessary
+    //TODO: Check if OnAnimatorMove is really necessary in PlayerMain (and if so, probably move to CharacterBase)
     private void OnAnimatorMove()
     {
         if (animator.applyRootMotion)
@@ -607,9 +635,6 @@ public class PlayerMain : CharacterBase
         CanMove = Move;
         CanAct = Attack;
         CanTurn = Turn;
-        //CanAct = CanMove = CanTurn =  Move;
-        //if (Attack) CanAct = true;
-        //if (Turn) CanTurn = true;
     }
     public void InputDisable()
     {
@@ -692,11 +717,11 @@ public class PlayerMain : CharacterBase
             if (InteractFromTileCenter)
             {
                 if (playerInput.currentControlScheme != "Keyboard")
-                    ToTile = FarmPlot.current.GlobalToTile(FarmPlot.current.TileToGlobal(FarmPlot.current.GlobalToTile(transform.position)) + FacingObject.forward * GrabDistance * FarmPlot.current.TileScale);
-                return FarmPlot.current.PlantTile(ToTile, Hotbar[ActiveHotbarSlot].plantable, test != 0);
+                    ToTile = FarmPlot.current.GlobalToTile(FarmPlot.current.TileToGlobal(FarmPlot.current.GlobalToTile(transform.position)) + FacingObject.forward * ToolDistance * FarmPlot.current.TileScale);
+                return FarmPlot.current.PlantTile(ToTile, PlayerInventory.GetHotbarEntry((int)ActiveHotbarSlot).item.plantable, test != 0);
             }
             else
-                return FarmPlot.current.PlantTile(transform.position + FacingObject.forward * ToolDistance * FarmPlot.current.TileScale, Hotbar[ActiveHotbarSlot].plantable, test != 0);
+                return FarmPlot.current.PlantTile(transform.position + FacingObject.forward * ToolDistance * FarmPlot.current.TileScale, PlayerInventory.GetHotbarEntry((int)ActiveHotbarSlot).item.plantable, test != 0);
         }
         else return false;
     }
@@ -761,99 +786,24 @@ public class PlayerMain : CharacterBase
             Hat.gameObject.SetActive(false);
         }
     }
-}
 
-#if UNITY_EDITOR
-[CustomEditor(typeof(PlayerMain))]
-public class PlayerMainInspector : CharacterBaseInspector
-{
-    static bool ShowCharacterBase = true;
-    static bool ShowSetupPlayer = false;
-
-    SerializedProperty LeftHand;
-    SerializedProperty RightHand;
-    SerializedProperty SpinBone;
-    SerializedProperty FacingObject;
-    SerializedProperty Hat;
-    SerializedProperty Tools_Empty;
-
-    SerializedProperty NoInteractionIfTooFar;
-    SerializedProperty InteractFromTileCenter;
-    SerializedProperty Hotbar;
-    SerializedProperty ToolDistanceFar;
-    SerializedProperty GrabDistanceFar;
-    SerializedProperty InteractDistance;
-    SerializedProperty ExitCombatCooldown;
-    SerializedProperty DodgeRollCooldown;
-    SerializedProperty MaxTurnSpeed;
-    SerializedProperty MaxTurnSpeedAttack;
-
-
-    protected override void OnEnable()
+    public int? FindTagInHotbar(string tag)
     {
-        base.OnEnable();
-        NoInteractionIfTooFar = serializedObject.FindProperty("NoInteractionIfTooFar");
-        InteractFromTileCenter = serializedObject.FindProperty("InteractFromTileCenter");
-        Hotbar = serializedObject.FindProperty("Hotbar");
-        LeftHand = serializedObject.FindProperty("LeftHand");
-        RightHand = serializedObject.FindProperty("RightHand");
-        ToolDistanceFar = serializedObject.FindProperty("ToolDistanceFar");
-        GrabDistanceFar = serializedObject.FindProperty("GrabDistanceFar");
-        InteractDistance = serializedObject.FindProperty("InteractDistance");
-        SpinBone = serializedObject.FindProperty("SpinBone");
-        FacingObject = serializedObject.FindProperty("FacingObject");
-        Hat = serializedObject.FindProperty("Hat");
-        Tools_Empty = serializedObject.FindProperty("Tools_Empty");
-        ExitCombatCooldown = serializedObject.FindProperty("ExitCombatCooldown");
-        DodgeRollCooldown = serializedObject.FindProperty("DodgeRollCooldown");
-        MaxTurnSpeed = serializedObject.FindProperty("MaxTurnSpeed");
-        MaxTurnSpeedAttack = serializedObject.FindProperty("MaxTurnSpeedAttack");
+        for(int i = 0; i < PlayerInventory.Hotbar.Length; i++)
+        {
+            if (CheckTagInItem(tag, i))
+            {
+                return i;
+            }
+        }
+        return null;
     }
-
-    public override void OnInspectorGUI()
+    public void UpdateHotbar()
     {
-        serializedObject.Update();
-        EditorGUILayout.BeginVertical("box");
-        EditorGUI.indentLevel++;
-        ShowCharacterBase = EditorGUILayout.Foldout(ShowCharacterBase, "Character Base Properties", true);
-        if (ShowCharacterBase)
+        ChangeHotbarSlot(ActiveHotbarSlot, true);
+        if (LastSelectedWeapon == null || !CheckTagInItem("Weapon", LastSelectedWeapon))
         {
-            base.OnInspectorGUI();
+            LastSelectedWeapon = FindTagInHotbar("Weapon");
         }
-        EditorGUI.indentLevel--;
-        EditorGUILayout.EndVertical();
-        EditorGUILayout.BeginVertical("box");
-        EditorGUI.indentLevel++;
-        ShowSetupPlayer = EditorGUILayout.Foldout(ShowSetupPlayer, "Player Setup", true);
-        if (ShowSetupPlayer)
-        {
-            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
-
-            EditorGUILayout.PropertyField(LeftHand);
-            EditorGUILayout.PropertyField(RightHand);
-            EditorGUILayout.PropertyField(SpinBone);
-            EditorGUILayout.PropertyField(FacingObject);
-            EditorGUILayout.PropertyField(Hat);
-            EditorGUILayout.PropertyField(Tools_Empty);
-
-            EditorGUILayout.EndVertical();
-        }
-        EditorGUI.indentLevel--;
-        EditorGUILayout.EndVertical();
-
-
-        EditorGUILayout.PropertyField(NoInteractionIfTooFar);
-        EditorGUILayout.PropertyField(InteractFromTileCenter);
-        EditorGUILayout.PropertyField(Hotbar);
-        EditorGUILayout.PropertyField(ToolDistanceFar);
-        EditorGUILayout.PropertyField(GrabDistanceFar);
-        EditorGUILayout.PropertyField(InteractDistance);
-        EditorGUILayout.PropertyField(ExitCombatCooldown);
-        EditorGUILayout.PropertyField(DodgeRollCooldown);
-        EditorGUILayout.PropertyField(MaxTurnSpeed);
-        EditorGUILayout.PropertyField(MaxTurnSpeedAttack);
-
-        serializedObject.ApplyModifiedProperties();
     }
 }
-#endif

@@ -1070,7 +1070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NormalizedSpawnTime: 0
-  effect: {fileID: 1153626123692195929, guid: 02854d609525c1845b897808b1bc4a39, type: 3}
+  effect: {fileID: 4799378357375185723, guid: e1fe944954f03f7498a062b007f6ec67, type: 3}
 --- !u!1101 &-5550045381880654494
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -2101,7 +2101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NormalizedSpawnTime: 0
-  effect: {fileID: 1153626123692195929, guid: 02854d609525c1845b897808b1bc4a39, type: 3}
+  effect: {fileID: 4799378357375185723, guid: e1fe944954f03f7498a062b007f6ec67, type: 3}
 --- !u!1102 &-2149691222173320430
 AnimatorState:
   serializedVersion: 5

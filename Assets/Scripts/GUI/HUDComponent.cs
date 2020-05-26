@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HUDComponent : MonoBehaviour
 {
+    public bool ScaleOnly = false;
     [Range(-1, 1)]
     public float PositionX = 0;
     [Range(-1, 1)]
@@ -41,13 +42,13 @@ public class HUDComponent : MonoBehaviour
     {
         if (ResolutionIndependent && HUDManager.ActualRenderScale != 0)
         {
-            transform.localPosition = new Vector3(Screen.width / 2 * PositionX, Screen.height / 2 * PositionY, 0);
+            if (!ScaleOnly) transform.localPosition = new Vector3(Screen.width / 2 * PositionX, Screen.height / 2 * PositionY, 0);
             transform.localScale = Vector3.one * Scale * HUDManager.ScaleDifference / HUDManager.ActualRenderScale;
 
         }
         else
         {
-            transform.localPosition = new Vector3(Screen.width / 2 * HUDManager.ActualRenderScale * PositionX, Screen.height / 2 * HUDManager.ActualRenderScale * PositionY, 0);
+            if (!ScaleOnly) transform.localPosition = new Vector3(Screen.width / 2 * HUDManager.ActualRenderScale * PositionX, Screen.height / 2 * HUDManager.ActualRenderScale * PositionY, 0);
             transform.localScale = Vector3.one * Scale * HUDManager.ScaleDifference;
         }
     }

@@ -1,8 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
+[System.Serializable]
+public class AttackContainer
+{
+    public float Knockback = 0;
+    public DamageType[] Damage = new DamageType[0];
+    [HideInInspector]
+    public Vector3 KnockbackCenter = Vector3.zero;
+}
 public class AttackHitbox : MonoBehaviour
 {
     public string AttackName = "Attack1";
@@ -10,9 +20,10 @@ public class AttackHitbox : MonoBehaviour
     public Transform OriginOverride;
     public GameObject AttackEffect;
     public bool EffectIsPrefab;
-    public AttackHitEffectsStandard attackHitEffectDefaults;
+    public AttackHitEffectsSet attackHitEffectDefaults;
 
-    //not implemented yet:
+    //TODO: Decide if I need HitEffectsOverride
+    //for extra fine-tuning of particular attacks without creating more assets, I guess? Probably just extra bloat
     //public AttackHitEffect[] HitEffectsOverride;
 
     public bool Sphere = false;
@@ -22,7 +33,7 @@ public class AttackHitbox : MonoBehaviour
     public bool HitOwnLayer = false;
     public float FoliageForce = 100;
 
-    bool SingleEffects = false;
+    public bool SingleEffects = false;
 
 
     private void OnEnable()
@@ -130,20 +141,27 @@ public class AttackHitbox : MonoBehaviour
         }
     }
 
+    public void ShowAttack()
+    {
+        if (AttackEffect && !EffectIsPrefab)
+        {
+            AttackEffect.SetActive(true);
+        }
+    }
+    public void HideAttack()
+    {
+        if (AttackEffect && !EffectIsPrefab)
+        {
+            AttackEffect.SetActive(false);
+        }
+    }
+
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(.5f,0,0);
         Gizmos.matrix = transform.localToWorldMatrix;
         Gizmos.DrawWireCube(HitboxOffset, HalfExtents*2);
-        
-        if (AttackEffect)
-        {
-            if (!PrefabUtility.IsPartOfPrefabAsset(AttackEffect) && !EditorApplication.isPlaying)
-            {
-                AttackEffect.SetActive(true);
-            }
-        }
     }
 #endif
 }

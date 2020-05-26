@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Animator))]
 public class HUDManager : MonoBehaviour
@@ -12,10 +13,6 @@ public class HUDManager : MonoBehaviour
     public float RenderScale = 0.5f;
     float LastRenderScale = .5f;
     public Transform Healthbar;
-    //public Transform HealthbarFrame;
-    //float HealthbarFrameSize;
-    //public Transform HotbarFrame;
-    //float HotbarFrameSize;
     public static float ScaleDifference;
     public static float ActualRenderScale;
     public static UnityEvent OnUpdateScreenShape;
@@ -56,9 +53,9 @@ public class HUDManager : MonoBehaviour
         DrawGame.gameObject.SetActive(true);
         UpdateElementPositions();
         UpdateHotbar(PlayerMain.current);
-
-        SeasonTitleText.gameObject.SetActive(false);
-        WeekdayTitleText.gameObject.SetActive(false);
+        TimeManager.UpdateDay(true);
+        //SeasonTitleText.gameObject.SetActive(false);
+        //WeekdayTitleText.gameObject.SetActive(false);
 
         if (PlayerMain.current)
         {
@@ -103,11 +100,24 @@ public class HUDManager : MonoBehaviour
     {
         animator.SetBool("Dpad", playerInput.currentControlScheme != "Keyboard");
         Cursor.visible = playerInput.currentControlScheme == "Keyboard";
+        if (EventSystem.current.currentSelectedGameObject)
+        {
+            if (playerInput.currentControlScheme == "Keyboard")
+            {
+                //TODO: move to PauseManager?
+                //and then stop Using UnityEngine.EventSystems in this script
+                //also, our playerInput should be universally referencable, not attached to the player object that doesn't exist in the main menu (unless some sub-version of it could?)
+                EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>().OnDeselect(null);
+            }
+            else
+            {
+                EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>().OnSelect(null);
+            }
+        }
     }
 
     void UpdateElementPositions()
     {
-        //ScaleDifference = Mathf.Sqrt((Screen.width / 1920f) * (Screen.height / 1080f)) * RenderScale;
         ScaleDifference = Mathf.Sqrt((Screen.width / 1920f) * (Screen.height / 1080f)) * ActualRenderScale;
         OnUpdateScreenShape.Invoke();
     }
@@ -116,17 +126,21 @@ public class HUDManager : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            IconDpad[i].texture = playerMain.Hotbar[i+1].Icon;
-            IconRow[i].texture = playerMain.Hotbar[i+1].Icon;
-            if (playerMain.ActiveHotbarSlot == i+1)
+            InventorySlot slot = PlayerInventory.GetHotbarEntry(i);
+            if (slot != null)
             {
-                IconDpad[i].color = HotbarSelected;
-                IconRow[i].color = HotbarSelected;
-            }
-            else
-            {
-                IconDpad[i].color = HotbarUnselected;
-                IconRow[i].color = HotbarUnselected;
+                IconDpad[i].texture = slot.item.Icon;
+                IconRow[i].texture = slot.item.Icon;
+                if (playerMain.ActiveHotbarSlot == i)
+                {
+                    IconDpad[i].color = HotbarSelected;
+                    IconRow[i].color = HotbarSelected;
+                }
+                else
+                {
+                    IconDpad[i].color = HotbarUnselected;
+                    IconRow[i].color = HotbarUnselected;
+                }
             }
         }
     }
