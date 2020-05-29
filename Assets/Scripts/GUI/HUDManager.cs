@@ -19,10 +19,9 @@ public class HUDManager : MonoBehaviour
 
     public static HUDManager current;
 
-    public Color HotbarSelected = Color.white;
-    public Color HotbarUnselected = Color.gray;
-    public RawImage[] IconDpad = new RawImage[4];
-    public RawImage[] IconRow = new RawImage[4];
+    public GameObject[] IconDpad = new GameObject[4];
+    public GameObject[] IconRow = new GameObject[4];
+    public Texture emptySlotIcon;
 
     public float TargetWidth = 1920;
     public float TargetHeight = 1080;
@@ -127,19 +126,41 @@ public class HUDManager : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             InventorySlot slot = PlayerInventory.GetHotbarEntry(i);
+            if (slot == null)
+            {
+                IconDpad[i].GetComponentInChildren<RawImage>().texture = emptySlotIcon;
+                IconDpad[i].GetComponentInChildren<Text>().text = string.Empty;
+                IconRow[i].GetComponentInChildren<RawImage>().texture = emptySlotIcon;
+                IconRow[i].GetComponentInChildren<Text>().text = string.Empty;
+
+            }
             if (slot != null)
             {
-                IconDpad[i].texture = slot.item.Icon;
-                IconRow[i].texture = slot.item.Icon;
-                if (playerMain.ActiveHotbarSlot == i)
+                IconDpad[i].GetComponentInChildren<RawImage>().texture = slot.item.Icon;
+                IconRow[i].GetComponentInChildren<RawImage>().texture = slot.item.Icon;
+                if (slot.item.Stacklimit>0)
                 {
-                    IconDpad[i].color = HotbarSelected;
-                    IconRow[i].color = HotbarSelected;
+                    IconDpad[i].GetComponentInChildren<Text>().text = slot.StackSize.ToString();
+                    IconRow[i].GetComponentInChildren<Text>().text = slot.StackSize.ToString();
                 }
                 else
                 {
-                    IconDpad[i].color = HotbarUnselected;
-                    IconRow[i].color = HotbarUnselected;
+                    IconDpad[i].GetComponentInChildren<Text>().text = string.Empty;
+                    IconRow[i].GetComponentInChildren<Text>().text = string.Empty;
+                }
+                if (playerMain.ActiveHotbarSlot == i)
+                {
+                    //IconDpad[i].GetComponentInChildren<RawImage>().color = HotbarSelected;
+                    //IconRow[i].GetComponentInChildren<RawImage>().color = HotbarSelected;
+                    IconRow[i].GetComponent<Button>().OnSelect(null);
+                    IconDpad[i].GetComponent<Button>().OnSelect(null);
+                }
+                else
+                {
+                    //IconDpad[i].GetComponentInChildren<RawImage>().color = HotbarUnselected;
+                    //IconRow[i].GetComponentInChildren<RawImage>().color = HotbarUnselected;
+                    IconRow[i].GetComponent<Button>().OnDeselect(null);
+                    IconDpad[i].GetComponent<Button>().OnDeselect(null);
                 }
             }
         }

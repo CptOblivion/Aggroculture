@@ -576,7 +576,16 @@ public class PlayerMain : CharacterBase
                     ActiveItem.transform.localPosition = Vector3.zero;
                     ActiveItem.transform.localRotation = Quaternion.identity;
                 }
-                //HotbarChanged.Invoke();
+                //apply "limp" blendshape based on stack fullness
+                //TODO: clean this up, probably worth saving PlayerInventory.GetHotbarEntry((int)SlotNumber) in a variable during this function
+                if (HeldItems[1] && PlayerInventory.GetHotbarEntry((int)SlotNumber).item.Stacklimit > 0)
+                {
+                    SkinnedMeshRenderer mesh = HeldItems[1].GetComponent<SkinnedMeshRenderer>();
+                    if (mesh)
+                    {
+                        mesh.SetBlendShapeWeight(0, (1f - ((float)PlayerInventory.GetHotbarEntry((int)SlotNumber).StackSize / (float)PlayerInventory.GetStackLimit(PlayerInventory.GetHotbarEntry((int)SlotNumber).item.Stacklimit)))*100f);
+                    }
+                }
                 OnChangeHotbar.Invoke(this);
             }
         }
@@ -712,18 +721,32 @@ public class PlayerMain : CharacterBase
 
     public bool PlantSeed(int test)
     {
+        bool succeed = false;
         if (!ReachTooFar)
         {
             if (InteractFromTileCenter)
             {
                 if (playerInput.currentControlScheme != "Keyboard")
                     ToTile = FarmPlot.current.GlobalToTile(FarmPlot.current.TileToGlobal(FarmPlot.current.GlobalToTile(transform.position)) + FacingObject.forward * ToolDistance * FarmPlot.current.TileScale);
-                return FarmPlot.current.PlantTile(ToTile, PlayerInventory.GetHotbarEntry((int)ActiveHotbarSlot).item.plantable, test != 0);
+                succeed = FarmPlot.current.PlantTile(ToTile, PlayerInventory.GetHotbarEntry((int)ActiveHotbarSlot).item.plantable, test != 0);
             }
             else
-                return FarmPlot.current.PlantTile(transform.position + FacingObject.forward * ToolDistance * FarmPlot.current.TileScale, PlayerInventory.GetHotbarEntry((int)ActiveHotbarSlot).item.plantable, test != 0);
+                succeed = FarmPlot.current.PlantTile(transform.position + FacingObject.forward * ToolDistance * FarmPlot.current.TileScale, PlayerInventory.GetHotbarEntry((int)ActiveHotbarSlot).item.plantable, test != 0);
         }
-        else return false;
+        if (test == 0)
+        {
+            InventorySlot slot = PlayerInventory.GetHotbarEntry((int)ActiveHotbarSlot);
+            slot.StackSize--;
+            if (slot.StackSize <= 0)
+            {
+                PlayerInventory.RemoveItem((int)ActiveHotbarSlot);
+            }
+            else
+            {
+                UpdateHotbar();
+            }
+        }
+        return succeed;
     }
     public string InteractTileContents(int test)
     {

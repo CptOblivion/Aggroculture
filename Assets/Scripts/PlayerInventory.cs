@@ -121,6 +121,12 @@ public class PlayerInventory : MonoBehaviour
         return AddedSlots.ToArray();
     }
 
+    public static void RemoveItem(int slot)
+    {
+        Inventory[slot] = null;
+        PlayerMain.current.UpdateHotbar();
+    }
+
     public static int GetStackLimit(float StackLimit)
     {
         return (int)(Mathf.Max(StackLimitDefault * StackLimit, 1));

@@ -455,10 +455,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackName: BlowFire
   AttackDetails:
+    Knockback: 0
     Damage:
     - Type: 3
       Amount: 2
-    Knockback: 0
     KnockbackCenter: {x: 0, y: 0, z: 0}
   OriginOverride: {fileID: 5902414612901015751}
   AttackEffect: {fileID: 3660013662030659151}
@@ -470,6 +470,7 @@ MonoBehaviour:
   HalfExtents: {x: 2, y: 2, z: 3.5}
   HitOwnLayer: 0
   FoliageForce: 100
+  SingleEffects: 0
 --- !u!1 &2522563179313437290
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,6 +1044,7 @@ GameObject:
   - component: {fileID: 4492308851576111565}
   - component: {fileID: 8022407556674597037}
   - component: {fileID: 883903535906251838}
+  - component: {fileID: 4550884659027324208}
   m_Layer: 9
   m_Name: Plant_Radish
   m_TagString: Untagged
@@ -1118,8 +1120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageInput:
-    Damage: []
     Knockback: 0
+    Damage: []
     KnockbackCenter: {x: 0, y: 0, z: 0}
   OnDamaged:
     m_PersistentCalls:
@@ -1234,6 +1236,21 @@ MonoBehaviour:
   OffsetCenter: 0
   ExternalOverride: 0
   TipWeight: 1
+--- !u!114 &4550884659027324208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7472262371480486612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c774cf281c1536046bfb5c0c9c909336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TagName: DropSeeds
+  effect: {fileID: 7820318995130161247, guid: 8351487d8ea078047ba3820f2b67345d, type: 3}
+  RandomDirection: 0
 --- !u!1 &7995425038507902501
 GameObject:
   m_ObjectHideFlags: 0

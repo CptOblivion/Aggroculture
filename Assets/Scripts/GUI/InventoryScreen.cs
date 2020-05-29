@@ -20,6 +20,7 @@ public class InventoryScreen : MonoBehaviour
     public static InventoryScreen current;
     int? WaitForControlCenter = null;
     public List<int> MarkedSlots = new List<int>();
+    public Color EmptySlotColor = Color.gray;
     private void Awake()
     {
         init = true;
@@ -54,7 +55,7 @@ public class InventoryScreen : MonoBehaviour
                     else
                     {
                         //ImageGrid[x, y].interactable = false;
-                        SlotTex.color = HUDManager.current.HotbarUnselected;
+                        SlotTex.color = EmptySlotColor;
                     }
                 }
             }
