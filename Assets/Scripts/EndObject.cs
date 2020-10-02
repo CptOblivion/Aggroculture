@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EndObject : MonoBehaviour
 {
+    [Tooltip("If blank, destroy the object the component is on. Otherwise, attempt to destroy the referenced object. Reference in animation events using the name of the targeted object")]
+    public GameObject target = null;
     [Tooltip("Positive values are in seconds, 0 is instantly upon activation, negative numbers mean no timer is used and the function must be manually called")]
     public float DestroyTime = -1;
     float DestroyTimer;
@@ -22,11 +24,21 @@ public class EndObject : MonoBehaviour
                 Destroy();
         }
     }
-    public void Destroy()
+    public void Destroy(string name = "")
     {
-        if (Disable)
-            gameObject.SetActive(false);
-        else
-            Destroy(gameObject);
+        if (target == null && name == "")
+        {
+            if (Disable)
+                gameObject.SetActive(false);
+            else
+                Destroy(gameObject);
+        }
+        else if (target != null && name == target.name)
+        {
+            if (Disable)
+                target.SetActive(false);
+            else
+                Destroy(target);
+        }
     }
 }

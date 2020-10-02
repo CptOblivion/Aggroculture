@@ -135,7 +135,9 @@ ModelImporter:
         weight: 1
       - path: Monster_Radish_Armature/ROOT/ShapeController_Squint/ShapeController_Squint_end
         weight: 1
-      - path: Monster_Radish_Mesh
+      - path: Monster_Radish_Body
+        weight: 1
+      - path: Monster_Radish_Leaves
         weight: 1
       - path: Plant_Radish_Growh C
         weight: 1
@@ -224,7 +226,9 @@ ModelImporter:
         weight: 1
       - path: Monster_Radish_Armature/ROOT/ShapeController_Squint/ShapeController_Squint_end
         weight: 1
-      - path: Monster_Radish_Mesh
+      - path: Monster_Radish_Body
+        weight: 1
+      - path: Monster_Radish_Leaves
         weight: 1
       - path: Plant_Radish_Growh C
         weight: 1
@@ -362,7 +366,9 @@ ModelImporter:
         weight: 1
       - path: Monster_Radish_Armature/ROOT/ShapeController_Squint/ShapeController_Squint_end
         weight: 1
-      - path: Monster_Radish_Mesh
+      - path: Monster_Radish_Body
+        weight: 1
+      - path: Monster_Radish_Leaves
         weight: 1
       - path: Plant_Radish_Growh C
         weight: 1
@@ -458,7 +464,9 @@ ModelImporter:
         weight: 1
       - path: Monster_Radish_Armature/ROOT/ShapeController_Squint/ShapeController_Squint_end
         weight: 1
-      - path: Monster_Radish_Mesh
+      - path: Monster_Radish_Body
+        weight: 1
+      - path: Monster_Radish_Leaves
         weight: 1
       - path: Plant_Radish_Growh C
         weight: 1
@@ -554,7 +562,9 @@ ModelImporter:
         weight: 1
       - path: Monster_Radish_Armature/ROOT/ShapeController_Squint/ShapeController_Squint_end
         weight: 1
-      - path: Monster_Radish_Mesh
+      - path: Monster_Radish_Body
+        weight: 1
+      - path: Monster_Radish_Leaves
         weight: 1
       - path: Plant_Radish_Growh C
         weight: 1
@@ -650,7 +660,9 @@ ModelImporter:
         weight: 1
       - path: Monster_Radish_Armature/ROOT/ShapeController_Squint/ShapeController_Squint_end
         weight: 1
-      - path: Monster_Radish_Mesh
+      - path: Monster_Radish_Body
+        weight: 1
+      - path: Monster_Radish_Leaves
         weight: 1
       - path: Plant_Radish_Growh C
         weight: 1
@@ -746,7 +758,9 @@ ModelImporter:
         weight: 1
       - path: Monster_Radish_Armature/ROOT/ShapeController_Squint/ShapeController_Squint_end
         weight: 1
-      - path: Monster_Radish_Mesh
+      - path: Monster_Radish_Body
+        weight: 1
+      - path: Monster_Radish_Leaves
         weight: 1
       - path: Plant_Radish_Growh C
         weight: 1
@@ -842,7 +856,9 @@ ModelImporter:
         weight: 1
       - path: Monster_Radish_Armature/ROOT/ShapeController_Squint/ShapeController_Squint_end
         weight: 1
-      - path: Monster_Radish_Mesh
+      - path: Monster_Radish_Body
+        weight: 1
+      - path: Monster_Radish_Leaves
         weight: 1
       - path: Plant_Radish_Growh C
         weight: 1

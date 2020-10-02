@@ -154,6 +154,7 @@ MonoBehaviour:
   AlignWithPlayer: 1
   MaintainChildOrientation: 0
   FixRotation: 1
+  HarvestSelfRange: 0
   GrowsInto: {fileID: 0}
 --- !u!114 &5591144928245953346
 MonoBehaviour:

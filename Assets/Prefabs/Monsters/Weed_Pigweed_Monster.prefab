@@ -289,10 +289,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackName: OverheadSlam
   AttackDetails:
+    Knockback: 20
     Damage:
     - Type: 1
       Amount: 2
-    Knockback: 20
     KnockbackCenter: {x: 0, y: 0, z: 0}
   OriginOverride: {fileID: 6193400061355059415}
   AttackEffect: {fileID: 1153626123692195929, guid: ca12f51162ff3b04292f1de6d59f3a8c,
@@ -305,6 +305,7 @@ MonoBehaviour:
   HalfExtents: {x: 1.6, y: 2, z: 8}
   HitOwnLayer: 0
   FoliageForce: 100
+  SingleEffects: 0
 --- !u!1 &1825195657163917004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,8 +1186,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageInput:
-    Damage: []
     Knockback: 0
+    Damage: []
     KnockbackCenter: {x: 0, y: 0, z: 0}
   OnDamaged:
     m_PersistentCalls:
@@ -1326,6 +1327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e0b3fc06d2f9084a94831755021a45a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   DestroyTime: 4
   Disable: 0
 --- !u!114 &7091742160096349304

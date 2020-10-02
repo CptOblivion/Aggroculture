@@ -254,7 +254,7 @@ public class FarmPlot : MonoBehaviour
                     }
                     else
                         entry.Contents = null;
-                    Destroy(entry.InitializedContents.gameObject);
+                    //Destroy(entry.InitializedContents.gameObject);
                     entry.InitializedContents = null;
                 }
             }
@@ -413,13 +413,25 @@ public class FarmPlot : MonoBehaviour
         Output = transform.TransformPoint(-Output / 3.2f);
         return Output;
     }
-    public Vector2Int GlobalToTile(Vector3 GlobalPosition)
+    public Vector2Int GlobalToTile(Vector3 GlobalPosition, out bool OnFarm)
     {
         Vector3 LocalPosition = (transform.InverseTransformPoint(GlobalPosition) * -3.2f);
 
         Vector2Int TilePosition = new Vector2Int( Mathf.FloorToInt(LocalPosition[0]), Mathf.FloorToInt(LocalPosition[2]) );
         TilePosition.x += FarmWidth / 2;
         TilePosition.y += FarmHeight / 2;
+        if (TilePosition.x < 0 || TilePosition.x > FarmWidth || TilePosition.y < 0 || TilePosition.y > FarmHeight)
+        {
+            OnFarm = false;
+        }
+        else
+        {
+            OnFarm = true;
+        }
         return TilePosition;
+    }
+    public Vector2Int GlobalToTile(Vector3 GlobalPosition)
+    {
+        return GlobalToTile(GlobalPosition, out bool dummyBool);
     }
 }

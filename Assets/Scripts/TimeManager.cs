@@ -11,6 +11,7 @@ public class TimeManager : MonoBehaviour
     public static int DayCounter = 0;
     public static Weekdays DayOfTheWeek = Weekdays.Planting;
     public static Seasons Season = Seasons.Summer;
+    public int SkipDays = 0;
     
     public static void Pause()
     {
@@ -47,5 +48,9 @@ public class TimeManager : MonoBehaviour
     public void Sleep()
     {
         AdvanceDay();
+        for (int i = 0; i < SkipDays; i++)
+        {
+            AdvanceDay();
+        }
     }
 }

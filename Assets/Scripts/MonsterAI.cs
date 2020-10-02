@@ -9,7 +9,7 @@ public class AIAttack
     public PlayerTrigger[] AttackZones;
     public string AnimationTriggerName = "";
     public float Cooldown = 1;
-    [HideInInspector]
+    //[HideInInspector]
     public float CooldownTimer = 0;
 }
 
@@ -74,7 +74,9 @@ public class MonsterAI : CharacterBase
                     for (int i = 0; i < AttackTriggers.Length; i++)
                     {
                         if (AttackTriggers[i].CooldownTimer > 0)
+                        {
                             AttackTriggers[i].CooldownTimer -= Time.deltaTime;
+                        }
                         else
                         {
                             for (int t = 0; t < AttackTriggers[i].AttackZones.Length; t++)

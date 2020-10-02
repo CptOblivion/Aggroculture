@@ -128,7 +128,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e171eed2afbd3f64f8fbe2493730400a, type: 2}
+  - {fileID: 2100000, guid: 4c61091dd304b8d48a72c48f797468f2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -153,7 +153,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -7010418377007560954, guid: 4d6aaee3b76df074989be19d3dde6936, type: 3}
+  m_Mesh: {fileID: 3157325044129738541, guid: 4d6aaee3b76df074989be19d3dde6936, type: 3}
   m_Bones:
   - {fileID: 5438108593561272666}
   - {fileID: 7356869036814347800}
@@ -168,7 +168,10 @@ SkinnedMeshRenderer:
   - {fileID: 1430120351595375576}
   - {fileID: 4875822389646828597}
   - {fileID: 1580751590816858407}
-  m_BlendShapeWeights: []
+  m_BlendShapeWeights:
+  - 0
+  - 0
+  - 0
   m_RootBone: {fileID: 5438108593561272666}
   m_AABB:
     m_Center: {x: -0.00019581709, y: -0.0053067794, z: -0.022552822}
@@ -546,6 +549,101 @@ Transform:
   m_Father: {fileID: 5438108593561272666}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3165880782935746190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4761835399805124471}
+  - component: {fileID: 5531258326357335972}
+  m_Layer: 0
+  m_Name: Monster_Radish_Mesh (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4761835399805124471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3165880782935746190}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0, y: 2.1429482, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_Children: []
+  m_Father: {fileID: 7194337335046207714}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &5531258326357335972
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3165880782935746190}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: e171eed2afbd3f64f8fbe2493730400a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: -5109439475518689399, guid: 4d6aaee3b76df074989be19d3dde6936, type: 3}
+  m_Bones:
+  - {fileID: 5438108593561272666}
+  - {fileID: 7356869036814347800}
+  - {fileID: 4562820487589339592}
+  - {fileID: 8491787097199467035}
+  - {fileID: 608392812934187157}
+  - {fileID: 5709413535043155734}
+  - {fileID: 8321469640283071769}
+  - {fileID: 7639263596631911277}
+  - {fileID: 7831639100427717190}
+  - {fileID: 6021546070849087252}
+  - {fileID: 1430120351595375576}
+  - {fileID: 4875822389646828597}
+  - {fileID: 1580751590816858407}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 5438108593561272666}
+  m_AABB:
+    m_Center: {x: -0.00019581709, y: -0.0053067794, z: -0.022552822}
+    m_Extent: {x: 0.027879007, y: 0.023642864, z: 0.025840148}
+  m_DirtyAABB: 0
 --- !u!1 &3388683923342108548
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,6 +932,7 @@ Transform:
   - {fileID: 1097466747688952895}
   - {fileID: 4288705276477641013}
   - {fileID: 2510666258136379609}
+  - {fileID: 4761835399805124471}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -896,6 +995,7 @@ MonoBehaviour:
   AlignWithPlayer: 0
   MaintainChildOrientation: 0
   FixRotation: 1
+  HarvestSelfRange: 5
   GrowsInto: {fileID: 0}
 --- !u!114 &428104481454953700
 MonoBehaviour:

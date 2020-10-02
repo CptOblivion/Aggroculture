@@ -6,22 +6,32 @@ using UnityEngine.Rendering;
 
 public class InteractPrompt : MonoBehaviour
 {
-
-    public string TextToDisplay = "Press _Interact_ to use";
-    public bool TheRealOne;
-
     public static InteractPrompt current;
     static Text text;
 
     private void Awake()
     {
-        if (TheRealOne)
-        {
-            current = this;
-            text = GetComponent<Text>();
-        }
+        current = this;
+        text = GetComponentInChildren<Text>();
+        gameObject.SetActive(false);
     }
 
+    //this function can't be static: unity events need to be able to see it
+    public static void SetInteractText(string phrase)
+    {
+        if (phrase == null || phrase == "")
+            phrase = "Text not entered!";
+        phrase = phrase.Replace("_Interact_", InputBindingsToDisplay.GetDisplayBinding(PlayerMain.current.inputInteract));
+        text.text = phrase;
+        current.gameObject.SetActive(true);
+    }
+    public static void ClearInteractText()
+    {
+        current.gameObject.SetActive(false);
+    }
+
+    /*
+    //the old system of displaying text (set it before the frame is rendered, unset it after the frame is rendered, every frame... not good
     private void OnEnable()
     {
         RenderPipelineManager.endFrameRendering += RenderPipelineManager_endFrameRendering;
@@ -29,14 +39,6 @@ public class InteractPrompt : MonoBehaviour
     private void OnDisable()
     {
         RenderPipelineManager.endFrameRendering -= RenderPipelineManager_endFrameRendering;
-    }
-    public void SetInteractText(string phrase)
-    {
-        if (phrase == null ||phrase == "")
-            phrase = TextToDisplay;
-        phrase = phrase.Replace("_Interact_", InputBindingsToDisplay.GetDisplayBinding(PlayerMain.current.inputInteract));
-        text.text = phrase;
-        current.gameObject.SetActive(true);
     }
 
     private void RenderPipelineManager_endFrameRendering(ScriptableRenderContext context, Camera[] camera)
@@ -47,4 +49,5 @@ public class InteractPrompt : MonoBehaviour
     {
         current.gameObject.SetActive(false);
     }
+    */
 }

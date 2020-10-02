@@ -23,6 +23,14 @@ public class PlayerMain : CharacterBase
     public float GrabDistanceFar = 1;
     public float InteractDistance = 5;
 
+    public delegate void TestRangeInFarm();
+
+    Vector2Int LastFarmTile;
+    Vector2Int CurrentFarmTile;
+    public event TestRangeInFarm OnTestRangeInFarm;
+    bool OnFarm = false;
+    bool OnFarmLast = false;
+
     public Transform SpinBone;
 
     public Transform FacingObject;
@@ -97,6 +105,9 @@ public class PlayerMain : CharacterBase
     [HideInInspector]
     public Vector2 inputLastLook;
 
+    InteractTarget lastInteractTarget;
+    InteractTarget currentInteractTarget;
+
 
     protected override void Awake()
     {
@@ -168,6 +179,7 @@ public class PlayerMain : CharacterBase
                 {
                     if (CanMove)
                     {
+                        //TODO: should probably break out the !InCombat to its own parent test
                         if (inputUseL.ReadValue<float>() > 0 && !InCombat)
                         {
                             string ToolType = null;
@@ -230,15 +242,33 @@ public class PlayerMain : CharacterBase
                                 }
                             }
                         }
-                        else if (Physics.Raycast(FacingObject.position, FacingObject.forward, out RaycastHit hit, InteractDistance))
+                        else
                         {
-                            InteractTarget interactTarget = hit.transform.GetComponent<InteractTarget>();
-                            if (interactTarget)
+                            if (Physics.Raycast(FacingObject.position, FacingObject.forward, out RaycastHit hit, InteractDistance))
                             {
-                                if (inputInteract.ReadValue<float>() > 0 && inputInteract.triggered)
-                                    interactTarget.Interact();
-                                else
-                                    interactTarget.Highlight();
+                                currentInteractTarget = hit.transform.GetComponent<InteractTarget>();
+                                if (currentInteractTarget && !currentInteractTarget.enabled)
+                                {
+                                    currentInteractTarget = null;
+                                }
+                                if (currentInteractTarget != lastInteractTarget)
+                                {
+                                    if (lastInteractTarget)
+                                        lastInteractTarget.UnHighlight();
+                                    if (currentInteractTarget)
+                                        currentInteractTarget.Highlight();
+                                    lastInteractTarget = currentInteractTarget;
+                                }
+                                if (currentInteractTarget && inputInteract.ReadValue<float>() > 0 && inputInteract.triggered)
+                                    currentInteractTarget.Interact();
+                            }
+                            else
+                            {
+                                if (lastInteractTarget != null)
+                                {
+                                    lastInteractTarget.UnHighlight();
+                                    lastInteractTarget = null;
+                                }
                             }
                         }
                     }
@@ -437,11 +467,28 @@ public class PlayerMain : CharacterBase
                         }
                     }
                     InputsFinished:;
+                    CurrentFarmTile = FarmPlot.current.GlobalToTile(transform.position, out OnFarm);
+                    if (OnFarm != OnFarmLast)
+                    {
+                        OnFarmLast = OnFarm;
+                        if (!OnFarm)
+                        {
+                            LastFarmTile = new Vector2Int(-1, -1); //just some invalid location
+                        }
+                    }
+                    if (OnFarm && CurrentFarmTile != LastFarmTile)
+                    {
+                        LastFarmTile = CurrentFarmTile;
+                        if (OnTestRangeInFarm != null)
+                        {
+                            OnTestRangeInFarm.Invoke();
+                        }
+                    }
                 }
             }
             else
             {
-
+                //this shouldn't trigger
             }
             if (ControlEnabledThisTurn)
                 ControlEnabledThisTurn = false;
@@ -519,7 +566,7 @@ public class PlayerMain : CharacterBase
     /// <summary>
     /// Switches to a hotbar slot, and updates the relevant slots on the character
     /// </summary>
-    /// <param name="SlotNumber">If null use the current active hotbar slot</param>
+    /// <param name="SlotNumber">The slot to switch to, null to unequip</param>
     /// <param name="forceUdpate">normally telling it to switch to the current slot just ends the function, but with forceUpdate the stats will be upated for the current slot</param>
     void ChangeHotbarSlot(int? SlotNumber, bool forceUdpate = false)
     {
@@ -644,6 +691,12 @@ public class PlayerMain : CharacterBase
         CanMove = Move;
         CanAct = Attack;
         CanTurn = Turn;
+        if (currentInteractTarget != null)
+        {
+            currentInteractTarget.UnHighlight();
+            currentInteractTarget = null;
+            lastInteractTarget = null;
+        }
     }
     public void InputDisable()
     {
@@ -782,12 +835,15 @@ public class PlayerMain : CharacterBase
 
     public void Unequip()
     {
+        ChangeHotbarSlot(null);
+        /*
         ActiveHotbarSlot = 0;
         animator.SetBool("2H", false);
         if (HeldItems[0]) Destroy(HeldItems[0]);
         if (HeldItems[1]) Destroy(HeldItems[1]);
         HeldItems[0] = null;
         HeldItems[1] = null;
+        */
     }
 
     public void HangHat(int toggle)

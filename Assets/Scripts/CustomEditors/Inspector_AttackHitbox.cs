@@ -70,7 +70,7 @@ public class Inspector_AttackHitbox : Editor
         Handles.BeginGUI();
         Rect rect = new Rect(20, 20, 100, 30);
         AttackHitbox attackhitbox = (AttackHitbox)target;
-        if (attackhitbox.AttackEffect.activeInHierarchy)
+        if (attackhitbox.AttackEffect && attackhitbox.AttackEffect.activeInHierarchy)
         {
             if (GUI.Button(rect, new GUIContent("Hide Attack")) && !attackhitbox.EffectIsPrefab && !EditorApplication.isPlaying)
             {

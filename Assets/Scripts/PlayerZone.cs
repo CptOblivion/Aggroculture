@@ -5,12 +5,18 @@ using UnityEngine.Events;
 
 public class PlayerZone : MonoBehaviour
 {
+    //TODO: this class is redundant, replace with PlayerTrigger
     public UnityEvent PlayerEnter;
     public UnityEvent PlayerExit;
 
     Collider trigger;
     List<GameObject> compositeZoneList;
 
+
+    private void Awake()
+    {
+        Debug.Log("PlayerZone is a deprecated class, use PlayerTrigger instead", this);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == PlayerMain.current.gameObject) PlayerEnter.Invoke();

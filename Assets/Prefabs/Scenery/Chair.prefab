@@ -20,12 +20,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669160182415874079}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8676298ed8a62249877abc4cc6bd58e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStand: {fileID: 3657106377992318832}
   OnInteract:
     m_PersistentCalls:
       m_Calls:
@@ -42,7 +41,32 @@ MonoBehaviour:
         m_CallState: 2
   OnHiglight:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2630363347199087745}
+        m_MethodName: SetInteractTextPrompt
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Press _Interact_ to sit
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnUnHighlight:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2630363347199087745}
+        m_MethodName: ClearInteractTextPrompt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3657106376698504358
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,6 +115,10 @@ MonoBehaviour:
   MatchStartTime: 0.01
   MatchTime: 0.75
   Unequip: 1
+  AutomaticallyReturn: 1
+  OnAnimFinished:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3657106377031548523
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +210,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Colliding: 0
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2630363347199087745}
+        m_MethodName: Enable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2630363347199087745}
+        m_MethodName: Disable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &8820502960228565270
 PrefabInstance:
   m_ObjectHideFlags: 0

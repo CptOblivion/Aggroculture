@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class FarmTileContents : MonoBehaviour
 {
@@ -16,17 +19,46 @@ public class FarmTileContents : MonoBehaviour
     public bool MaintainChildOrientation = false;
     [Tooltip("For some reason when unparenting, the object is rotated -90 degrees around the X axis. No idea why this is, but this toggle undoes that.")]
     public bool FixRotation = true;
+    [Tooltip("When player gets within this range, harvest self (0 to disable)")]
+    public float HarvestSelfRange = 0;
 
     public FarmTileContents GrowsInto;
 
+    void TestRange()
+    {
+        //TODO: add some sort of visibility test for walls
+        if ((transform.position - PlayerMain.current.transform.position).magnitude < HarvestSelfRange)
+        {
+            //PlayerMain.current.OnTestRangeInFarm -= TestRange;
+            PullFromFarm();
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (HarvestSelfRange > 0 && PlayerMain.current)
+        {
+            PlayerMain.current.OnTestRangeInFarm -= TestRange;
+        }
+    }
     public FarmTileContents Spawn(Vector3 Position)
     {
         GameObject newObject = Instantiate(gameObject);
         newObject.transform.position = Position;
+        newObject.GetComponent<FarmTileContents>().AddTestRange();
         return newObject.GetComponent<FarmTileContents>();
 
     }
-    public void PullFromFarm()
+
+    void AddTestRange()
+    {
+
+        if (HarvestSelfRange > 0)
+        {
+            PlayerMain.current.OnTestRangeInFarm += TestRange;
+        }
+    }
+    public void PullFromFarm(bool KillSelf = true)
     {
         if (PullEffect)
         {
@@ -89,5 +121,20 @@ public class FarmTileContents : MonoBehaviour
 
             }
         }
+        if (KillSelf)
+        {
+            Destroy(gameObject);
+        }
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+        if (HarvestSelfRange > 0)
+        {
+            Gizmos.color = new Color(.5f, 0, 0);
+            Gizmos.DrawWireSphere(transform.position, HarvestSelfRange);
+        }
+    }
+#endif
 }
