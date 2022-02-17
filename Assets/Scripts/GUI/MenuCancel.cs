@@ -7,19 +7,19 @@ using UnityEngine.InputSystem;
 
 public class MenuCancel : MonoBehaviour
 {
-    //public Selectable SelectOnReturn;
-    Button CancelButton;
-    InputAction cancel;
-    private void Start()
+  //public Selectable SelectOnReturn;
+  Button CancelButton;
+  InputAction cancel;
+  private void Start()
+  {
+    CancelButton = GetComponent<Button>();
+    cancel = PauseManager.current.inputsUI.FindAction("Cancel");
+  }
+  private void LateUpdate()
+  {
+    if (EventSystem.current.currentSelectedGameObject == null && cancel.triggered && cancel.ReadValue<float>() > 0)
     {
-        CancelButton = GetComponent<Button>();
-        cancel = PauseManager.current.inputsUI.FindAction("Cancel");
+      CancelButton.onClick.Invoke();
     }
-    private void LateUpdate()
-    {
-        if (EventSystem.current.currentSelectedGameObject == null && cancel.triggered && cancel.ReadValue<float>() > 0)
-        {
-            CancelButton.onClick.Invoke();
-        }
-    }
+  }
 }
