@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class MaterialTags : MonoBehaviour
 {
-    public string MaterialTag;
+  public string MaterialTag;
 }

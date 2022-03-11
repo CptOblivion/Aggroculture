@@ -4,69 +4,69 @@ using UnityEngine;
 
 public class FoliagePush : MonoBehaviour
 {
-    public float PushStrengthScale = 1;
-    public float PushDistanceLimit = 1;
-    public float PushSpringiness = 0.1f;
-    public bool Attacks = true;
-    public bool PhysicsObjects = true;
-    float StopThreshold = .001f;
+  public float PushStrengthScale = 1;
+  public float PushDistanceLimit = 1;
+  public float PushSpringiness = 0.1f;
+  public bool Attacks = true;
+  public bool PhysicsObjects = true;
+  float StopThreshold = .001f;
 
-    CharacterBase characterBase;
-    SkinnedMeshRenderer sMesh;
-    MeshRenderer mMesh;
-    Vector3 PushInput = Vector3.zero;
-    Vector3 PushVector;
-    Vector3 InputVelocity; //probably not necessary to put this here but hey, a tiny bit less garbage collection to do
+  CharacterBase characterBase;
+  SkinnedMeshRenderer sMesh;
+  MeshRenderer mMesh;
+  Vector3 PushInput = Vector3.zero;
+  Vector3 PushVector;
+  Vector3 InputVelocity; //probably not necessary to put this here but hey, a tiny bit less garbage collection to do
 
-    private void Awake()
+  private void Awake()
+  {
+
+    sMesh = GetComponentInChildren<SkinnedMeshRenderer>();
+    mMesh = GetComponentInChildren<MeshRenderer>();
+  }
+
+  private void OnTriggerStay(Collider other)
+  {
+    if (PhysicsObjects)
     {
-
-        sMesh = GetComponentInChildren<SkinnedMeshRenderer>();
-        mMesh = GetComponentInChildren<MeshRenderer>();
+      if (other.GetComponent<CharacterController>()) InputVelocity = other.GetComponent<CharacterController>().velocity;
+      else if (other.GetComponent<Rigidbody>()) InputVelocity = other.GetComponent<Rigidbody>().velocity;
+      ApplyForce(InputVelocity);
     }
+  }
 
-    private void OnTriggerStay(Collider other)
+  public void ApplyForce(Vector3 InputVelocity)
+  {
+    if (Attacks)
     {
-        if (PhysicsObjects)
-        {
-            if (other.GetComponent<CharacterController>()) InputVelocity = other.GetComponent<CharacterController>().velocity;
-            else if (other.GetComponent<Rigidbody>()) InputVelocity = other.GetComponent<Rigidbody>().velocity;
-            ApplyForce(InputVelocity);
-        }
+      if (InputVelocity.magnitude > PushInput.magnitude)
+      {
+        PushInput = InputVelocity;
+      }
     }
+  }
 
-    public void ApplyForce(Vector3 InputVelocity)
+  private void Update()
+  {
+    if (PushInput.magnitude > 0)
     {
-        if (Attacks)
-        {
-            if (InputVelocity.magnitude > PushInput.magnitude)
-            {
-                PushInput = InputVelocity;
-            }
-        }
+      PushVector += PushInput * PushStrengthScale * Time.deltaTime;
+      if (PushVector.magnitude > PushDistanceLimit)
+      {
+        PushVector = PushVector.normalized * PushDistanceLimit;
+      }
     }
+    PushInput = Vector3.zero;
 
-    private void Update()
+    if (PushVector.magnitude > 0)
     {
-        if (PushInput.magnitude > 0)
-        {
-            PushVector += PushInput * PushStrengthScale * Time.deltaTime;
-            if (PushVector.magnitude > PushDistanceLimit)
-            {
-                PushVector = PushVector.normalized * PushDistanceLimit;
-            }
-        }
-        PushInput = Vector3.zero;
+      PushVector = PushVector * (1.0f - PushSpringiness);
+      if (PushVector.magnitude <= StopThreshold) PushVector = Vector3.zero;
 
-        if (PushVector.magnitude > 0)
-        {
-            PushVector = PushVector * (1.0f - PushSpringiness);
-            if (PushVector.magnitude <= StopThreshold) PushVector = Vector3.zero;
-
-            if (sMesh)
-                sMesh.material.SetVector("_PushVector", new Vector4(PushVector.x, PushVector.y, PushVector.z));
-            else if (mMesh)
-                mMesh.material.SetVector("_PushVector", new Vector4(PushVector.x, PushVector.y, PushVector.z));
-        }
+      if (sMesh)
+        sMesh.material.SetVector("_PushVector", new Vector4(PushVector.x, PushVector.y, PushVector.z));
+      else if (mMesh)
+        mMesh.material.SetVector("_PushVector", new Vector4(PushVector.x, PushVector.y, PushVector.z));
     }
+  }
 }

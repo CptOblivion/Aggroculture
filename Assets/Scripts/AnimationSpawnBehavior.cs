@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class AnimationSpawnBehavior : StateMachineBehaviour
 {
-    public float NormalizedSpawnTime;
-    public GameObject effect;
-    bool spawned = false;
+  public float NormalizedSpawnTime;
+  public GameObject effect;
+  bool spawned = false;
 
-    public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+  public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+  {
+    spawned = false;
+  }
+  public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+  {
+    if (!spawned && animatorStateInfo.normalizedTime >= NormalizedSpawnTime)
     {
-        spawned = false;
+      spawned = true;
+      Instantiate(effect, animator.transform.position, animator.transform.rotation);
     }
-    public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
-    {
-        if (!spawned && animatorStateInfo.normalizedTime >= NormalizedSpawnTime)
-        {
-            spawned = true;
-            Instantiate(effect, animator.transform.position, animator.transform.rotation);
-        }
-    }
+  }
 }

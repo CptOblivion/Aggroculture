@@ -5,20 +5,20 @@ using UnityEngine.UI;
 
 public class ButtonClickFunctions : MonoBehaviour
 {
-    public void SelectWithControlType(Selectable selectable)
+  public void SelectWithControlType(Selectable selectable)
+  {
+    if (selectable)
     {
-        if (selectable)
-        {
-            selectable.Select();
-            selectable.Select();
-            if (PlayerMain.current.playerInput.currentControlScheme == "Keyboard")
-            {
-                selectable.OnDeselect(null);
-            }
-            else
-            {
-                selectable.OnSelect(null);
-            }
-        }
+      selectable.Select();
+      selectable.Select();
+      if (PlayerMain.current.playerInput.currentControlScheme == "Keyboard")
+      {
+        selectable.OnDeselect(null);
+      }
+      else
+      {
+        selectable.OnSelect(null);
+      }
     }
+  }
 }
